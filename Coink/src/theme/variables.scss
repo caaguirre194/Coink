@@ -3,6 +3,8 @@
 
 /** Ionic CSS Variables **/
 :root {
+  --ion-font-family: "Montserrat", "Avenir Next LT Pro";
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -111,6 +113,14 @@
   --ion-color-coink-danger-contrast-rgb: 255, 255, 255;
   --ion-color-coink-danger-shade: #d73b30;
   --ion-color-coink-danger-tint: #f5564a;
+
+  /** Gray **/
+  --ion-color-coink-gray: #757575;
+  --ion-color-coink-gray-rgb: 117, 117, 117;
+  --ion-color-coink-gray-contrast: #ffffff;
+  --ion-color-coink-gray-contrast-rgb: 255, 255, 255;
+  --ion-color-coink-gray-shade: #676767;
+  --ion-color-coink-gray-tint: #838383;
 }
 
 .ion-color-coink-white {
@@ -147,6 +157,15 @@
   --ion-color-contrast-rgb: var(--ion-color-coink-danger-contrast-rgb);
   --ion-color-shade: var(--ion-color-coink-danger-shade);
   --ion-color-tint: var(--ion-color-coink-danger-tint);
+}
+
+.ion-color-coink-gray {
+  --ion-color-base: var(--ion-color-coink-gray);
+  --ion-color-base-rgb: var(--ion-color-coink-gray-rgb);
+  --ion-color-contrast: var(--ion-color-coink-gray-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-coink-gray-contrast-rgb);
+  --ion-color-shade: var(--ion-color-coink-gray-shade);
+  --ion-color-tint: var(--ion-color-coink-gray-tint);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -301,4 +320,25 @@
 
     --ion-card-background: #1e1e1e;
   }
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../assets/fonts/Montserrat/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../assets/fonts/Avenir Next LT Pro/AvenirNextLTPro-Regular.otf");
+}
+
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  font-style: italic;
+  font-weight: normal;
+  src: url("../assets/fonts/Avenir Next LT Pro/AvenirNextLTPro-It.otf");
 }

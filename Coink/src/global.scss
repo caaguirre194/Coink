@@ -74,12 +74,16 @@
 
 .btn {
   --border-radius: 25px;
+  text-transform: none;
+  height: 50px;
 }
 
 .btn--primary {
   --background: var(--ion-color-coink-primary);
+  --color: var(--ion-color-coink-secundary);
 }
 
 .btn--secundary {
   --background: var(--ion-color-coink-secundary);
+  --color: var(--ion-color-coink-white);
 }

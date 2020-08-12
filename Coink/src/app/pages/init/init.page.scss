@@ -1,6 +1,9 @@
 .content {
   padding: 16px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .content-header {
@@ -15,16 +18,40 @@
 }
 
 .content-body {
-  height: 50%;
+  height: calc(80% - 62px);
 }
 
 .slides {
   height: 100%;
+  --bullet-background: #e1e8e7;
+  --bullet-background-active: var(--ion-color-coink-secundary);
+}
+
+.content-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.slide__title {
+  text-transform: uppercase;
+  color: var(--ion-color-coink-primary);
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.slide__description {
+  color: var(--ion-color-coink-gray);
+  font-size: 14px;
+  line-height: 17px;
+  font-family: Avenir Next LT Pro;
+  font-style: italic;
 }
 
 .content-bottom {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 30%;
+  height: 20%;
 }
