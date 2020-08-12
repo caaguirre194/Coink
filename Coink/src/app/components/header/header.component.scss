@@ -1,0 +1,54 @@
+.content-header {
+  height: 100%;
+}
+
+.content-header__buttons {
+  width: 100%;
+  text-align: center;
+}
+
+.content-header__back {
+  margin-left: 22px;
+}
+
+.content-header__title {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: var(--ion-color-coink-secundary);
+  font-weight: 600;
+}
+
+.slider-controls {
+  text-align: center;
+  padding: 0;
+  margin-top: 0;
+  list-style-image: url("../../../assets/img/header/Paso_Desactivo.svg");
+}
+
+.slider-controls li {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  display: inline-block;
+  height: 17.5px;
+  width: 17.5px;
+  margin: 0 8%;
+}
+
+.slider-controls li:before {
+  content: url("../../../assets/img/header/Paso_Desactivo.svg");
+}
+
+.slider-controls li.active:before {
+  content: url("../../../assets/img/header/Paso_activo.svg");
+}
+
+.slider-line {
+  background: #d3d3d3;
+  z-index: -1;
+  width: 100%;
+  height: 1.14pt;
+  position: absolute;
+  left: 0;
+  top: 65px;
+}

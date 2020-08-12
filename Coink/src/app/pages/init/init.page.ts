@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-init",
@@ -11,7 +12,13 @@ export class InitPage implements OnInit {
     speed: 400,
   };
 
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit() {}
+
+  goLogin() {}
+
+  goSignIn() {
+    this.router.navigate(["/signin-phone"]);
+  }
 }

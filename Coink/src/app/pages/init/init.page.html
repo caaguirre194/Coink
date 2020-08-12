@@ -2,7 +2,7 @@
   <div class="content">
     <div class="content-header">
       <ion-button class="content-header__options">
-        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+        <ion-icon name="ellipsis-vertical"></ion-icon>
       </ion-button>
     </div>
     <div class="content-body">
@@ -28,10 +28,10 @@
       </ion-slides>
     </div>
     <div class="content-bottom">
-      <ion-button class="btn btn--primary">
+      <ion-button class="btn btn--primary" (click)="goSignIn()">
         Regístrate
       </ion-button>
-      <ion-button class="btn btn--secundary">
+      <ion-button class="btn btn--secundary" (click)="goLogin()">
         Ingresa
       </ion-button>
     </div>

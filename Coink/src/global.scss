@@ -78,6 +78,14 @@
   height: 50px;
 }
 
+.btn--disabled {
+  --color: var(--ion-color-medium) !important;
+}
+
+.btn--enabled {
+  --color: var(--ion-color-coink-primary) !important;
+}
+
 .btn--primary {
   --background: var(--ion-color-coink-primary);
   --color: var(--ion-color-coink-secundary);

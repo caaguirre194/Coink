@@ -1,0 +1,20 @@
+.keyboard {
+  height: calc(80% - 96.14px - 48px);
+}
+
+.keyboard__file {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 25%;
+}
+
+.keyboard__key {
+  width: 33%;
+  height: 100%;
+  --box-shadow: none;
+  --background: var(--ion-color-coink-white);
+  --color: var(--ion-color-coink-secundary);
+  font-size: 37px;
+  line-height: 45px;
+}

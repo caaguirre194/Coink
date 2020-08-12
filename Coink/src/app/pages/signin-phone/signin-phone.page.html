@@ -1,0 +1,38 @@
+<app-header [title]="'Número celular'" style=""></app-header>
+
+<ion-content>
+  <app-instructions
+    [title]="''"
+    [description]="'Para comenzar, por favor ingresa <b>tu número celular.</b>'"
+    [image]="'assets/img/Oink.svg'"
+  ></app-instructions>
+  <ion-item>
+    <ion-label class="value">
+      {{value}}
+    </ion-label>
+  </ion-item>
+  <div class="keyboard">
+    <div *ngFor="let numGroup of numberGroups" class="keyboard__file">
+      <ion-button
+        *ngFor="let num of numGroup"
+        (click)="onButtonPress(num)"
+        class="keyboard__key"
+        >{{num}}</ion-button
+      >
+    </div>
+    <div class="keyboard__file">
+      <ion-button (click)="onButtonPress('back')" class="keyboard__key">
+        <ion-icon name="backspace-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="onButtonPress(0)" class="keyboard__key">
+        0
+      </ion-button>
+      <ion-button
+        (click)="onButtonPress('ok')"
+        class="keyboard__key btn--disabled"
+      >
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
