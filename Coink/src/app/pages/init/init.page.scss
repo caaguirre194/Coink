@@ -1,0 +1,30 @@
+.content {
+  padding: 16px;
+  height: 100%;
+}
+
+.content-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.content-header__options {
+  --background: var(--ion-color-coink-white);
+  --box-shadow: none;
+  --color: var(--ion-color-coink-primary);
+}
+
+.content-body {
+  height: 50%;
+}
+
+.slides {
+  height: 100%;
+}
+
+.content-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 30%;
+}

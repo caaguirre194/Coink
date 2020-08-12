@@ -71,3 +71,15 @@
 
 /* theme
    ========================================================================== */
+
+.btn {
+  --border-radius: 25px;
+}
+
+.btn--primary {
+  --background: var(--ion-color-coink-primary);
+}
+
+.btn--secundary {
+  --background: var(--ion-color-coink-secundary);
+}
