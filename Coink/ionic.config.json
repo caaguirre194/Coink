@@ -1,0 +1,7 @@
+{
+  "name": "Coink",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
