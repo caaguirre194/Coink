@@ -1,5 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, EventEmitter } from "@angular/core";
 import { isNumber } from "util";
+import { Router } from "@angular/router";
+
+import {
+  FormBuilder,
+  ReactiveFormsModule,
+  FormsModule,
+  NgControl,
+  FormGroup,
+} from "@angular/forms";
 
 @Component({
   selector: "app-signin-phone",
@@ -7,47 +16,53 @@ import { isNumber } from "util";
   styleUrls: ["./signin-phone.page.scss"],
 })
 export class SigninPhonePage implements OnInit {
-  value = "0";
-  oldValue = "0";
+  form: FormGroup;
+  state: string;
+  value: string;
 
-  lastOperator = "x";
-  readyForNewInput = true;
-  numberGroups = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ];
+  numberGroups = [];
 
-  onButtonPress(symbol) {
-    console.log(symbol);
+  constructor(public router: Router, fb: FormBuilder) {
+    this.state = "btn--disabled";
+    this.value = "";
 
-    if (isNumber(symbol)) {
-      console.log("is a number");
-      if (this.readyForNewInput) this.value = "" + symbol;
-      else this.value += "" + symbol;
-      this.readyForNewInput = false;
-    } else if (symbol === "c") {
-      this.value = "0";
-      this.readyForNewInput = true;
-    } else if (symbol === "=") {
-      if (this.lastOperator === "x")
-        this.value = "" + parseInt(this.oldValue) * parseInt(this.value);
-      else if (this.lastOperator === "-")
-        this.value = "" + (parseInt(this.oldValue) - parseInt(this.value));
-      else if (this.lastOperator === "+")
-        this.value = "" + (parseInt(this.oldValue) + parseInt(this.value));
-      else if (this.lastOperator === "/")
-        this.value = "" + parseInt(this.oldValue) / parseInt(this.value);
-      this.readyForNewInput = true;
-    } else {
-      // operator
-      this.readyForNewInput = true;
-      this.oldValue = this.value;
-      this.lastOperator = symbol;
+    this.numberGroups = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+    ];
+
+    this.form = fb.group({
+      phone: [""],
+    });
+  }
+
+  addNumber(symbol) {
+    if (this.value.length < 10) {
+      if (this.value.length === 9) {
+        this.state = "btn--enabled";
+      }
+      this.value += symbol;
     }
   }
 
-  constructor() {}
+  removeNumber() {
+    this.value = this.value.slice(0, -1);
+    this.state = "btn--disabled";
+  }
+
+  onChangePhone(code: string) {
+    this.value = code;
+  }
+
+  sendPhone() {
+    this.router.navigate([
+      "/signin-code",
+      {
+        phone: this.value,
+      },
+    ]);
+  }
 
   ngOnInit() {}
 }

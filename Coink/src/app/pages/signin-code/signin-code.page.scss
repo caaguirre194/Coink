@@ -1,0 +1,55 @@
+/** Keyboard **/
+
+.keyboard {
+  height: 65%;
+}
+
+.keyboard__file {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 25%;
+}
+
+.keyboard__key {
+  width: 33%;
+  height: 100%;
+  --box-shadow: none;
+  --background: var(--ion-color-coink-white);
+  --color: var(--ion-color-coink-secundary);
+  font-size: 37px;
+  line-height: 45px;
+}
+
+/** Form **/
+
+.content-form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group {
+  font-family: Roboto;
+  font-size: 16pt;
+  line-height: 16px;
+  letter-spacing: 0.16pt;
+  color: #4d4d4d;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-code {
+  border: none;
+  width: 100%;
+  font-size: 32pt;
+  text-align: center;
+  color: var(--ion-color-coink-secundary);
+}
+
+::placeholder {
+  color: var(--ion-color-coink-secundary);
+  opacity: 1;
+  font-family: Roboto;
+}

@@ -1,9 +1,46 @@
-<app-header [title]="'Número celular'" style=""></app-header>
+<app-header [title]="'Número celular'" [slide]="'1'"></app-header>
 
 <ion-content>
   <app-instructions
     [title]="''"
-    [description]="'Digita el código que recibiste vía <b>mensaje de texto</b> al {{phone}}'"
+    [description]="description"
     [image]="'assets/img/Oink.svg'"
   ></app-instructions>
+
+  <ion-item>
+    <div class="content-form">
+      <form>
+        <div class="form-group">
+          <input
+            class="form-control value input-code"
+            type="text"
+            placeholder="XXXX"
+            id="phone-number"
+            [value]="value"
+          />
+        </div>
+      </form>
+    </div>
+  </ion-item>
+  <div class="keyboard">
+    <div *ngFor="let numGroup of numberGroups" class="keyboard__file">
+      <ion-button
+        *ngFor="let num of numGroup"
+        (click)="addNumber(num)"
+        class="keyboard__key"
+        >{{num}}</ion-button
+      >
+    </div>
+    <div class="keyboard__file">
+      <ion-button (click)="removeNumber()" class="keyboard__key">
+        <ion-icon name="backspace-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="addNumber(0)" class="keyboard__key">
+        0
+      </ion-button>
+      <ion-button (click)="sendCode()" class="keyboard__key" [ngClass]="state">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
 </ion-content>

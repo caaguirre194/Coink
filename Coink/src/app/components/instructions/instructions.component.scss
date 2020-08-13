@@ -5,15 +5,19 @@
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid var(--ion-color-coink-primary);
-  padding: 34px;
+  padding: 22px;
 }
 
 .content-instructions__description {
-  padding: 34px;
+  padding-left: 22px;
 }
 
 .instructions-title {
   line-height: 19.2px;
+  font-size: 19px;
+  font-weight: bold;
+  width: 100%;
+  font-family: monospace;
   color: var(--ion-color-coink-secundary);
 }
 
