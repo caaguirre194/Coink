@@ -1,9 +1,64 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signin-terms</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [title]="'Autorización de datos'" [slide]="'3'"></app-header>
 
 <ion-content>
+  <app-instructions
+    [title]="'verifica tus datos'"
+    [description]="'Para finalizar, por favor <font color=#004b40><b>lee con detenimiento este documento y continúa solo si estás de acuerdo</b></font>'"
+    [image]="'assets/img/OinkPolicia.svg'"
+  ></app-instructions>
 
+  <div class="content-terms">
+    <p>
+      Quid turpius quam sapientis vitam ex insipientium sermone pendere? Haeret
+      in salebra. Nonne igitur tibi videntur, inquit, mala? Istam voluptatem,
+      inquit, Epicurus ignorat? Quod autem satis est, eo quicquid accessit,
+      nimium est; Sed tu istuc dixti bene Latine, parum plane. Sed emolumenta
+      communia esse dicuntur, recte autem facta et peccata non habentur
+      communia. Scio enim esse quosdam, qui quavis lingua philosophari possint.
+    </p>
+
+    <ol>
+      <li>Primum cur ista resdigna odio est, nisi qu.</li>
+      <li>Ergo ita: non posse honeste vivi, nisi honest.</li>
+      <li>De illis, cum volemus.</li>
+      <li>Rec tamen ullo modo summum pecudis bon.</li>
+    </ol>
+
+    <p>
+      Sed vos squalidius,
+    </p>
+
+    <ul>
+      <li>Eadem nunc mea adversum te oratio est.</li>
+      <li>Sed tamenoccurrent, non fugiam ista popularia.</li>
+      <li>Hanc ergo intuens illud quasi signum absolvere.</li>
+      <li>Miseruum malum est, dici aliter non potest.</li>
+    </ul>
+
+    <p>
+      Istam voluptatem, inquit, Epicurus ignorat? Certe nihil nisi quod possit
+      ipsum propter se iure laudari. Ne in odium veniam, si amicum destitero
+      tueri. Bestiarum vero nullum iudicium puto. Tum Torquatus: Prorsus,
+      inquit, assentior; Tu quidem reddes; Sed nimis multa. Praeteritis, inquit,
+      gaudeo. Sed vos squalidius, illorum vides quam niteat oratio. An me,
+      inquam, nisi te audire vellem, censes haec dicturum fuisse?
+    </p>
+
+    <p>
+      Propter se iure laudari. Ne in odium veniam, si amicum destitero tueri.
+      Bestiarum vero nullum iudicium puto. Tum Torquatus: Prorsus, inquit.
+    </p>
+    <div class="content-terms__bottom">
+      <div class="terms">
+        <ion-label class="lbl-terms"
+          >He leído, entendido y aceptado estos términos y
+          condiciones</ion-label
+        >
+        <ion-checkbox slot="end" [(ngModel)]="isChecked"></ion-checkbox>
+      </div>
+      <ion-button class="btn btn--primary" (click)="finalize()">
+        Aceptar y finalizar
+      </ion-button>
+    </div>
+  </div>
 </ion-content>

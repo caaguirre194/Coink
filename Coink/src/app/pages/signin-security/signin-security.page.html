@@ -1,9 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signin-security</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [title]="'Seguridad'" [slide]="'2'"></app-header>
 
 <ion-content>
+  <app-instructions
+    [title]="'Configura tu cuenta'"
+    [description]="'Escribe el correo que estará vinculado a tu cuenta y crea un PIN de seguridad'"
+    [image]="'assets/img/OinkPolicia.svg'"
+  ></app-instructions>
 
+  <div class="content-security">
+    <form
+      [formGroup]="todo"
+      (ngSubmit)="logForm()"
+      class="content-security__form"
+    >
+      <ion-item>
+        <ion-label class="content-security__label" position="floating"
+          >Correo electrónico</ion-label
+        >
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="content-security__label" position="floating"
+          >Confirmar correo electrónico</ion-label
+        >
+        <ion-input type="email" formControlName="r_email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="content-security__label" position="floating"
+          >PIN de seguridad</ion-label
+        >
+        <ion-input type="number" formControlName="pin"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="content-security__label" position="floating"
+          >Confirmar Pin de seguridad</ion-label
+        >
+        <ion-input type="number" formControlName="r_pin"></ion-input>
+      </ion-item>
+
+      <div class="content-security__bottom">
+        <ion-button
+          class="btn btn--primary btn-submit"
+          type="submit"
+          [disabled]="!todo.valid"
+        >
+          Siguiente
+        </ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>

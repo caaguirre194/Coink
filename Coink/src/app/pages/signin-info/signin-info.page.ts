@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-signin-info",
@@ -9,21 +10,29 @@ import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 export class SigninInfoPage implements OnInit {
   private todo: FormGroup;
 
-  someModel = null;
-  selectables = [1, 2, 3];
-
   logForm() {
+    const responseTest = {
+      first_name: "Carlos",
+      second_name: "Andrés",
+      first_last_name: "Aguirre",
+      second_last_name: "Cañas",
+      gender: "Masculino",
+    };
+
     console.log(this.todo.value);
+    this.router.navigate([
+      "/signin-check",
+      {
+        first_name: "Carlos",
+        second_name: "Andrés",
+        first_last_name: "Aguirre",
+        second_last_name: "Cañas",
+        gender: "Masculino",
+      },
+    ]);
   }
 
-  constructor(public fb: FormBuilder) {
-    /* this.todo = fb.group({
-      document_type: ["", Validators.required],
-      document_number: ["", Validators.required],
-      expedition_date: ["", Validators.required],
-      birth_date: ["", Validators.required],
-      gender: ["", Validators.required],
-    });*/
+  constructor(public fb: FormBuilder, public router: Router) {
     this.todo = fb.group({
       document_type: [""],
       document_number: [""],

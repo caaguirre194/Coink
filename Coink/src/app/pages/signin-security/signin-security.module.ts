@@ -1,20 +1,23 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { SigninSecurityPageRoutingModule } from './signin-security-routing.module';
+import { SigninSecurityPageRoutingModule } from "./signin-security-routing.module";
 
-import { SigninSecurityPage } from './signin-security.page';
+import { SigninSecurityPage } from "./signin-security.page";
+import { ComponentsModule } from "../../components/components.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SigninSecurityPageRoutingModule
+    ReactiveFormsModule,
+    ComponentsModule,
+    SigninSecurityPageRoutingModule,
   ],
-  declarations: [SigninSecurityPage]
+  declarations: [SigninSecurityPage],
 })
 export class SigninSecurityPageModule {}

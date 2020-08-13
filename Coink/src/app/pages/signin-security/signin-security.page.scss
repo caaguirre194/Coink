@@ -1,0 +1,33 @@
+* {
+  --ion-color-success: var(--ion-color-coink-primary);
+  --ion-color-primary: var(--ion-color-coink-secundary);
+}
+
+.content-security {
+  margin: 0 20px;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.content-security__form {
+  font-family: Avenir Next LT Pro;
+}
+
+.content-security__label {
+  color: var(--ion-color-coink-gray);
+  font-size: 14px;
+}
+
+.content-security__bottom {
+  display: flex;
+  justify-content: center;
+  padding-top: 25%;
+}
+
+.btn-submit {
+  width: 100%;
+  font-size: 21pt;
+  font-family: Montserrat;
+}

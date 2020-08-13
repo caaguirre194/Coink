@@ -1,0 +1,39 @@
+.content-check {
+  height: 75%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.content-check__body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.lbl-name,
+.lbl-description {
+  font-family: Avenir Next LT Pro;
+  width: 100%;
+}
+
+.lbl-name {
+  color: #aaaaaa;
+  font-size: 16pt;
+}
+
+.lbl-description {
+  color: var(--ion-color-coink-secundary);
+  font-size: 20pt;
+}
+
+.content-check__bottom {
+  display: flex;
+}
+
+.btn {
+  width: 50%;
+  font-size: 14pt;
+}

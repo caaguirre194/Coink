@@ -30,45 +30,6 @@
 /* Normalize */
 @import "~@ionic/angular/css/normalize.css";
 
-/* layout
-   ========================================================================== */
-
-.d-flex {
-  display: flex;
-}
-
-.flex-row {
-  flex-direction: row;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.flex-space-between {
-  justify-content: space-between;
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.m-0 {
-  margin: 0;
-}
-
-.ml-auto {
-  margin-left: auto;
-}
-
-.mt-auto {
-  margin-top: auto;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
 /* theme
    ========================================================================== */
 
@@ -93,6 +54,11 @@
 
 .btn--secundary {
   --background: var(--ion-color-coink-secundary);
+  --color: var(--ion-color-coink-white);
+}
+
+.btn--danger {
+  --background: var(--ion-color-coink-danger);
   --color: var(--ion-color-coink-white);
 }
 

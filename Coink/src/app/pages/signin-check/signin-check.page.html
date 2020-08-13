@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signin-check</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [title]="'Datos de cuenta'" [slide]="'1'"></app-header>
 
 <ion-content>
-
+  <app-instructions
+    [title]="'verifica tus datos'"
+    [description]="'Estos no son tus datos?……. Lorem ipsuum'"
+    [image]="'assets/img/Oink-M.svg'"
+  ></app-instructions>
+  <div class="content-check">
+    <div class="content-check__body">
+      <ion-label class="lbl-name">Primer nombre</ion-label>
+      <ion-label class="lbl-description">{{first_name}}</ion-label>
+      <ion-label class="lbl-name">Segundo nombre</ion-label>
+      <ion-label class="lbl-description">{{second_name}}</ion-label>
+      <ion-label class="lbl-name">Primer apellido</ion-label>
+      <ion-label class="lbl-description">{{first_last_name}}</ion-label>
+      <ion-label class="lbl-name">Segundo apellido</ion-label>
+      <ion-label class="lbl-description">{{second_last_name}}</ion-label>
+      <ion-label class="lbl-name">Genero</ion-label>
+      <ion-label class="lbl-description">{{gender}}</ion-label>
+    </div>
+    <div class="content-check__bottom">
+      <ion-button class="btn btn--danger" (click)=" cancelCheck()"
+        >Cancelar</ion-button
+      >
+      <ion-button class="btn btn--primary" (click)=" confirmCheck()"
+        >Continuar</ion-button
+      >
+    </div>
+  </div>
 </ion-content>
