@@ -3,6 +3,20 @@
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
+  "browser": {
+    "child_process": false,
+    "crypto": false,
+    "constants": false,
+    "fs": false,
+    "http": false,
+    "https": false,
+    "net": false,
+    "tls": false,
+    "zlib": false,
+    "path": false,
+    "bufferutil": false,
+    "utf-8-validate": false
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,6 +38,7 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "cordova-android": "8.1.0",
+    "crypto-js": "^4.0.0",
     "normalize.css": "^8.0.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",

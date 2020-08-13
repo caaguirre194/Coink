@@ -7,28 +7,27 @@
     [image]="'assets/img/Oink.svg'"
   ></app-instructions>
 
-  <ion-item>
-    <div class="content-form">
-      <form [formGroup]="form">
-        <div class="form-group">
-          <img
-            class="content-form__image"
-            src="assets/img/banderas/Bandera.png"
-          />
-          <label for="phone-number">+57</label>
-          <input
-            class="form-control value input-phone"
-            type="text"
-            placeholder="(XXX)XXX-XXXX"
-            appPhoneMask
-            formControlName="phone"
-            id="phone-number"
-            [(ngModel)]="value"
-          />
-        </div>
-      </form>
-    </div>
-  </ion-item>
+  <div class="content-form">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <img
+          class="content-form__image"
+          src="assets/img/banderas/Bandera.png"
+        />
+        <label for="phone-number">+57</label>
+        <input
+          class="form-control value input-phone"
+          type="text"
+          placeholder="(XXX)XXX-XXXX"
+          appPhoneMask
+          formControlName="phone"
+          id="phone-number"
+          [(ngModel)]="value"
+        />
+      </div>
+    </form>
+  </div>
+
   <div class="keyboard">
     <div *ngFor="let numGroup of numberGroups" class="keyboard__file">
       <ion-button

@@ -1,7 +1,7 @@
 /** Keyboard **/
 
 .keyboard {
-  height: 65%;
+  height: 55%;
 }
 
 .keyboard__file {
@@ -52,4 +52,21 @@
   color: var(--ion-color-coink-secundary);
   opacity: 1;
   font-family: Roboto;
+}
+
+.content-refresh {
+  text-align: center;
+  font-size: 14px;
+  font-family: Avenir Next LT Pro;
+  color: var(--ion-color-coink-gray);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.content-refresh__icon {
+  color: var(--ion-color-coink-primary);
+  margin-right: 10px;
 }

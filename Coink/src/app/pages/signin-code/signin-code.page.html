@@ -7,21 +7,23 @@
     [image]="'assets/img/Oink.svg'"
   ></app-instructions>
 
-  <ion-item>
-    <div class="content-form">
-      <form>
-        <div class="form-group">
-          <input
-            class="form-control value input-code"
-            type="text"
-            placeholder="XXXX"
-            id="phone-number"
-            [value]="value"
-          />
-        </div>
-      </form>
-    </div>
-  </ion-item>
+  <div class="content-form">
+    <form>
+      <div class="form-group">
+        <input
+          class="form-control value input-code"
+          type="text"
+          placeholder="XXXX"
+          id="phone-number"
+          [value]="value"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="content-refresh" (click)="refreshCode()">
+    <ion-icon name="reload-outline" class="content-refresh__icon"></ion-icon>
+    <label class="content-refresh__txt">Enviarme el código nuevamente</label>
+  </div>
   <div class="keyboard">
     <div *ngFor="let numGroup of numberGroups" class="keyboard__file">
       <ion-button

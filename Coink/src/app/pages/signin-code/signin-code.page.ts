@@ -21,7 +21,6 @@ export class SigninCodePage implements OnInit {
       "Digita el código que recibiste vía <b>mensaje de texto</b> al " +
       this.phone;
     this.state = "btn--disabled";
-    //this.phone = "3105684411";
     this.value = "";
 
     this.numberGroups = [
@@ -50,4 +49,6 @@ export class SigninCodePage implements OnInit {
   }
 
   ngOnInit() {}
+
+  refreshCode() {}
 }

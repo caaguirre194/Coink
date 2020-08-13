@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from "@angular/core";
-import { isNumber } from "util";
 import { Router } from "@angular/router";
+import { CoinkService } from "../../services/coink.service";
 
 import {
   FormBuilder,
@@ -22,7 +22,11 @@ export class SigninPhonePage implements OnInit {
 
   numberGroups = [];
 
-  constructor(public router: Router, fb: FormBuilder) {
+  constructor(
+    public router: Router,
+    public fb: FormBuilder,
+    private coinkService: CoinkService
+  ) {
     this.state = "btn--disabled";
     this.value = "";
 
@@ -64,5 +68,12 @@ export class SigninPhonePage implements OnInit {
     ]);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    /* console.log(
+      this.coinkService.encrypt(
+        JSON.stringify(this.coinkService.jsonTest),
+        this.coinkService.secretKey
+      )
+    );*/
+  }
 }

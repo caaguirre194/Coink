@@ -95,3 +95,26 @@
   --background: var(--ion-color-coink-secundary);
   --color: var(--ion-color-coink-white);
 }
+
+/** Forms - alerts **/
+
+.alert-button.sc-ion-alert-md {
+  color: var(--ion-color-coink-secundary);
+}
+
+.alert-radio-icon.sc-ion-alert-md {
+  border-color: var(--ion-color-coink-secundary);
+}
+
+[aria-checked="true"].sc-ion-alert-md .alert-radio-icon.sc-ion-alert-md {
+  border-color: var(--ion-color-coink-secundary);
+}
+
+.alert-radio-inner.sc-ion-alert-md {
+  background-color: var(--ion-color-coink-primary);
+}
+
+.picker-opt.picker-opt-selected,
+.picker-button.sc-ion-picker-md {
+  color: var(--ion-color-coink-secundary);
+}

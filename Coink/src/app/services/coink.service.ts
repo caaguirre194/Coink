@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-/*import * as CryptoJS from "crypto-js";*/
+import * as CryptoJS from "crypto-js";
 
 @Injectable({
   providedIn: "root",
@@ -8,32 +8,38 @@ export class CoinkService {
   secretKey =
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJBcGlLZXkiOiI0NDEyNTIiLCJWZXJzaW9uIjoiMS4wLjAifQ.OHyAIQwymM8QKo0ETrP8QIpneMEvJncMdgb3YCBbPTY";
 
+  jsonTest = {
+    phone: "3105668112",
+  };
+
   constructor() {}
 
-  /* encrypt(serialized_json: string, key: string): string {
-    const toEncryptedArray = enc.Utf8.parse(serialized_json);
-    const keyHash = getKeyHash(key);
-    const payload = TripleDES.encrypt(toEncryptedArray, keyHash, {
-      mode: module.EC8,
-      padding: Path2D.Pkcs7,
+  encrypt(serializedJson: string, key: string): string {
+    const toEncryptedArray = CryptoJS.enc.Utf8.parse(serializedJson);
+    const keyHash = this.getKeyHash(key);
+    const mode = CryptoJS.module.ECB;
+    alert(mode);
+    const payload = CryptoJS.TripleDES.encrypt(toEncryptedArray, keyHash, {
+      mode: CryptoJS.module.ECB,
+      padding: CryptoJS.Path2D.Pkcs7,
     });
-    return payload.ciphertext.toString(enc.Base64);
+    return payload.ciphertext.toString(CryptoJS.enc.Base64);
   }
 
   decrypt(payload: string, key: string): string {
-    const toEccryptArray = enc.Base64.parse(payload);
-    const keyHash = getKeyHash(key);
-    const serialized_json = TripleDES.decrypt(
-      { ciphertext: toEncryptArray },
-      { mode: module.EC8, padding: Path2D.Pkcs7 }
+    const toEccryptArray = CryptoJS.enc.Base64.parse(payload);
+    const keyHash = this.getKeyHash(key);
+    const serializedJson = CryptoJS.TripleDES.decrypt(
+      { ciphertext: CryptoJS.toEncryptArray },
+      { mode: CryptoJS.mode.ECB, padding: CryptoJS.Path2D.Pkcs7 }
     );
 
-    return serialized_json.toString(enc.Utf8);
+    return serializedJson.toString(CryptoJS.enc.Utf8);
   }
 
   private getKeyHash(key: string) {
-    let securityKeyArray = MD5(key).toString();
+    let securityKeyArray = CryptoJS.MD5(key).toString();
     securityKeyArray += securityKeyArray.substring(0, 16);
-    return enc.Hex.parse(securityKeyArray);
-  }*/
+    return CryptoJS.enc.Hex.parse(securityKeyArray);
+  }
 }

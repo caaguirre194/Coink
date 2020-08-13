@@ -1,4 +1,4 @@
-<app-header [title]="'Número celular'" [slide]="'1'"></app-header>
+<app-header [title]="'Datos de cuenta'" [slide]="'1'"></app-header>
 
 <ion-content>
   <app-instructions
@@ -6,4 +6,67 @@
     [description]="'Ahora necesitamos saber algunos datos tuyos'"
     [image]="'assets/img/Oink-M.svg'"
   ></app-instructions>
+
+  <div class="content-info">
+    <form [formGroup]="todo" (ngSubmit)="logForm()" class="content-info__form">
+      <ion-item>
+        <ion-label class="content-info__label" position="floating"
+          >Tipo de documento</ion-label
+        >
+        <ion-select formControlName="document_type" [compareWith]="">
+          <ion-select-option value="CC">Cédula de ciudadanía</ion-select-option>
+          <ion-select-option value="CE"
+            >Cédula de extranjería</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label class="content-info__label" position="floating"
+          >Número de documento</ion-label
+        >
+        <ion-input formControlName="document_number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="content-info__label" position="floating"
+          >fecha de nacimiento</ion-label
+        >
+        <ion-datetime
+          formControlName="birth_date"
+          displayFormat="DDDD MMM D, YYYY"
+          min="1900"
+          max="2020"
+        ></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label class="content-info__label" position="floating"
+          >fecha de expedición del documento</ion-label
+        >
+        <ion-datetime
+          formControlName="expedition_date"
+          displayFormat="DDDD MMM D, YYYY"
+          min="1900"
+          max="2020"
+        ></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label class="content-info__label" position="floating"
+          >Género que aparece en tu documento de identidad</ion-label
+        >
+        <ion-select formControlName="gender">
+          <ion-select-option value="M">Masculino</ion-select-option>
+          <ion-select-option value="F">Femenino</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="content-info__bottom">
+        <ion-button
+          class="btn btn--primary btn-submit"
+          type="submit"
+          [disabled]="!todo.valid"
+        >
+          Continuar
+        </ion-button>
+      </div>
+    </form>
+  </div>
 </ion-content>

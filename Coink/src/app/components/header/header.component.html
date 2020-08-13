@@ -11,12 +11,9 @@
       <ion-title class="content-header__title">{{ title }}</ion-title>
     </ion-buttons>
   </ion-toolbar>
-  <div class="slider-line"></div>
 
   <ul class="slider-controls">
-    <li id="slide-0" [ngClass]="slide == '0' ? 'active' : ''">
-      <div class="slider-line"></div>
-    </li>
+    <li id="slide-0" [ngClass]="slide == '0' ? 'active' : ''"></li>
     <li id="slide-1" [ngClass]="slide == '1' ? 'active' : ''"></li>
     <li id="slide-2" [ngClass]="slide == '2' ? 'active' : ''"></li>
     <li id="slide-3" [ngClass]="slide == '3' ? 'active' : ''"></li>

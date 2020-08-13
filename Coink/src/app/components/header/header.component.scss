@@ -22,7 +22,6 @@
   text-align: center;
   padding: 0;
   margin-top: 0;
-  list-style-image: url("../../../assets/img/header/Paso_Desactivo.svg");
 }
 
 .slider-controls li {
@@ -32,23 +31,21 @@
   display: inline-block;
   height: 17.5px;
   width: 17.5px;
-  margin: 0 8%;
+  margin: 0 28px;
 }
 
 .slider-controls li:before {
+  content: url("../../../assets/img/header/paso_des.svg");
+}
+
+.slider-controls li:last-child:before {
   content: url("../../../assets/img/header/Paso_Desactivo.svg");
 }
 
 .slider-controls li.active:before {
-  content: url("../../../assets/img/header/Paso_activo.svg");
+  content: url("../../../assets/img/header/paso_act.svg");
 }
 
-.slider-line {
-  background: #d3d3d3;
-  z-index: -1;
-  width: 100%;
-  height: 1.14pt;
-  position: absolute;
-  left: 0;
-  top: 65px;
+.slider-controls li:last-child.active:before {
+  content: url("../../../assets/img/header/Paso_activo.svg");
 }
