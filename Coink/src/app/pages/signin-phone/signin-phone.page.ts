@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter } from "@angular/core";
 import { Router } from "@angular/router";
 import { CoinkService } from "../../services/coink.service";
+import { presentSimpleAlert } from "../../common/alert.notification";
 
 import {
   FormBuilder,
@@ -18,7 +19,7 @@ import {
 export class SigninPhonePage implements OnInit {
   form: FormGroup;
   state: string;
-  value: string;
+  phoneNumber: string;
 
   numberGroups = [];
 
@@ -28,7 +29,7 @@ export class SigninPhonePage implements OnInit {
     private coinkService: CoinkService
   ) {
     this.state = "btn--disabled";
-    this.value = "";
+    this.phoneNumber = "";
 
     this.numberGroups = [
       [1, 2, 3],
@@ -42,38 +43,54 @@ export class SigninPhonePage implements OnInit {
   }
 
   addNumber(symbol) {
-    if (this.value.length < 10) {
-      if (this.value.length === 9) {
+    if (this.phoneNumber.length < 10) {
+      if (this.phoneNumber.length === 9) {
         this.state = "btn--enabled";
       }
-      this.value += symbol;
+      this.phoneNumber += symbol;
     }
   }
 
+  async presentAlertInvalidPhone() {
+    const phomeNumber = [
+      this.phoneNumber.slice(0, 4),
+      "-",
+      this.phoneNumber.slice(4),
+    ].join("");
+    const textInvalidPhone = `El número  <b class="bold">${phomeNumber}</b>  ya está asociado a otro usuario.`;
+
+    presentSimpleAlert("Error", textInvalidPhone, "VOLVER");
+  }
+
   removeNumber() {
-    this.value = this.value.slice(0, -1);
+    this.phoneNumber = this.phoneNumber.slice(0, -1);
     this.state = "btn--disabled";
   }
 
   onChangePhone(code: string) {
-    this.value = code;
+    this.phoneNumber = code;
+  }
+
+  validate() {
+    this.presentAlertInvalidPhone();
   }
 
   sendPhone() {
-    this.router.navigate([
+    this.validate();
+    /*this.router.navigate([
       "/signin-code",
       {
-        phone: this.value,
+        phone: this.phoneNumber,
       },
-    ]);
+    ]);*/
   }
 
   ngOnInit() {
-    /* console.log(
+    console.log(
       this.coinkService.encrypt(
         JSON.stringify(this.coinkService.jsonTest),
         this.coinkService.secretKey
       )
-    );*/
+    );
   }
 }

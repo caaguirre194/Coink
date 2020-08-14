@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import * as CryptoJS from "crypto-js";
 
 @Injectable({
@@ -12,7 +13,7 @@ export class CoinkService {
     phone: "3105668112",
   };
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   encrypt(serializedJson: string, key: string): string {
     const toEncryptedArray = CryptoJS.enc.Utf8.parse(serializedJson);

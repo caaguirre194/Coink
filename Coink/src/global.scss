@@ -66,6 +66,7 @@
 
 .alert-button.sc-ion-alert-md {
   color: var(--ion-color-coink-secundary);
+  font-weight: bold;
 }
 
 .alert-radio-icon.sc-ion-alert-md {
@@ -83,4 +84,8 @@
 .picker-opt.picker-opt-selected,
 .picker-button.sc-ion-picker-md {
   color: var(--ion-color-coink-secundary);
+}
+
+.alert-title.sc-ion-alert-md {
+  color: var(--ion-color-coink-danger);
 }
