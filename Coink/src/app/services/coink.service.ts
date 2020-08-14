@@ -7,27 +7,30 @@ import { SecurityService } from "./security.service";
   providedIn: "root",
 })
 export class CoinkService {
-  json = {
-    phone_number: "573112222222",
-    imei: "7AD0E1F1-521E-43E6-B267-62D10CDEEC79",
-  };
-
-  constructor(private http: HttpClient, securityService: SecurityService) {}
+  constructor(
+    private http: HttpClient,
+    private securityService: SecurityService
+  ) {}
 
   verifyDirectLogin(phoneNumber: string, IMEI: string) {
     const postData = {
       phone_number: phoneNumber,
       imei: IMEI,
     };
+
+    const finalPostData = this.encRequest(postData);
+
     return new Promise((resolve, reject) => {
-      this.http.post(coinkConfig.login, JSON.stringify(postData)).subscribe(
-        (res) => {
-          resolve(res);
-        },
-        (err) => {
-          reject(err);
-        }
-      );
+      this.http
+        .post(coinkConfig.login, JSON.stringify(finalPostData))
+        .subscribe(
+          (res) => {
+            resolve(res);
+          },
+          (err) => {
+            reject(err);
+          }
+        );
     });
   }
 
@@ -43,15 +46,20 @@ export class CoinkService {
       expedition_date: expeditionDate,
       birth_date: birthDay,
     };
+
+    const finalPostData = this.encRequest(postData);
+
     return new Promise((resolve, reject) => {
-      this.http.post(coinkConfig.signup, JSON.stringify(postData)).subscribe(
-        (res) => {
-          resolve(res);
-        },
-        (err) => {
-          reject(err);
-        }
-      );
+      this.http
+        .post(coinkConfig.signup, JSON.stringify(finalPostData))
+        .subscribe(
+          (res) => {
+            resolve(res);
+          },
+          (err) => {
+            reject(err);
+          }
+        );
     });
   }
 
@@ -77,15 +85,31 @@ export class CoinkService {
       parent_info: data.parent_info,
       query_id: data.query_id,
     };
+
+    const finalPostData = this.encRequest(postData);
+
     return new Promise((resolve, reject) => {
-      this.http.post(coinkConfig.signupv2, JSON.stringify(postData)).subscribe(
-        (res) => {
-          resolve(res);
-        },
-        (err) => {
-          reject(err);
-        }
-      );
+      this.http
+        .post(coinkConfig.signupv2, JSON.stringify(finalPostData))
+        .subscribe(
+          (res) => {
+            resolve(res);
+          },
+          (err) => {
+            reject(err);
+          }
+        );
     });
+  }
+
+  encRequest(request: any) {
+    const EncPayload = this.securityService.encrypt(
+      JSON.stringify(request),
+      this.securityService.secretKey
+    );
+
+    return {
+      payload: EncPayload,
+    };
   }
 }
