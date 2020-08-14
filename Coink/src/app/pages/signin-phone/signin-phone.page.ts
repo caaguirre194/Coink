@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter } from "@angular/core";
 import { Router } from "@angular/router";
 import { presentSimpleAlert } from "../../common/alert.notification";
+import { CoinkService } from "../../services/coink.service";
 
 import {
   FormBuilder,
@@ -22,7 +23,11 @@ export class SigninPhonePage implements OnInit {
 
   numberGroups = [];
 
-  constructor(public router: Router, public fb: FormBuilder) {
+  constructor(
+    public router: Router,
+    public fb: FormBuilder,
+    private coinkservice: CoinkService
+  ) {
     this.state = "btn--disabled";
     this.phoneNumber = "";
 
@@ -68,12 +73,24 @@ export class SigninPhonePage implements OnInit {
 
   validatePhone() {
     if (this.phoneNumber.length === 10) {
-      this.router.navigate([
+      this.coinkservice
+        .verifyDirectLogin(
+          this.phoneNumber,
+          "7AD0E1F1-521E-43E6-B267-62D10CDEEC79"
+        )
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      /*this.router.navigate([
         "/signin-code",
         {
           phone: this.phoneNumber,
         },
-      ]);
+      ]);*/
     }
   }
 

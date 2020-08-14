@@ -7,6 +7,15 @@ import { SecurityService } from "./security.service";
   providedIn: "root",
 })
 export class CoinkService {
+  options = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json",
+      Accept: "*/*",
+      "Access-Control-Allow-Origin": "*",
+      Origin: "*",
+    }),
+  };
+
   constructor(
     private http: HttpClient,
     private securityService: SecurityService
@@ -22,7 +31,7 @@ export class CoinkService {
 
     return new Promise((resolve, reject) => {
       this.http
-        .post(coinkConfig.login, JSON.stringify(finalPostData))
+        .post(coinkConfig.login, JSON.stringify(finalPostData), this.options)
         .subscribe(
           (res) => {
             resolve(res);
@@ -51,7 +60,7 @@ export class CoinkService {
 
     return new Promise((resolve, reject) => {
       this.http
-        .post(coinkConfig.signup, JSON.stringify(finalPostData))
+        .post(coinkConfig.signup, JSON.stringify(finalPostData), this.options)
         .subscribe(
           (res) => {
             resolve(res);
@@ -90,7 +99,7 @@ export class CoinkService {
 
     return new Promise((resolve, reject) => {
       this.http
-        .post(coinkConfig.signupv2, JSON.stringify(finalPostData))
+        .post(coinkConfig.signupv2, JSON.stringify(finalPostData), this.options)
         .subscribe(
           (res) => {
             resolve(res);

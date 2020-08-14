@@ -17,7 +17,7 @@ export const environment = {
 const domain = "https://api.bancoink.biz/qa";
 
 export const coinkConfig = {
-  login: domain + "Login/verifyDirectLogin?apiKey=441252",
-  signup: domain + "signup/cifin?apiKey=441252",
-  signupv2: domain + "Signup/v2?apiKey=441252",
+  login: domain + "/login/verifyDirectLogin?apiKey=441252",
+  signup: domain + "/signup/cifin?apiKey=441252",
+  signupv2: domain + "/signup/v2?apiKey=441252",
 };
