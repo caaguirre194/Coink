@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 export class SigninCodePage implements OnInit {
   phone: any;
   state: string;
-  value: string;
+  code: string;
   description: string;
 
   numberGroups = [];
@@ -21,7 +21,7 @@ export class SigninCodePage implements OnInit {
       "Digita el código que recibiste vía <b>mensaje de texto</b> al " +
       this.phone;
     this.state = "btn--disabled";
-    this.value = "";
+    this.code = "";
 
     this.numberGroups = [
       [1, 2, 3],
@@ -31,21 +31,23 @@ export class SigninCodePage implements OnInit {
   }
 
   addNumber(symbol) {
-    if (this.value.length < 4) {
-      if (this.value.length === 3) {
+    if (this.code.length < 4) {
+      if (this.code.length === 3) {
         this.state = "btn--enabled";
       }
-      this.value += symbol;
+      this.code += symbol;
     }
   }
 
   removeNumber() {
-    this.value = this.value.slice(0, -1);
+    this.code = this.code.slice(0, -1);
     this.state = "btn--disabled";
   }
 
-  sendCode() {
-    this.router.navigate(["/signin-info"]);
+  validateCode() {
+    if (this.code.length === 4) {
+      this.router.navigate(["/signin-info"]);
+    }
   }
 
   ngOnInit() {}

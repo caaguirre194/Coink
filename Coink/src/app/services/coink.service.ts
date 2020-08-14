@@ -13,26 +13,29 @@ export class CoinkService {
     phone: "3105668112",
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    const json = {
+      phone_number: "573112222222",
+      imei: "7AD0E1F1-521E-43E6-B267-62D10CDEEC79",
+    };
+  }
 
   encrypt(serializedJson: string, key: string): string {
     const toEncryptedArray = CryptoJS.enc.Utf8.parse(serializedJson);
     const keyHash = this.getKeyHash(key);
-    const mode = CryptoJS.module.ECB;
-    alert(mode);
     const payload = CryptoJS.TripleDES.encrypt(toEncryptedArray, keyHash, {
-      mode: CryptoJS.module.ECB,
-      padding: CryptoJS.Path2D.Pkcs7,
+      mode: CryptoJS.mode.ECB,
+      padding: CryptoJS.pad.Pkcs7,
     });
     return payload.ciphertext.toString(CryptoJS.enc.Base64);
   }
 
   decrypt(payload: string, key: string): string {
-    const toEccryptArray = CryptoJS.enc.Base64.parse(payload);
+    const toEncryptArray = CryptoJS.enc.Base64.parse(payload);
     const keyHash = this.getKeyHash(key);
     const serializedJson = CryptoJS.TripleDES.decrypt(
-      { ciphertext: CryptoJS.toEncryptArray },
-      { mode: CryptoJS.mode.ECB, padding: CryptoJS.Path2D.Pkcs7 }
+      { ciphertext: toEncryptArray },
+      { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 }
     );
 
     return serializedJson.toString(CryptoJS.enc.Utf8);

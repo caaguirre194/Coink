@@ -44,7 +44,11 @@
       <ion-button (click)="addNumber(0)" class="keyboard__key">
         0
       </ion-button>
-      <ion-button (click)="sendPhone()" class="keyboard__key" [ngClass]="state">
+      <ion-button
+        (click)="validatePhone()"
+        class="keyboard__key"
+        [ngClass]="state"
+      >
         <ion-icon name="checkmark-circle"></ion-icon>
       </ion-button>
     </div>

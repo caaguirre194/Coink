@@ -71,26 +71,25 @@ export class SigninPhonePage implements OnInit {
     this.phoneNumber = code;
   }
 
-  validate() {
-    this.presentAlertInvalidPhone();
-  }
-
-  sendPhone() {
-    this.validate();
-    /*this.router.navigate([
-      "/signin-code",
-      {
-        phone: this.phoneNumber,
-      },
-    ]);*/
+  validatePhone() {
+    if (this.phoneNumber.length === 10) {
+      this.router.navigate([
+        "/signin-code",
+        {
+          phone: this.phoneNumber,
+        },
+      ]);
+    }
+    //this.presentAlertInvalidPhone();
   }
 
   ngOnInit() {
-    console.log(
-      this.coinkService.encrypt(
-        JSON.stringify(this.coinkService.jsonTest),
-        this.coinkService.secretKey
-      )
+    const x = this.coinkService.encrypt(
+      JSON.stringify(this.coinkService.jsonTest),
+      this.coinkService.secretKey
     );
+    console.log(x);
+    /*const y = this.coinkService.decrypt(x, this.coinkService.secretKey);
+    console.log(y);*/
   }
 }

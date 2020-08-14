@@ -86,6 +86,10 @@
   color: var(--ion-color-coink-secundary);
 }
 
-.alert-title.sc-ion-alert-md {
+.alert-head > .alert-title.sc-ion-alert-md {
   color: var(--ion-color-coink-danger);
+}
+
+h2.alert-title.sc-ion-alert-md {
+  color: var(--ion-color-coink-secundary);
 }

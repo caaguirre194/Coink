@@ -15,7 +15,7 @@
           type="text"
           placeholder="XXXX"
           id="phone-number"
-          [value]="value"
+          [value]="code"
         />
       </div>
     </form>
@@ -40,7 +40,11 @@
       <ion-button (click)="addNumber(0)" class="keyboard__key">
         0
       </ion-button>
-      <ion-button (click)="sendCode()" class="keyboard__key" [ngClass]="state">
+      <ion-button
+        (click)="validateCode()"
+        class="keyboard__key"
+        [ngClass]="state"
+      >
         <ion-icon name="checkmark-circle"></ion-icon>
       </ion-button>
     </div>
