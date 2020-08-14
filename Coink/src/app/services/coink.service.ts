@@ -13,6 +13,9 @@ export class CoinkService {
       Accept: "*/*",
       "Access-Control-Allow-Origin": "*",
       Origin: "*",
+      "Access-Control-Allow-Methods": "GET,POST",
+      "Access-Control-Allow-Headers":
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-PINGOTHER",
     }),
   };
 

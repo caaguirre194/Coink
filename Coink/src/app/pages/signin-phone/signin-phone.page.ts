@@ -79,18 +79,16 @@ export class SigninPhonePage implements OnInit {
           "7AD0E1F1-521E-43E6-B267-62D10CDEEC79"
         )
         .then((data) => {
-          console.log(data);
+          this.router.navigate([
+            "/signin-code",
+            {
+              phone: this.phoneNumber,
+            },
+          ]);
         })
         .catch((error) => {
-          console.log(error);
+          this.presentAlertInvalidPhone();
         });
-
-      /*this.router.navigate([
-        "/signin-code",
-        {
-          phone: this.phoneNumber,
-        },
-      ]);*/
     }
   }
 
