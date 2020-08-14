@@ -1,49 +1,91 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import * as CryptoJS from "crypto-js";
+import { coinkConfig } from "../../environments/environment";
+import { SecurityService } from "./security.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class CoinkService {
-  secretKey =
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJBcGlLZXkiOiI0NDEyNTIiLCJWZXJzaW9uIjoiMS4wLjAifQ.OHyAIQwymM8QKo0ETrP8QIpneMEvJncMdgb3YCBbPTY";
-
-  jsonTest = {
-    phone: "3105668112",
+  json = {
+    phone_number: "573112222222",
+    imei: "7AD0E1F1-521E-43E6-B267-62D10CDEEC79",
   };
 
-  constructor(private http: HttpClient) {
-    const json = {
-      phone_number: "573112222222",
-      imei: "7AD0E1F1-521E-43E6-B267-62D10CDEEC79",
+  constructor(private http: HttpClient, securityService: SecurityService) {}
+
+  verifyDirectLogin(phoneNumber: string, IMEI: string) {
+    const postData = {
+      phone_number: phoneNumber,
+      imei: IMEI,
     };
-  }
-
-  encrypt(serializedJson: string, key: string): string {
-    const toEncryptedArray = CryptoJS.enc.Utf8.parse(serializedJson);
-    const keyHash = this.getKeyHash(key);
-    const payload = CryptoJS.TripleDES.encrypt(toEncryptedArray, keyHash, {
-      mode: CryptoJS.mode.ECB,
-      padding: CryptoJS.pad.Pkcs7,
+    return new Promise((resolve, reject) => {
+      this.http.post(coinkConfig.login, JSON.stringify(postData)).subscribe(
+        (res) => {
+          resolve(res);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
     });
-    return payload.ciphertext.toString(CryptoJS.enc.Base64);
   }
 
-  decrypt(payload: string, key: string): string {
-    const toEncryptArray = CryptoJS.enc.Base64.parse(payload);
-    const keyHash = this.getKeyHash(key);
-    const serializedJson = CryptoJS.TripleDES.decrypt(
-      { ciphertext: toEncryptArray },
-      { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.Pkcs7 }
-    );
-
-    return serializedJson.toString(CryptoJS.enc.Utf8);
+  signup(
+    documentNumber: string,
+    documentType: string,
+    expeditionDate: string,
+    birthDay: string
+  ) {
+    const postData = {
+      document_number: documentNumber,
+      document_type: documentType,
+      expedition_date: expeditionDate,
+      birth_date: birthDay,
+    };
+    return new Promise((resolve, reject) => {
+      this.http.post(coinkConfig.signup, JSON.stringify(postData)).subscribe(
+        (res) => {
+          resolve(res);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
   }
 
-  private getKeyHash(key: string) {
-    let securityKeyArray = CryptoJS.MD5(key).toString();
-    securityKeyArray += securityKeyArray.substring(0, 16);
-    return CryptoJS.enc.Hex.parse(securityKeyArray);
+  signupV2(data: any) {
+    const postData = {
+      phone_number: data.phone_number,
+      names: data.names,
+      last_names: data.last_names,
+      document_id: data.phone_nudocument_idmber,
+      document_number: data.document_number,
+      document_expiration_date: data.document_expiration_date,
+      birth_date: data.birth_date,
+      gender_id: data.phone_number,
+      state_id: data.state_id,
+      city_id: data.city_id,
+      address: data.address,
+      pin: data.pin,
+      email: data.email,
+      imei: data.imei,
+      push_registration_id: data.push_registration_id,
+      topic_registration_id: data.topic_registration_id,
+      referrer_phonenumber: data.referrer_phonenumber,
+      parent_info: data.parent_info,
+      query_id: data.query_id,
+    };
+    return new Promise((resolve, reject) => {
+      this.http.post(coinkConfig.signupv2, JSON.stringify(postData)).subscribe(
+        (res) => {
+          resolve(res);
+        },
+        (err) => {
+          reject(err);
+        }
+      );
+    });
   }
 }

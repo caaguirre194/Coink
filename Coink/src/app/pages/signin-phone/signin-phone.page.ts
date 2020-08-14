@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter } from "@angular/core";
 import { Router } from "@angular/router";
-import { CoinkService } from "../../services/coink.service";
 import { presentSimpleAlert } from "../../common/alert.notification";
 
 import {
@@ -23,11 +22,7 @@ export class SigninPhonePage implements OnInit {
 
   numberGroups = [];
 
-  constructor(
-    public router: Router,
-    public fb: FormBuilder,
-    private coinkService: CoinkService
-  ) {
+  constructor(public router: Router, public fb: FormBuilder) {
     this.state = "btn--disabled";
     this.phoneNumber = "";
 
@@ -80,16 +75,7 @@ export class SigninPhonePage implements OnInit {
         },
       ]);
     }
-    //this.presentAlertInvalidPhone();
   }
 
-  ngOnInit() {
-    const x = this.coinkService.encrypt(
-      JSON.stringify(this.coinkService.jsonTest),
-      this.coinkService.secretKey
-    );
-    console.log(x);
-    /*const y = this.coinkService.decrypt(x, this.coinkService.secretKey);
-    console.log(y);*/
-  }
+  ngOnInit() {}
 }
