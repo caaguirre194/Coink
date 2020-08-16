@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { coinkConfig } from "../../environments/environment";
 import { SecurityService } from "./security.service";
+import { HTTP } from "@ionic-native/http/ngx";
 
 @Injectable({
   providedIn: "root",
@@ -21,8 +21,32 @@ export class CoinkService {
 
   constructor(
     private http: HttpClient,
-    private securityService: SecurityService
+    private securityService: SecurityService,
+    private nativeHttp: HTTP
   ) {}
+
+  verifyDirectLoginNative(json) {
+    const headers = {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      Accept: "*/*",
+      Origin: "*",
+    };
+
+    this.nativeHttp
+      .post(`/login`, json, headers)
+      .then((data) => {
+        console.log(data.status);
+        console.log(data.data); // data received by server
+        console.log(data.headers);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(error.status);
+        console.log(error.error); // error message as string
+        console.log(error.headers);
+      });
+  }
 
   verifyDirectLogin(phoneNumber: string, IMEI: string) {
     const postData = {
@@ -34,7 +58,7 @@ export class CoinkService {
 
     return new Promise((resolve, reject) => {
       this.http
-        .post(coinkConfig.login, JSON.stringify(finalPostData), this.options)
+        .post(`/login`, JSON.stringify(finalPostData), this.options)
         .subscribe(
           (res) => {
             resolve(res);
@@ -63,7 +87,7 @@ export class CoinkService {
 
     return new Promise((resolve, reject) => {
       this.http
-        .post(coinkConfig.signup, JSON.stringify(finalPostData), this.options)
+        .post(`/signup`, JSON.stringify(finalPostData), this.options)
         .subscribe(
           (res) => {
             resolve(res);
@@ -102,7 +126,7 @@ export class CoinkService {
 
     return new Promise((resolve, reject) => {
       this.http
-        .post(coinkConfig.signupv2, JSON.stringify(finalPostData), this.options)
+        .post(`/signupv2`, JSON.stringify(finalPostData), this.options)
         .subscribe(
           (res) => {
             resolve(res);

@@ -1,0 +1,20 @@
+{
+  "/login": {
+    "target": "https://api.bancoink.biz/qa/login/verifyDirectLogin?apiKey=441252",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/signup": {
+    "target": "https://api.bancoink.biz/qa/signup/cifin?apiKey=441252",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/signupv2": {
+    "target": "https://api.bancoink.biz/qa/signup/v2?apiKey=441252",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  }
+}
