@@ -7,7 +7,7 @@ import { IonicModule } from "@ionic/angular";
 import { SigninCheckPageRoutingModule } from "./signin-check-routing.module";
 
 import { SigninCheckPage } from "./signin-check.page";
-import { ComponentsModule } from "../../components/components.module";
+import { ComponentsModule } from "../../../components/components.module";
 
 @NgModule({
   imports: [

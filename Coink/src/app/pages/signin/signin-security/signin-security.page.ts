@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
-import { presentSimpleAlert } from "../../common/alert.notification";
+import { presentSimpleAlert } from "../../../common/alert.notification";
 
 @Component({
   selector: "app-signin-security",

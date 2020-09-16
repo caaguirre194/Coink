@@ -7,7 +7,7 @@ import { IonicModule } from "@ionic/angular";
 import { SigninSecurityPageRoutingModule } from "./signin-security-routing.module";
 
 import { SigninSecurityPage } from "./signin-security.page";
-import { ComponentsModule } from "../../components/components.module";
+import { ComponentsModule } from "../../../components/components.module";
 
 @NgModule({
   imports: [

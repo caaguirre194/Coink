@@ -21,6 +21,6 @@ export class InitPage implements OnInit {
   }
 
   goSignIn() {
-    this.router.navigate(["/signin-phone"]);
+    this.router.navigate(["/signin"]);
   }
 }

@@ -1,9 +1,56 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signin</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header [title]="'Número celular'" [slide]="'0'"></app-header>
 
 <ion-content>
+  <app-instructions
+    [title]="''"
+    [description]="'Para comenzar, por favor ingresa <b>tu número celular.</b>'"
+    [image]="'assets/img/Oink.svg'"
+  ></app-instructions>
 
+  <div class="content-form">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <img
+          class="content-form__image"
+          src="assets/img/banderas/Bandera.png"
+        />
+        <label for="phone-number">+57</label>
+        <input
+          class="form-control value input-phone"
+          type="text"
+          placeholder="(XXX)XXX-XXXX"
+          appPhoneMask
+          formControlName="phone"
+          id="phone-number"
+          [(ngModel)]="phoneNumber"
+        />
+      </div>
+    </form>
+  </div>
+
+  <div class="keyboard">
+    <div *ngFor="let numGroup of numberGroups" class="keyboard__file">
+      <ion-button
+        *ngFor="let num of numGroup"
+        (click)="addNumber(num)"
+        class="keyboard__key"
+        >{{num}}</ion-button
+      >
+    </div>
+    <div class="keyboard__file">
+      <ion-button (click)="removeNumber()" class="keyboard__key">
+        <ion-icon name="backspace-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="addNumber(0)" class="keyboard__key">
+        0
+      </ion-button>
+      <ion-button
+        (click)="validatePhone()"
+        class="keyboard__key"
+        [ngClass]="state"
+      >
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
 </ion-content>

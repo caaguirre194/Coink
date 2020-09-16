@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Validators, FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
-import { presentSimpleAlert } from "../../common/alert.notification";
-import { CoinkService } from "../../services/coink.service";
+import { presentSimpleAlert } from "../../../common/alert.notification";
+import { CoinkService } from "../../../services/coink.service";
 
 @Component({
   selector: "app-signin-info",
