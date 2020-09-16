@@ -73,22 +73,28 @@ export class SigninPhonePage implements OnInit {
 
   validatePhone() {
     if (this.phoneNumber.length === 10) {
-      this.coinkservice
-        .verifyDirectLogin(
-          this.phoneNumber,
-          "7AD0E1F1-521E-43E6-B267-62D10CDEEC79"
-        )
-        .then((data) => {
-          this.router.navigate([
-            "/signin-code",
-            {
-              phone: this.phoneNumber,
-            },
-          ]);
-        })
-        .catch((error) => {
-          this.presentAlertInvalidPhone();
-        });
+      // this.coinkservice
+      //   .verifyDirectLogin(
+      //     this.phoneNumber,
+      //     "7AD0E1F1-521E-43E6-B267-62D10CDEEC79"
+      //   )
+      //   .then((data) => {
+      //     this.router.navigate([
+      //       "/signin-code",
+      //       {
+      //         phone: this.phoneNumber,
+      //       },
+      //     ]);
+      //   })
+      //   .catch((error) => {
+      //     this.presentAlertInvalidPhone();
+      //   });
+      this.router.navigate([
+        "/signin-code",
+        {
+          phone: this.phoneNumber,
+        },
+      ]);
     }
   }
 

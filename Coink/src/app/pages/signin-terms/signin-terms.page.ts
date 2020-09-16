@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-signin-terms",
@@ -8,9 +9,11 @@ import { Component, OnInit } from "@angular/core";
 export class SigninTermsPage implements OnInit {
   isChecked: any;
 
-  constructor() {}
+  constructor(public router: Router) {}
 
   ngOnInit() {}
 
-  finalize() {}
+  finalize() {
+    this.router.navigate(["/home"]);
+  }
 }

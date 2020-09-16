@@ -22,28 +22,38 @@ export class SigninInfoPage implements OnInit {
     };
 
     if (this.valdateForm()) {
-      this.coinkService
-        .signup(
-          this.todo.value.document_number,
-          this.todo.value.document_type,
-          this.todo.value.expedition_date,
-          this.todo.value.birth_date
-        )
-        .then((data) => {
-          this.router.navigate([
-            "/signin-check",
-            {
-              first_name: data["first_name"],
-              second_name: data["second_name"],
-              first_last_name: data["first_last_name"],
-              second_last_name: data["second_last_name"],
-              gender: data["gender"],
-            },
-          ]);
-        })
-        .catch((error) => {
-          this.presentAlertInvalidDocument();
-        });
+      // this.coinkService
+      //   .signup(
+      //     this.todo.value.document_number,
+      //     this.todo.value.document_type,
+      //     this.todo.value.expedition_date,
+      //     this.todo.value.birth_date
+      //   )
+      //   .then((data) => {
+      //     this.router.navigate([
+      //       "/signin-check",
+      //       {
+      //         first_name: data["first_name"],
+      //         second_name: data["second_name"],
+      //         first_last_name: data["first_last_name"],
+      //         second_last_name: data["second_last_name"],
+      //         gender: data["gender"],
+      //       },
+      //     ]);
+      //   })
+      //   .catch((error) => {
+      //     this.presentAlertInvalidDocument();
+      //   });
+      this.router.navigate([
+        "/signin-check",
+        {
+          first_name: "Carlos",
+          second_name: "Andrés",
+          first_last_name: "Aguirre",
+          second_last_name: "Cañas",
+          gender: "Masculino",
+        },
+      ]);
     } else {
       presentSimpleAlert(
         "Algo pasa",

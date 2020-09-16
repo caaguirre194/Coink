@@ -16,7 +16,9 @@ export class InitPage implements OnInit {
 
   ngOnInit() {}
 
-  goLogin() {}
+  goLogin() {
+    this.router.navigate(["/home"]);
+  }
 
   goSignIn() {
     this.router.navigate(["/signin-phone"]);
