@@ -1,9 +1,83 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
+  <div class="header-home">
+    <ion-button class="header-home__config" color="white" (click)="onClick()">
+      <ion-icon src="assets/img/home/gear.svg"></ion-icon>
+    </ion-button>
+    <img src="assets/img/home/header/Logotipo neon.svg" alt="" />
+    <ion-button
+      class="header-home__notification"
+      color="white"
+      (click)="onClick()"
+    >
+      <ion-icon src="assets/img/home/notification.svg"> </ion-icon>
+      <ion-label></ion-label>
+    </ion-button>
+  </div>
 </ion-header>
 
 <ion-content>
-
+  <div
+    class="main"
+    [style.background-image]="photo"
+    [ngStyle]="{'background-image': 'url(' + photo +')'}"
+  >
+    <div class="main__body">
+      <div class="missions">
+        <app-feed></app-feed>
+      </div>
+      <div class="oink">
+        <img
+          id="main_oink"
+          src="assets/img/home/oinks/Oink sombra@2x.png"
+          alt=""
+        />
+      </div>
+      <div class="saving"></div>
+    </div>
+    <div class="main__bottom">
+      <div class="balances">
+        <ion-label
+          class="balances__info"
+          (click)="infoBalance('Disponible')"
+        ></ion-label>
+        <div class="balance-values">
+          <ion-label class="balance-values__value"
+            >$ {{balances.disponible}}</ion-label
+          >
+          <ion-label class="balance-values__description"
+            >Saldo disponible</ion-label
+          >
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="balances">
+        <div class="balance-values">
+          <ion-label class="balance-values__value"
+            >$ {{balances.total}}</ion-label
+          >
+          <ion-label class="balance-values__description">Saldo total</ion-label>
+        </div>
+        <ion-label
+          class="balances__info"
+          (click)="infoBalance('Total')"
+        ></ion-label>
+      </div>
+    </div>
+  </div>
+  <div class="options">
+    <ion-slides class="options__header" [options]="slideOpts">
+      <ion-slide class="slides-options" *ngFor="let option of options">
+        <div class="option">
+          <span>
+            <img class="option__img" [src]="option.url" alt="" />
+          </span>
+          <ion-label class="option__name">{{option.name}}</ion-label>
+        </div>
+      </ion-slide>
+    </ion-slides>
+    <div class="options__body"></div>
+  </div>
+  <div class="feed">
+    <ion-label class="feed__title">Feed</ion-label>
+  </div>
 </ion-content>

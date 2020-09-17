@@ -1,0 +1,114 @@
+$color-dark: #001b24;
+$color-light: #ffffff;
+$color-selected: #e1fecb;
+
+.header-home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &__config {
+    --box-shadow: none;
+  }
+  &__notification {
+    --box-shadow: none;
+    ion-label {
+      background-color: red;
+      border-radius: 20px;
+      height: 11px;
+      width: 11px;
+      position: absolute;
+      right: -1px;
+      top: 10px;
+    }
+  }
+}
+
+.main {
+  height: 283px;
+  width: 100%;
+  box-shadow: 0px 3px 20px #00000012;
+  background-image: url("../../../assets/img/home/main/fondos/Fondo claro.png");
+  &__body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+  }
+  &__bottom {
+    height: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.divider {
+  height: 44px;
+  border: 2px solid #004b40;
+}
+
+.balances {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  &__info {
+    background-image: url("../../../assets/img/home/main/Tooltip.svg");
+    width: 14px;
+    height: 14px;
+  }
+  .balance-values {
+    display: flex;
+    flex-direction: column;
+    color: var(--ion-color-coink-secundary);
+    padding: 0 15px;
+    text-align: center;
+    &__value {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__description {
+      font-size: 12px;
+    }
+  }
+}
+
+.options {
+  height: 40%;
+  &__header {
+    height: 20%;
+  }
+  &__body {
+    height: 80%;
+  }
+}
+
+.option {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  &__img {
+    padding: 0 10px;
+  }
+  &__name {
+    font-size: 14px;
+    color: var(--ion-color-coink-secundary);
+  }
+}
+
+.slides-options {
+  width: 150px !important;
+}
+
+.feed {
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--ion-color-coink-secundary);
+    padding: 20px;
+  }
+}

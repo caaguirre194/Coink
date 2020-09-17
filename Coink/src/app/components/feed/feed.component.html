@@ -1,0 +1,115 @@
+<ion-item
+  [class.points]="isPoints && select != 'news' && conditionalShow"
+  [attr.points]="isPoints | numero"
+  [class.status-2]="data.status && data.status == 2"
+  (click)="onElement($event)"
+>
+  <ion-thumbnail
+    item-start
+    [class.medi]="!(phone.length || image)"
+    [class.porcent]="!(phone.length || image)"
+    [attr.porcent]="porcent"
+  >
+    <div class="__container" *ngIf="type == 39">
+      <div
+        class="imagen-header"
+        [style.backgroundImage]="'url(' + image + ')'"
+      ></div>
+    </div>
+
+    <img
+      *ngIf="(phone.length || image) && type != 39"
+      [class.preload]="!show"
+      [src]="image || ''"
+      (load)="show = !show"
+    />
+
+    <svg
+      class="circles"
+      *ngIf="!show && type != 39"
+      [class.preload]="(phone.length || image) && !show"
+      [attr.viewBox]="'0 0 ' + SIZE + ' ' + SIZE"
+    >
+      <circle
+        class="grey"
+        stroke-dashoffset="0"
+        [attr.r]="SIZE / 2 - STROKE"
+        [attr.cy]="SIZE / 2"
+        [attr.cx]="SIZE / 2"
+        [attr.stroke-dasharray]="PI_DOBLE * SIZE"
+        [attr.stroke-width]="STROKE"
+      ></circle>
+      <circle
+        class="super"
+        [attr.r]="SIZE / 2 - STROKE"
+        [attr.cy]="SIZE / 2"
+        [attr.cx]="SIZE / 2"
+        [attr.stroke-width]="STROKE"
+        [attr.stroke-dasharray]="PI_DOBLE * (SIZE / 2 - STROKE)"
+        [attr.stroke-dashoffset]="
+          PI_DOBLE * (SIZE / 2 - STROKE) * (1 - porcent / 100)
+        "
+        [attr.stroke]="'#1EEA00'"
+      ></circle>
+    </svg>
+  </ion-thumbnail>
+
+  <ion-label>
+    <h2 *ngIf="!phone.length" [innerHTML]="title"></h2>
+    <h2 *ngIf="phone.length" [class.preload]="(phone.length || image) && !show">
+      <Contact #user [phone]="phone" [forceName]="str.place && data[str.place]">
+      </Contact>
+      <span *ngIf="select == 'news' && data.requests_more"
+        >y otras {{ data.requests_more }}</span
+      >
+    </h2>
+
+    <p
+      *ngIf="str.description && str.description.length"
+      [innerHTML]="subject"
+    ></p>
+    <p
+      class="subject"
+      *ngIf="
+        data.subject &&
+        data.subject.length &&
+        !str.no_subject &&
+        str.type_prizes != 34
+      "
+    >
+      "{{ data.subject }}"
+    </p>
+
+    <p
+      style="font-size: 12px"
+      *ngIf="str.image == 'assets/images/feed_pago_2.svg'"
+    >
+      <span>Tarifa:</span>
+      <span style="color: red">$ 0</span>
+    </p>
+
+    <div *ngIf="action" class="actions-container">
+      <button ion-button outline *ngIf="type == 2" (tap)="ok.emit($event)">
+        Aceptar
+      </button>
+      <button ion-button outline *ngIf="type == 2" (tap)="cancel.emit($event)">
+        Rechazar
+      </button>
+      <button ion-button outline *ngIf="type == 1" (tap)="cancel.emit($event)">
+        Eliminar
+      </button>
+    </div>
+  </ion-label>
+
+  <button
+    ion-button
+    item-end
+    icon-only
+    clear
+    *ngIf="data && data.can_change"
+    (tap)="ok.emit($event)"
+    class="out-margin-padding"
+  >
+    <ion-icon name="coink-loop"></ion-icon>
+  </button>
+</ion-item>
