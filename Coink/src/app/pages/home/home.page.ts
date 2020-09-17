@@ -6,16 +6,15 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.page.scss"],
 })
 export class HomePage implements OnInit {
+  private isDay: boolean;
+  private backImage: string;
+  private settingsImage: string;
+  private theme: string;
+
   private balances = {
     disponible: "533.333",
     total: "1.171.000",
   };
-
-  private isDay: boolean;
-
-  photo = "assets/img/home/main/fondos/Fondo oscuro.png";
-
-  photo2 = `url( ${this.photo})`;
 
   slideOpts = {
     // slidesPerView: 10,
@@ -50,15 +49,27 @@ export class HomePage implements OnInit {
       url: "assets/img/home/options/Cofre cerrado.svg",
       name: "Comunidades",
     },
-    {
-      url: "assets/img/home/options/icono_meta.svg",
-      name: "Metas",
-    },
   ];
 
-  constructor() {}
+  constructor() {
+    this.isDay = true;
+    this.theme = "theme-light";
+    this.backImage = "assets/img/home/main/fondos/Fondo_claro.png";
+    this.settingsImage = "assets/img/home/header/gear_dark.svg";
+  }
 
-  setBackground() {}
+  setBackground() {
+    if (this.isDay) {
+      this.backImage = "assets/img/home/main/fondos/Fondo_oscuro.png";
+      this.settingsImage = "assets/img/home/header/gear_light.svg";
+      this.theme = "theme-dark";
+    } else {
+      this.backImage = "assets/img/home/main/fondos/Fondo_claro.png";
+      this.settingsImage = "assets/img/home/header/gear_dark.svg";
+      this.theme = "theme-light";
+    }
+    this.isDay = !this.isDay;
+  }
 
   ngOnInit() {}
 
@@ -66,5 +77,9 @@ export class HomePage implements OnInit {
 
   infoBalance(test: string) {
     alert(`Esto es un balance ${test}`);
+  }
+
+  selectOption(name) {
+    alert(name);
   }
 }

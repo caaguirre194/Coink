@@ -1,7 +1,11 @@
-<ion-header>
-  <div class="header-home">
-    <ion-button class="header-home__config" color="white" (click)="onClick()">
-      <ion-icon src="assets/img/home/gear.svg"></ion-icon>
+<ion-header no-border>
+  <div class="header-home" [ngClass]="theme">
+    <ion-button
+      class="header-home__config"
+      [ngClass]="theme"
+      (click)="onClick()"
+    >
+      <ion-icon [src]="settingsImage"></ion-icon>
     </ion-button>
     <img src="assets/img/home/header/Logotipo neon.svg" alt="" />
     <ion-button
@@ -9,7 +13,7 @@
       color="white"
       (click)="onClick()"
     >
-      <ion-icon src="assets/img/home/notification.svg"> </ion-icon>
+      <ion-icon src="assets/img/home/header/notification.svg"> </ion-icon>
       <ion-label></ion-label>
     </ion-button>
   </div>
@@ -18,8 +22,8 @@
 <ion-content>
   <div
     class="main"
-    [style.background-image]="photo"
-    [ngStyle]="{'background-image': 'url(' + photo +')'}"
+    [ngStyle]="{backgroundImage:'url(' + backImage + ')'}"
+    (click)="setBackground()"
   >
     <div class="main__body">
       <div class="missions">
@@ -40,7 +44,7 @@
           class="balances__info"
           (click)="infoBalance('Disponible')"
         ></ion-label>
-        <div class="balance-values">
+        <div class="balance-values" [ngClass]="theme">
           <ion-label class="balance-values__value"
             >$ {{balances.disponible}}</ion-label
           >
@@ -51,7 +55,7 @@
       </div>
       <div class="divider"></div>
       <div class="balances">
-        <div class="balance-values">
+        <div class="balance-values" [ngClass]="theme">
           <ion-label class="balance-values__value"
             >$ {{balances.total}}</ion-label
           >
@@ -67,7 +71,7 @@
   <div class="options">
     <ion-slides class="options__header" [options]="slideOpts">
       <ion-slide class="slides-options" *ngFor="let option of options">
-        <div class="option">
+        <div class="option selected" (click)="selectOption(option.name)">
           <span>
             <img class="option__img" [src]="option.url" alt="" />
           </span>
