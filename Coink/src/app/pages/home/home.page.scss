@@ -1,5 +1,5 @@
 ion-content {
-  --background-color: #ffffff;
+  --background: #fcfbfc;
 }
 
 $color-selected: #e1fecb;
@@ -112,7 +112,6 @@ $color-selected: #e1fecb;
 }
 
 .options {
-  height: 40%;
   &__header {
     height: 20%;
   }
@@ -169,6 +168,10 @@ ion-scroll[scrollX] {
   .scroll-item {
     display: inline-block;
   }
+}
+
+ion-item {
+  --background: #fcfbfc !important;
 }
 
 /* Hide ion-content scrollbar */
