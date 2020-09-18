@@ -1,0 +1,31 @@
+<div class="circle-progress">
+  <div class="circle-progress__percent">
+    <svg [style.width]="SIZE" [style.height]="SIZE">
+      <circle
+        stroke-dashoffset="0"
+        [attr.stroke]="'hsla(0, 0%, 0%, 0)'"
+        [attr.cx]="SIZE / 2"
+        [attr.cy]="SIZE / 2"
+        [attr.r]="SIZE / 2 - STROKE"
+        [attr.stroke-width]="STROKE"
+        [attr.stroke-dasharray]="PI_DOBLE * SIZE"
+      ></circle>
+      <circle
+        [attr.stroke-dashoffset]="
+          PI_DOBLE * (SIZE / 2 - STROKE) * (1 - PERCENT / 100)
+        "
+        [attr.stroke]="COLOR"
+        [attr.cx]="SIZE / 2"
+        [attr.cy]="SIZE / 2"
+        [attr.r]="SIZE / 2 - STROKE"
+        [attr.stroke-width]="STROKE"
+        [attr.stroke-dasharray]="PI_DOBLE * (SIZE / 2 - STROKE)"
+      >
+        >
+      </circle>
+    </svg>
+    <div class="circle-progress__number">
+      <ion-label [style.color]="COLOR">{{ PERCENT }}<span>%</span></ion-label>
+    </div>
+  </div>
+</div>
