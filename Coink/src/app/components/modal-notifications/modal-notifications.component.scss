@@ -1,0 +1,13 @@
+ion-content {
+  --background: transparent linear-gradient(351deg, #ececec 0%, #ffffff 100%) 0%
+    0% no-repeat padding-box;
+}
+
+.modal-header {
+  text-align: center;
+  &__title {
+    color: var(--ion-color-coink-secundary);
+    font-weight: bold;
+    font-size: 22px;
+  }
+}

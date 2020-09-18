@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ModalController, AnimationController } from "@ionic/angular";
+import { ModalNotificationsComponent } from "src/app/components/modal-notifications/modal-notifications.component";
 
 @Component({
   selector: "app-home",
@@ -10,6 +12,8 @@ export class HomePage implements OnInit {
   private backImage: string;
   private settingsImage: string;
   private theme: string;
+
+  private colorGraph: "red";
 
   private balances = {
     oink: "assets/img/home/oinks/Oink sombra@2x.png",
@@ -61,7 +65,10 @@ export class HomePage implements OnInit {
     },
   ];
 
-  constructor() {
+  constructor(
+    public modalController: ModalController,
+    public animationCtrl: AnimationController
+  ) {
     this.isDay = true;
     if (this.isDay) {
       this.backImage = "assets/img/home/main/fondos/Fondo_claro.png";
@@ -73,6 +80,53 @@ export class HomePage implements OnInit {
       this.settingsImage = "assets/img/home/header/gear_light.svg";
     }
   }
+
+  async presentModalNotifications() {
+    const enterAnimation = (baseEl: any) => {
+      const backdropAnimation = this.animationCtrl
+        .create()
+        .addElement(baseEl.querySelector("ion-backdrop")!)
+        .fromTo("opacity", "0.01", "var(--backdrop-opacity)");
+
+      const wrapperAnimation = this.animationCtrl
+        .create()
+        .addElement(baseEl.querySelector(".modal-wrapper")!)
+        .keyframes([
+          { offset: 0, opacity: "0", transform: "scale(0)" },
+          { offset: 1, opacity: "0.99", transform: "scale(1)" },
+        ]);
+
+      return this.animationCtrl
+        .create()
+        .addElement(baseEl)
+        .easing("ease-out")
+        .duration(500)
+        .addAnimation([backdropAnimation, wrapperAnimation]);
+    };
+
+    const leaveAnimation = (baseEl: any) => {
+      return enterAnimation(baseEl).direction("reverse");
+    };
+
+    const modal = await this.modalController.create({
+      component: ModalNotificationsComponent,
+      cssClass: "modal-notifications",
+      showBackdrop: true,
+      backdropDismiss: false,
+      animated: true,
+      // enterAnimation,
+      // leaveAnimation,
+    });
+    return await modal.present();
+  }
+
+  // async presentModalNotifications() {
+  //   const modal = await this.modalController.create({
+  //     component: ModalNotificationsComponent,
+  //     cssClass: "modal-notifications",
+  //   });
+  //   return await modal.present();
+  // }
 
   setBackground() {
     if (this.isDay) {
