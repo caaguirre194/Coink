@@ -1,4 +1,4 @@
-<ion-header no-border>
+<ion-header mode="ios" no-lines>
   <div class="header-home" [ngClass]="theme">
     <ion-button
       class="header-home__config"
@@ -22,21 +22,38 @@
 <ion-content>
   <div
     class="main"
+    [ngClass]="theme"
     [ngStyle]="{backgroundImage:'url(' + backImage + ')'}"
     (click)="setBackground()"
   >
     <div class="main__body">
-      <div class="missions">
-        <app-feed></app-feed>
+      <div class="main-item mission">
+        <app-circle-progress-bar
+          [PERCENT]="50"
+          [SIZE]="50"
+          [STROKE]="3"
+          [COLOR]="'var(--ion-color-coink-primary)'"
+        ></app-circle-progress-bar>
+        <ion-label class="main-item__title">
+          {{balances.mision.title}}</ion-label
+        >
+        <ion-label class="main-item__description">
+          {{balances.mision.description}}</ion-label
+        >
       </div>
-      <div class="oink">
-        <img
-          id="main_oink"
-          src="assets/img/home/oinks/Oink sombra@2x.png"
-          alt=""
-        />
+      <div class="main-item oink">
+        <img id="main_oink" [src]="balances.oink" alt="" />
       </div>
-      <div class="saving"></div>
+      <div class="main-item saving">
+        <img [src]="balances.ahorro.url" alt="" />
+
+        <ion-label class="main-item__title">
+          {{balances.ahorro.title}}
+        </ion-label>
+        <ion-label class="main-item__description">
+          {{balances.ahorro.description}}</ion-label
+        >
+      </div>
     </div>
     <div class="main__bottom">
       <div class="balances">
@@ -68,8 +85,8 @@
       </div>
     </div>
   </div>
-  <div class="options">
-    <ion-slides class="options__header" [options]="slideOpts">
+  <div class="options" [options]="slideOpts">
+    <ion-slides class="options__header">
       <ion-slide class="slides-options" *ngFor="let option of options">
         <div class="option selected" (click)="selectOption(option.name)">
           <span>
@@ -81,6 +98,7 @@
     </ion-slides>
     <div class="options__body"></div>
   </div>
+
   <div class="feed">
     <ion-label class="feed__title">Feed</ion-label>
   </div>

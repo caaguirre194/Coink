@@ -1,23 +1,18 @@
-$color-selected: #e1fecb;
-
-.theme-light {
-  background-color: #ffffff;
-  --background: #ffffff;
-  .balance-values__value {
-    color: var(--ion-color-coink-secundary);
-  }
-  .balance-values__description {
-    color: var(--ion-color-coink-secundary);
-  }
+ion-content {
+  --background-color: #ffffff;
 }
+
+$color-selected: #e1fecb;
 
 .theme-dark {
   background-color: #001b24;
-  --background: #001b24;
+  --background: #001b24 !important;
+
   .balance-values__value {
     color: var(--ion-color-coink-primary);
   }
-  .balance-values__description {
+  .balance-values__description,
+  .main-item {
     color: #ffffff;
   }
 }
@@ -28,9 +23,11 @@ $color-selected: #e1fecb;
   justify-content: space-between;
   &__config {
     --box-shadow: none;
+    --background: #ffffff;
   }
   &__notification {
     --box-shadow: none;
+    --background: #ffffff;
     ion-label {
       background-color: red;
       border-radius: 20px;
@@ -47,16 +44,15 @@ $color-selected: #e1fecb;
   height: 283px;
   width: 100%;
   box-shadow: 0px 3px 20px #00000012;
-  // background-image: url("../../../assets/img/home/main/fondos/Fondo claro.png");
   &__body {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 75%;
+    height: 70%;
+    margin-bottom: 3%;
   }
   &__bottom {
-    height: 25%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -64,10 +60,20 @@ $color-selected: #e1fecb;
   }
 }
 
-.oink {
-}
-
-.saving {
+.main-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: var(--ion-color-coink-secundary);
+  font-size: 12px;
+  text-align: center;
+  &__title {
+    font-weight: bold;
+    padding-top: 10px;
+  }
+  &__description {
+  }
 }
 
 .divider {
@@ -112,16 +118,31 @@ $color-selected: #e1fecb;
   }
 }
 
+.options::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8%;
+  background-color: #ffffff;
+  border-top-right-radius: 90% 30%;
+  border-top-left-radius: 90% 30%;
+  margin-top: -8px;
+  box-shadow: inset 0px 3px 20px #00000012;
+}
+
 .option {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  height: 37px;
   &__img {
-    padding: 0 10px;
+    padding-left: 10px;
   }
   &__name {
     font-size: 14px;
+    padding: 0 10px;
     color: var(--ion-color-coink-secundary);
   }
 }

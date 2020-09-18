@@ -12,8 +12,18 @@ export class HomePage implements OnInit {
   private theme: string;
 
   private balances = {
+    oink: "assets/img/home/oinks/Oink sombra@2x.png",
     disponible: "533.333",
     total: "1.171.000",
+    mision: {
+      title: "Mision del día",
+      description: "Ahorra $5000",
+    },
+    ahorro: {
+      url: "assets/img/home/main/infographic_up.svg",
+      title: "+$23.000 ahorro",
+      description: "este mes",
+    },
   };
 
   slideOpts = {
@@ -53,9 +63,15 @@ export class HomePage implements OnInit {
 
   constructor() {
     this.isDay = true;
-    this.theme = "theme-light";
-    this.backImage = "assets/img/home/main/fondos/Fondo_claro.png";
-    this.settingsImage = "assets/img/home/header/gear_dark.svg";
+    if (this.isDay) {
+      this.backImage = "assets/img/home/main/fondos/Fondo_claro.png";
+      this.settingsImage = "assets/img/home/header/gear_dark.svg";
+      this.theme = "";
+    } else {
+      this.theme = "theme-dark";
+      this.backImage = "assets/img/home/main/fondos/Fondo_oscuro.png";
+      this.settingsImage = "assets/img/home/header/gear_light.svg";
+    }
   }
 
   setBackground() {
@@ -66,7 +82,7 @@ export class HomePage implements OnInit {
     } else {
       this.backImage = "assets/img/home/main/fondos/Fondo_claro.png";
       this.settingsImage = "assets/img/home/header/gear_dark.svg";
-      this.theme = "theme-light";
+      this.theme = "";
     }
     this.isDay = !this.isDay;
   }
