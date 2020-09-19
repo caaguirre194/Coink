@@ -91,10 +91,9 @@ export class HomePage implements OnInit {
       const wrapperAnimation = this.animationCtrl
         .create()
         .addElement(baseEl.querySelector(".modal-wrapper")!)
-        .keyframes([
-          { offset: 0, opacity: "0", transform: "scale(0)" },
-          { offset: 1, opacity: "0.99", transform: "scale(1)" },
-        ]);
+        .beforeStyles({ transform: "translateX(100%);", opacity: 1 })
+        .fromTo("transform", "translateX(100%)", "translateX(0)")
+        .fromTo("opacity", 1, 1);
 
       return this.animationCtrl
         .create()
@@ -114,8 +113,8 @@ export class HomePage implements OnInit {
       showBackdrop: true,
       backdropDismiss: false,
       animated: true,
-      // enterAnimation,
-      // leaveAnimation,
+      enterAnimation,
+      leaveAnimation,
     });
     return await modal.present();
   }
