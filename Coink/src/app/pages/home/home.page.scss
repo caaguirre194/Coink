@@ -2,8 +2,6 @@ ion-content {
   --background: #fcfbfc;
 }
 
-$color-selected: #e1fecb;
-
 .theme-dark {
   background-color: #001b24 !important;
   --background: #001b24 !important;
@@ -114,10 +112,9 @@ $color-selected: #e1fecb;
 
 .options {
   &__header {
-    height: 20%;
   }
   &__body {
-    height: 80%;
+    height: 150px;
   }
 }
 
@@ -148,6 +145,14 @@ $color-selected: #e1fecb;
     padding: 0 10px;
     color: var(--ion-color-coink-secundary);
   }
+  span {
+    width: 35px;
+    height: 25px;
+  }
+}
+
+.option-selected {
+  background-color: #e1fecb;
 }
 
 .slides-options {
@@ -168,6 +173,7 @@ ion-scroll[scrollX] {
   overflow: scroll;
   .scroll-item {
     display: inline-block;
+    vertical-align: middle;
   }
 }
 

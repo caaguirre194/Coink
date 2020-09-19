@@ -12,8 +12,7 @@ export class HomePage implements OnInit {
   private backImage: string;
   private settingsImage: string;
   private theme: string;
-
-  private colorGraph: "red";
+  private optionSelected: string;
 
   private balances = {
     oink: "assets/img/home/oinks/Oink sombra@2x.png",
@@ -28,18 +27,6 @@ export class HomePage implements OnInit {
       title: "+$23.000 ahorro",
       description: "este mes",
     },
-  };
-
-  slideOpts = {
-    // slidesPerView: 10,
-    // freeMode: false,
-    // coverflowEffect: {
-    //   rotate: 50,
-    //   stretch: 0,
-    //   depth: 100,
-    //   modifier: 1,
-    //   slideShadows: true,
-    // },
   };
 
   options = [
@@ -119,14 +106,6 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
-  // async presentModalNotifications() {
-  //   const modal = await this.modalController.create({
-  //     component: ModalNotificationsComponent,
-  //     cssClass: "modal-notifications",
-  //   });
-  //   return await modal.present();
-  // }
-
   setBackground() {
     if (this.isDay) {
       this.backImage = "assets/img/home/main/fondos/Fondo_oscuro.png";
@@ -148,7 +127,20 @@ export class HomePage implements OnInit {
     alert(`Esto es un balance ${test}`);
   }
 
-  selectOption(name) {
-    alert(name);
+  selectOption(option, event) {
+    this.optionSelected = option;
+    const className = "option-selected";
+    console.log(this.optionSelected);
+
+    if (event.currentTarget.classList.contains(className)) {
+      event.currentTarget.classList.remove(className);
+    } else {
+      const elems = document.querySelectorAll(`.${className}`);
+
+      [].forEach.call(elems, (el) => {
+        el.classList.remove(className);
+      });
+      event.currentTarget.classList.add(className);
+    }
   }
 }

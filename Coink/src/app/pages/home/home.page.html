@@ -85,24 +85,27 @@
       </div>
     </div>
   </div>
-  <div class="options" [options]="slideOpts">
-    <ion-row>
-      <ion-item lines="none">
-        <ion-scroll scrollX="true">
-          <div class="scroll-item" *ngFor="let option of options">
-            <div class="option" (click)="selectOption(option.name)">
-              <span>
-                <img class="option__img" [src]="option.url" alt="" />
-              </span>
-              <ion-label class="option__name">{{option.name}}</ion-label>
+  <div class="options">
+    <div class="options__header">
+      <ion-row>
+        <ion-item lines="none">
+          <ion-scroll scrollX="true">
+            <div class="scroll-item" *ngFor="let option of options">
+              <div class="option" (click)="selectOption(option.name, $event)">
+                <span>
+                  <img class="option__img" [src]="option.url" alt="" />
+                </span>
+                <ion-label class="option__name">{{option.name}}</ion-label>
+              </div>
             </div>
-          </div>
-        </ion-scroll>
-      </ion-item>
-    </ion-row>
+          </ion-scroll>
+        </ion-item>
+      </ion-row>
+    </div>
+    <div class="options__body"></div>
   </div>
 
-  <!-- <div class="feed">
+  <div class="feed">
     <ion-label class="feed__title">Feed</ion-label>
-  </div> -->
+  </div>
 </ion-content>
