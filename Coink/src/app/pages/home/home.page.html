@@ -41,7 +41,7 @@
           {{balances.mision.description}}</ion-label
         >
       </div>
-      <div class="main-item oink">
+      <div class="main-item oink-img">
         <img id="main_oink" [src]="balances.oink" alt="" />
       </div>
       <div class="main-item saving">
@@ -63,7 +63,7 @@
         ></ion-label>
         <div class="balance-values" [ngClass]="theme">
           <ion-label class="balance-values__value"
-            >$ {{balances.disponible}}</ion-label
+            >$ {{balances.disponible | number }}</ion-label
           >
           <ion-label class="balance-values__description"
             >Saldo disponible</ion-label
@@ -73,8 +73,8 @@
       <div class="divider"></div>
       <div class="balances">
         <div class="balance-values" [ngClass]="theme">
-          <ion-label class="balance-values__value"
-            >$ {{balances.total}}</ion-label
+          <ion-label class="balance-values__value">
+            $ {{balances.total | number}}</ion-label
           >
           <ion-label class="balance-values__description">Saldo total</ion-label>
         </div>
@@ -88,7 +88,7 @@
   <div class="options">
     <div class="options__header">
       <ion-row>
-        <ion-item lines="none">
+        <ion-item lines="none" class="ion-no-padding">
           <ion-scroll scrollX="true">
             <div class="scroll-item" *ngFor="let option of options">
               <div class="option" (click)="selectOption(option.name, $event)">
