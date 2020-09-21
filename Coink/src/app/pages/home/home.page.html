@@ -88,9 +88,13 @@
   <div class="options">
     <div class="options__header">
       <ion-row>
-        <ion-item lines="none" class="ion-no-padding">
+        <ion-item lines="none" class="ion-no-padding content-options">
           <ion-scroll scrollX="true">
-            <div class="scroll-item" *ngFor="let option of options">
+            <div
+              class="scroll-item"
+              *ngFor="let option of options"
+              style="padding-right: 16px"
+            >
               <div class="option" (click)="selectOption(option.name, $event)">
                 <span>
                   <img class="option__img" [src]="option.url" alt="" />
@@ -102,7 +106,62 @@
         </ion-item>
       </ion-row>
     </div>
-    <div class="options__body"></div>
+    <div class="options__body">
+      <ion-row>
+        <ion-item lines="none" class="ion-no-padding content-options">
+          <ion-scroll scrollX="true">
+            <div *ngIf="optionSelected == 'Comunidades'">
+              <div
+                class="scroll-item communities-item"
+                style="height: 120px; width: 70px"
+              >
+                <div class="communities-item__body">
+                  <div
+                    class="communities-item__community"
+                    *ngFor="let community of communities | slice:0:3; let i=index"
+                  >
+                    <img
+                      [src]="community.url"
+                      alt=""
+                      class="communities-item__img"
+                    />
+                    <ion-label class="communities-item__name"
+                      >{{community.name}}</ion-label
+                    >
+                    <ion-label>$ {{community.value | number}}</ion-label>
+                  </div>
+                  <div class="communities-item__more">
+                    <ion-icon
+                      name="add"
+                      color="coink-primary"
+                      style="width: 26px; height: 26px"
+                    ></ion-icon>
+                    <ion-label text-wrap class="ion-text-uppercase"
+                      >Ver más</ion-label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="optionSelected == 'Bazar'">
+              <div
+                class="scroll-item bazar-item"
+                *ngFor="let bazar of bazarItems"
+                style="height: 120px; width: 70px"
+              >
+                <div class="bazar-item__body">
+                  <ion-icon
+                    class="bazar-item__icon"
+                    name="cash-outline"
+                  ></ion-icon>
+                  <ion-label class="bazar-item__name">{{bazar.name}}</ion-label>
+                </div>
+              </div>
+            </div>
+          </ion-scroll>
+        </ion-item>
+      </ion-row>
+    </div>
   </div>
 
   <div class="feed">

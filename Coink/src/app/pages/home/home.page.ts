@@ -18,6 +18,57 @@ export class HomePage implements OnInit {
   private goals: any;
   private notifications: any;
 
+  private communities = [
+    {
+      name: "Javeriana",
+      value: "100000",
+      url: "assets/img/home/options/javeriana.png",
+    },
+    {
+      name: "Comfama",
+      value: "205350",
+      url: "assets/img/home/options/comfama.png",
+    },
+    {
+      name: "Subsidios",
+      value: "75000",
+      url: "assets/img/home/options/comfama.png",
+    },
+    {
+      name: "Comfama",
+      value: "205350",
+      url: "assets/img/home/options/comfama.png",
+    },
+    {
+      name: "Subsidios",
+      value: "75000",
+      url: "assets/img/home/options/comfama.png",
+    },
+  ];
+
+  private bazarItems = [
+    {
+      name: "Servicios",
+      icon: "",
+      redirectTo: "",
+    },
+    {
+      name: "Suscripciones",
+      icon: "",
+      redirectTo: "",
+    },
+    {
+      name: "Recargas",
+      icon: "",
+      redirectTo: "",
+    },
+    {
+      name: "Marketplace",
+      icon: "",
+      redirectTo: "",
+    },
+  ];
+
   private balance = {
     oink: "assets/img/home/oinks/oink-main.png",
     saldoDisponible: "533333",
@@ -33,7 +84,7 @@ export class HomePage implements OnInit {
     },
   };
 
-  options = [
+  private options = [
     {
       url: "assets/img/home/options/Cofre cerrado.svg",
       name: "Comunidades",
