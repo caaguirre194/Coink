@@ -35,23 +35,23 @@
           [COLOR]="'var(--ion-color-coink-primary)'"
         ></app-circle-progress-bar>
         <ion-label class="main-item__title">
-          {{balances.mision.title}}</ion-label
+          {{balance.mision.title}}</ion-label
         >
         <ion-label class="main-item__description">
-          {{balances.mision.description}}</ion-label
+          {{balance.mision.description}}</ion-label
         >
       </div>
       <div class="main-item oink-img">
-        <img id="main_oink" [src]="balances.oink" alt="" />
+        <img id="main_oink" [src]="balance.oink" alt="" />
       </div>
       <div class="main-item saving">
-        <img [src]="balances.ahorro.url" alt="" />
+        <img [src]="balance.ahorro.url" alt="" />
 
         <ion-label class="main-item__title">
-          {{balances.ahorro.title}}
+          {{balance.ahorro.title}}
         </ion-label>
         <ion-label class="main-item__description">
-          {{balances.ahorro.description}}</ion-label
+          {{balance.ahorro.description}}</ion-label
         >
       </div>
     </div>
@@ -63,7 +63,7 @@
         ></ion-label>
         <div class="balance-values" [ngClass]="theme">
           <ion-label class="balance-values__value"
-            >$ {{balances.disponible | number }}</ion-label
+            >$ {{balance.saldoDisponible | number }}</ion-label
           >
           <ion-label class="balance-values__description"
             >Saldo disponible</ion-label
@@ -74,7 +74,7 @@
       <div class="balances">
         <div class="balance-values" [ngClass]="theme">
           <ion-label class="balance-values__value">
-            $ {{balances.total | number}}</ion-label
+            $ {{balance.saldoTotal | number}}</ion-label
           >
           <ion-label class="balance-values__description">Saldo total</ion-label>
         </div>

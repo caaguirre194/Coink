@@ -12,4 +12,66 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content> </ion-content>
+<ion-content>
+  <div
+    lines="none"
+    class="notification"
+    *ngFor="let notification of notifications"
+  >
+    <div *ngIf="notification.NotificationTypeId == 1">
+      <div class="notification__header">
+        <ion-label class="title">{{
+          notification.NotificationTitle
+        }}</ion-label>
+        <ion-label class="date">{{ notification.NotificationDate }}</ion-label>
+      </div>
+
+      <ion-label class="notification__subtitle"
+        >{{ notification.NotificationTypeDescription }}
+        <strong style="color: var(--ion-color-coink-secundary)"
+          >$ {{ notification.NnotificationValue | number }}</strong
+        ></ion-label
+      >
+      <div class="notification__content">
+        <p class="subject">{{ notification.NotificationSubject }}</p>
+        <div class="options">
+          <button
+            (click)="acceptNotification(notification)"
+            class="options__select"
+          >
+            <ion-icon name="checkmark-circle" color="coink-primary"></ion-icon>
+            Aceptar
+          </button>
+          <button
+            (click)="cancelNotification(notification)"
+            class="options__select"
+          >
+            <ion-icon name="close-circle" color="coink-danger"></ion-icon>
+            Rechazar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="notification.NotificationTypeId == 2">
+      <div class="notification__header">
+        <ion-label class="title">{{
+          notification.NotificationTitle
+        }}</ion-label>
+        <ion-icon
+          (click)="deleteNotification(notification)"
+          class="delete-notification"
+        ></ion-icon>
+      </div>
+
+      <ion-label class="notification__subtitle"
+        >{{ notification.NotificationTypeDescription }}
+      </ion-label>
+      <div class="notification__content">
+        <button (click)="openNotification(notification)" class="btn-open">
+          Conocer más
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

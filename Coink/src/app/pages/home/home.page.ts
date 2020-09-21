@@ -16,11 +16,12 @@ export class HomePage implements OnInit {
 
   private pockets: any;
   private goals: any;
+  private notifications: any;
 
-  private balances = {
+  private balance = {
     oink: "assets/img/home/oinks/oink-main.png",
-    disponible: "533333",
-    total: "1171000",
+    saldoDisponible: "533333",
+    saldoTotal: "1171000",
     mision: {
       title: "Mision del día",
       description: "Ahorra $5000",
@@ -110,7 +111,7 @@ export class HomePage implements OnInit {
         .create()
         .addElement(baseEl)
         .easing("ease-out")
-        .duration(500)
+        .duration(300)
         .addAnimation([backdropAnimation, wrapperAnimation]);
     };
 
