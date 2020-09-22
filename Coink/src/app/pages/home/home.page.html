@@ -86,82 +86,162 @@
     </div>
   </div>
   <div class="options">
-    <div class="options__header">
-      <ion-row>
-        <ion-item lines="none" class="ion-no-padding content-options">
-          <ion-scroll scrollX="true">
-            <div
-              class="scroll-item"
-              *ngFor="let option of options"
-              style="padding-right: 16px"
-            >
-              <div class="option" (click)="selectOption(option.name, $event)">
-                <span>
-                  <img class="option__img" [src]="option.url" alt="" />
-                </span>
-                <ion-label class="option__name">{{option.name}}</ion-label>
-              </div>
+    <ion-row>
+      <ion-item lines="none" class="options__header ion-no-padding">
+        <ion-scroll scrollX="true">
+          <div
+            class="scroll-item"
+            *ngFor="let option of options"
+            style="padding-right: 16px"
+          >
+            <div class="option" (click)="selectOption(option.name, $event)">
+              <span>
+                <img class="option__img" [src]="option.url" alt="" />
+              </span>
+              <ion-label class="option__name">{{option.name}}</ion-label>
             </div>
-          </ion-scroll>
-        </ion-item>
-      </ion-row>
-    </div>
-    <div class="options__body">
-      <ion-row>
-        <ion-item lines="none" class="ion-no-padding content-options">
-          <ion-scroll scrollX="true">
-            <div *ngIf="optionSelected == 'Comunidades'">
-              <div
-                class="scroll-item communities-item"
-                style="height: 120px; width: 70px"
-              >
-                <div class="communities-item__body">
-                  <div
-                    class="communities-item__community"
-                    *ngFor="let community of communities | slice:0:3; let i=index"
+          </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
+
+    <ion-row>
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div
+            *ngIf="optionSelected == 'Comunidades' && communities.length == 0"
+            class="options__body-empty"
+          >
+            <div class="communities-item-empty">
+              <ion-label text-wrap class="communities-item-empty__description">
+                Toda acción tiene su reacción, accede a descuentos y recompensas
+                por ahorrar en los cofres
+              </ion-label>
+              <a href="" class="communities-item-empty__link">Conócelos</a>
+            </div>
+          </div>
+
+          <div
+            *ngIf="optionSelected == 'Comunidades' && communities.length > 0"
+            class="options__body"
+          >
+            <div class="communities-item">
+              <div class="communities-item__body">
+                <div
+                  class="communities-item__community"
+                  *ngFor="let community of communities | slice:0:3; let i=index"
+                >
+                  <img
+                    [src]="community.url"
+                    alt=""
+                    class="communities-item__img"
+                  />
+                  <ion-label class="communities-item__name"
+                    >{{community.name}}</ion-label
                   >
-                    <img
-                      [src]="community.url"
-                      alt=""
-                      class="communities-item__img"
-                    />
-                    <ion-label class="communities-item__name"
-                      >{{community.name}}</ion-label
-                    >
-                    <ion-label>$ {{community.value | number}}</ion-label>
-                  </div>
-                  <div class="communities-item__more">
-                    <ion-icon
-                      name="add"
-                      color="coink-primary"
-                      style="width: 26px; height: 26px"
-                    ></ion-icon>
-                    <ion-label text-wrap class="ion-text-uppercase"
-                      >Ver más</ion-label
-                    >
-                  </div>
+                  <ion-label>$ {{community.value | number}}</ion-label>
                 </div>
-              </div>
-            </div>
-            <div *ngIf="optionSelected == 'Bazar'">
-              <div
-                class="scroll-item bazar-item"
-                *ngFor="let bazar of bazarItems"
-                style="height: 120px; width: 70px"
-              >
-                <div class="bazar-item__body">
+                <div class="communities-item__more">
                   <ion-icon
-                    class="bazar-item__icon"
-                    name="cash-outline"
+                    name="add"
+                    color="coink-primary"
+                    style="width: 26px; height: 26px"
                   ></ion-icon>
-                  <ion-label class="bazar-item__name">{{bazar.name}}</ion-label>
+                  <ion-label text-wrap class="ion-text-uppercase"
+                    >Ver más</ion-label
+                  >
                 </div>
               </div>
             </div>
-          </ion-scroll>
-        </ion-item>
-      </ion-row>
-    </div>
+          </div>
+
+          <div
+            *ngIf="optionSelected == 'Metas' && goals.length == 0"
+            class="options__body-empty"
+          >
+            <div class="goals-item-empty">
+              <ion-label text-wrap class="goals-item-empty__description">
+                ¿Aún no tienes un objetivo de ahorro? Empieza con algo pequeño.
+              </ion-label>
+              <ion-label class="goals-item-empty__link"
+                >un escalón a la vez.</ion-label
+              >
+              <ion-icon
+                class="goals-item-empty__icon"
+                src="assets/img/home/options/Cortado Guiño.svg"
+              ></ion-icon>
+            </div>
+          </div>
+
+          <div
+            *ngIf="optionSelected == 'Metas' && goals.length > 0"
+            class="options__body"
+          >
+            <div
+              class="scroll-item goals-item"
+              *ngFor="let goal of goals | slice:0:3; let i=index"
+            >
+              <ion-label class="goals-item__name">
+                {{goal.goal_description}}</ion-label
+              >
+              <ion-label class="goals-item__category">
+                {{goal.category_description}}</ion-label
+              >
+            </div>
+            <div class="scroll-item">
+              <div class="goals-item__more">
+                <ion-icon
+                  name="add"
+                  color="coink-primary"
+                  style="width: 26px; height: 26px"
+                ></ion-icon>
+                <ion-label text-wrap class="ion-text-uppercase"
+                  >Ver más</ion-label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="optionSelected == 'Tarjeta' " class="options__body-empty">
+            <div class="kids-item-empty">
+              <ion-label text-wrap class="kids-item-empty__description">
+                -----
+              </ion-label>
+              <a href="" class="kids-item-empty__link">Conócelos</a>
+            </div>
+          </div>
+
+          <div *ngIf="optionSelected == 'Bazar'" class="options__body">
+            <div
+              class="scroll-item bazar-item"
+              *ngFor="let bazar of bazarItems"
+            >
+              <div class="bazar-item__body">
+                <ion-icon
+                  class="bazar-item__icon"
+                  name="cash-outline"
+                ></ion-icon>
+                <ion-label class="bazar-item__name">{{bazar.name}}</ion-label>
+              </div>
+            </div>
+          </div>
+
+          <div
+            *ngIf="optionSelected == 'Kids' && kids.length == 0"
+            class="options__body-empty"
+          >
+            <div class="kids-item-empty">
+              <ion-label text-wrap class="kids-item-empty__description">
+                Ahorrar desde temprana edad puede significar un futuro
+                financiero exitoso, crea cofres para los más pequeños y asegura
+                un futuro para ellos
+              </ion-label>
+              <a href="" class="kids-item-empty__link">Conócelos</a>
+            </div>
+          </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
   </div>
 
   <div class="feed">
