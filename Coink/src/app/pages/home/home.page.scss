@@ -394,6 +394,65 @@ ion-scroll[scrollX] {
   }
 }
 
+.kids-item {
+  width: 207px;
+  height: 105px;
+  background-color: #ffffff;
+  box-shadow: 0px 3px 14px #7777772c;
+  border-radius: 4px;
+  padding: 12px;
+  margin-right: 17px;
+  border-left: 7px solid var(--ion-color-coink-primary);
+  &__body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  &__icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 25%;
+  }
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  &__name {
+    color: #212121;
+    font-size: 14px;
+    font-family: Avenir Next LT Pro;
+  }
+  &__value {
+    font-weight: bold;
+    font-size: 16px;
+    color: #212121;
+    margin-right: auto;
+  }
+  &__more {
+    width: 65px;
+    height: 105px;
+    background: transparent linear-gradient(180deg, #004b40 0%, #003336 100%) 0%
+      0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    margin-right: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .feed {
   &__title {
     font-size: 16px;

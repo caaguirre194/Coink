@@ -1,10 +1,6 @@
 <ion-header mode="ios" no-lines>
   <div class="header-home" [ngClass]="theme">
-    <ion-button
-      class="header-home__config"
-      [ngClass]="theme"
-      (click)="onClick()"
-    >
+    <ion-button class="header-home__config" [ngClass]="theme">
       <ion-icon [src]="settingsImage"></ion-icon>
     </ion-button>
     <img src="assets/img/home/header/Logotipo neon.svg" alt="" />
@@ -141,7 +137,7 @@
                   >
                   <ion-label>$ {{community.value | number}}</ion-label>
                 </div>
-                <div class="communities-item__more">
+                <div class="communities-item__more" (click)="showCommunities()">
                   <ion-icon
                     name="add"
                     color="coink-primary"
@@ -201,7 +197,7 @@
               ></ion-progress-bar>
             </div>
             <div class="scroll-item">
-              <div class="goals-item__more">
+              <div class="goals-item__more" (click)="showGoals()">
                 <ion-icon
                   name="add"
                   color="coink-primary"
@@ -227,6 +223,7 @@
             <div
               class="scroll-item bazar-item"
               *ngFor="let bazar of bazarItems"
+              (click)="goBazar(bazar.name)"
             >
               <div class="bazar-item__body">
                 <ion-icon
@@ -249,6 +246,40 @@
                 un futuro para ellos
               </ion-label>
               <a href="" class="kids-item-empty__link">Conócelos</a>
+            </div>
+          </div>
+
+          <div
+            *ngIf="optionSelected == 'Kids' && kids.length > 0"
+            class="options__body"
+          >
+            <div
+              class="scroll-item kids-item"
+              *ngFor="let kid of kids | slice:0:2; let i=index"
+            >
+              <div class="kids-item__body">
+                <img [src]="kid.logo" class="kids-item__icon" />
+                <div class="kids-item__description">
+                  <ion-label text-wrap class="kids-item__name">
+                    {{kid.name_vault}}</ion-label
+                  >
+                  <ion-label class="kids-item__value"
+                    >${{kid.balance | number}}
+                  </ion-label>
+                </div>
+              </div>
+            </div>
+            <div class="scroll-item">
+              <div class="kids-item__more" (click)="showKids()">
+                <ion-icon
+                  name="add"
+                  color="coink-primary"
+                  style="width: 26px; height: 26px"
+                ></ion-icon>
+                <ion-label text-wrap class="ion-text-uppercase"
+                  >Ver más</ion-label
+                >
+              </div>
             </div>
           </div>
         </ion-scroll>

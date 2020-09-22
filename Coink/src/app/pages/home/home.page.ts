@@ -14,7 +14,6 @@ export class HomePage implements OnInit {
   private theme: string;
   private optionSelected: string;
 
-  private pockets: any;
   private goals: any;
   private notifications: any;
   private communities: any;
@@ -97,6 +96,13 @@ export class HomePage implements OnInit {
     }
   }
 
+  ngOnInit() {
+    this.getCommunities();
+    this.getGoals();
+    this.getPockets();
+    this.getKids();
+  }
+
   async presentModalNotifications() {
     const enterAnimation = (baseEl: any) => {
       const backdropAnimation = this.animationCtrl
@@ -148,14 +154,21 @@ export class HomePage implements OnInit {
     this.isDay = !this.isDay;
   }
 
-  ngOnInit() {
-    this.getCommunities();
-    this.getGoals();
-    this.getPockets();
-    this.getKids();
+  goBazar(bazar) {
+    console.log(`Se redirige al Bazar ${bazar}`);
   }
 
-  onClick() {}
+  showCommunities() {
+    console.log("Se muestran las comunidades...");
+  }
+
+  showGoals() {
+    console.log("Se muestran las metas...");
+  }
+
+  showKids() {
+    console.log("Se muestran kids...");
+  }
 
   getGoals() {
     this.goals = [
@@ -267,18 +280,13 @@ export class HomePage implements OnInit {
         url: "assets/img/home/options/comfama.png",
       },
       {
-        name: "Subsidios",
-        value: "75000",
-        url: "assets/img/home/options/comfama.png",
+        name: "Javeriana",
+        value: "100000",
+        url: "assets/img/home/options/javeriana.png",
       },
       {
         name: "Comfama",
         value: "205350",
-        url: "assets/img/home/options/comfama.png",
-      },
-      {
-        name: "Subsidios",
-        value: "75000",
         url: "assets/img/home/options/comfama.png",
       },
     ];
@@ -286,114 +294,114 @@ export class HomePage implements OnInit {
 
   getKids() {
     this.kids = [
-      // {
-      //   authorization_id: 1,
-      //   balance: 200000,
-      //   balance_total: 200000,
-      //   count_goals: 3,
-      //   first_color: "#0f591c",
-      //   first_pocket: true,
-      //   general_description:
-      //     "Con el Cofre Comfenalco Valle tienes acceso a grandes beneficios, premios, promociones y mucho más.",
-      //   goal_balance: 0,
-      //   id_aliado: "CORRESP AV DORADO",
-      //   internal_description: "Acceda a grandes beneficios",
-      //   logo:
-      //     "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/2ba6f0886a072d8a21f0d1b9342c0be4.png",
-      //   main_features:
-      //     "Las principales características de este Cofre incluyen↵↵1. Poder ahorrar por separado de tu saldo Coink.↵2. Poder tener un historia…",
-      //   market_place: true,
-      //   name_vault: "DEV - Comfenalco Valle",
-      //   nit_vault: "900300400",
-      //   restrictive: false,
-      //   second_color: "#ffffff",
-      //   type_vault: 3,
-      //   update_term_conditions: true,
-      //   vault_id: "03e9fcd8-63d9-49bc-aaf9-27ac4573d790",
-      // },
-      // {
-      //   authorization_id: 1,
-      //   balance: 0,
-      //   balance_total: 0,
-      //   count_goals: 0,
-      //   first_color: "#07EE1E",
-      //   first_pocket: false,
-      //   general_description:
-      //     "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
-      //   goal_balance: 0,
-      //   id_aliado: "",
-      //   internal_description:
-      //     "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
-      //   logo:
-      //     "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/5bc8c567a89112d5f408a8af4f17970d.png",
-      //   main_features:
-      //     "Creamos este tipo de Cofre para que tú tengas total control. Acá puedes separar parte de tu saldo, ver un historial específicamente par…",
-      //   market_place: false,
-      //   name_vault: "Prueba",
-      //   nit_vault: "",
-      //   restrictive: false,
-      //   second_color: "#05410B",
-      //   type_vault: 4,
-      //   update_term_conditions: true,
-      //   vault_id: "c1cf9b95-2b06-4d0c-9a83-472cf17e1175",
-      // },
-      // {
-      //   authorization_id: 1,
-      //   balance: 180000,
-      //   balance_total: 180000,
-      //   count_goals: 0,
-      //   first_color: "#07EE1E",
-      //   first_pocket: false,
-      //   general_description:
-      //     "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
-      //   goal_balance: 0,
-      //   id_aliado: "",
-      //   internal_description:
-      //     "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
-      //   logo:
-      //     "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/99e3c77bd9b8b06a5cbec5ca7ed00a7f.png",
-      //   main_features:
-      //     "Creamos este tipo de Cofre para que tú tengas total control. Acá puedes separar parte de tu saldo, ver un historial específicamente par…",
-      //   market_place: false,
-      //   name_vault: "Viernes",
-      //   nit_vault: "",
-      //   restrictive: false,
-      //   second_color: "#05410B",
-      //   type_vault: 4,
-      //   update_term_conditions: true,
-      //   vault_id: "e2fe5083-4f4e-44ba-9ea6-055e1b525378",
-      // },
-      // {
-      //   authorization_id: 1,
-      //   balance: 0,
-      //   balance_total: 0,
-      //   count_goals: 0,
-      //   first_color: "#07EE1E",
-      //   first_pocket: false,
-      //   general_description:
-      //     "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
-      //   goal_balance: 0,
-      //   id_aliado: "",
-      //   internal_description:
-      //     "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
-      //   logo:
-      //     "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/faeb94e6b07d2b9e70ee62e17946a8a5.png",
-      //   main_features:
-      //     "Creamos este tipo de Cofre para que tú tengas total control. Acá puedes separar parte de tu saldo, ver un historial específicamente par…",
-      //   market_place: false,
-      //   name_vault: "Hiiy",
-      //   nit_vault: "",
-      //   restrictive: false,
-      //   second_color: "#05410B",
-      //   type_vault: 4,
-      //   update_term_conditions: true,
-      //   vault_id: "9f973926-f265-45dc-889b-a5eb21a71b0c",
-      // },
+      {
+        authorization_id: 1,
+        balance: 750000,
+        balance_total: 750000,
+        count_goals: 3,
+        first_color: "#0f591c",
+        first_pocket: true,
+        general_description:
+          "Con el Cofre Comfenalco Valle tienes acceso a grandes beneficios, premios, promociones y mucho más.",
+        goal_balance: 0,
+        id_aliado: "CORRESP AV DORADO",
+        internal_description: "Acceda a grandes beneficios",
+        logo:
+          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/2ba6f0886a072d8a21f0d1b9342c0be4.png",
+        main_features:
+          "Las principales características de este Cofre incluyen↵↵1. Poder ahorrar por separado de tu saldo Coink.↵2. Poder tener un historia…",
+        market_place: true,
+        name_vault: "Viaje Mateo",
+        nit_vault: "900300400",
+        restrictive: false,
+        second_color: "#ffffff",
+        type_vault: 3,
+        update_term_conditions: true,
+        vault_id: "03e9fcd8-63d9-49bc-aaf9-27ac4573d790",
+      },
+      {
+        authorization_id: 1,
+        balance: 0,
+        balance_total: 0,
+        count_goals: 0,
+        first_color: "#07EE1E",
+        first_pocket: false,
+        general_description:
+          "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
+        goal_balance: 0,
+        id_aliado: "",
+        internal_description:
+          "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
+        logo:
+          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/5bc8c567a89112d5f408a8af4f17970d.png",
+        main_features:
+          "Creamos este tipo de Cofre para que tú tengas total control. Acá puedes separar parte de tu saldo, ver un historial específicamente par…",
+        market_place: false,
+        name_vault: "Remodelación cocina",
+        nit_vault: "",
+        restrictive: false,
+        second_color: "#05410B",
+        type_vault: 4,
+        update_term_conditions: true,
+        vault_id: "c1cf9b95-2b06-4d0c-9a83-472cf17e1175",
+      },
+      {
+        authorization_id: 1,
+        balance: 180000,
+        balance_total: 180000,
+        count_goals: 0,
+        first_color: "#07EE1E",
+        first_pocket: false,
+        general_description:
+          "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
+        goal_balance: 0,
+        id_aliado: "",
+        internal_description:
+          "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
+        logo:
+          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/99e3c77bd9b8b06a5cbec5ca7ed00a7f.png",
+        main_features:
+          "Creamos este tipo de Cofre para que tú tengas total control. Acá puedes separar parte de tu saldo, ver un historial específicamente par…",
+        market_place: false,
+        name_vault: "Viernes",
+        nit_vault: "",
+        restrictive: false,
+        second_color: "#05410B",
+        type_vault: 4,
+        update_term_conditions: true,
+        vault_id: "e2fe5083-4f4e-44ba-9ea6-055e1b525378",
+      },
+      {
+        authorization_id: 1,
+        balance: 0,
+        balance_total: 0,
+        count_goals: 0,
+        first_color: "#07EE1E",
+        first_pocket: false,
+        general_description:
+          "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
+        goal_balance: 0,
+        id_aliado: "",
+        internal_description:
+          "Este es un Cofre personal tuyo. Tú decides cómo usarlo para organizar mejor tus ahorros.",
+        logo:
+          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/faeb94e6b07d2b9e70ee62e17946a8a5.png",
+        main_features:
+          "Creamos este tipo de Cofre para que tú tengas total control. Acá puedes separar parte de tu saldo, ver un historial específicamente par…",
+        market_place: false,
+        name_vault: "Hiiy",
+        nit_vault: "",
+        restrictive: false,
+        second_color: "#05410B",
+        type_vault: 4,
+        update_term_conditions: true,
+        vault_id: "9f973926-f265-45dc-889b-a5eb21a71b0c",
+      },
     ];
   }
 
   getPockets() {
-    this.pockets = [
+    return [
       {
         authorization_id: 1,
         balance: 200000,
