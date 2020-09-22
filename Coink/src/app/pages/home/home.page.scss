@@ -331,8 +331,25 @@ ion-scroll[scrollX] {
   &__name {
     color: var(--ion-color-coink-secundary);
     font-weight: bold;
+    font-size: 16px;
+    max-width: 70%;
   }
   &__category {
+    font-size: 14px;
+  }
+  &__values {
+    margin: 5% 0 2%;
+    color: var(--ion-color-coink-secundary);
+  }
+  &__save-value {
+    font-weight: bold;
+    color: var(--ion-color-coink-primary);
+  }
+  &__progressbar {
+    --buffer-background: #f5f5f5;
+    border-radius: 25px;
+    height: 5px;
+    width: 70%;
   }
   &__more {
     width: 65px;

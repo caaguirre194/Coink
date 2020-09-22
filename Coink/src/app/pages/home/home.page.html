@@ -179,14 +179,26 @@
           >
             <div
               class="scroll-item goals-item"
-              *ngFor="let goal of goals | slice:0:3; let i=index"
+              *ngFor="let goal of goals | slice:0:2; let i=index"
             >
-              <ion-label class="goals-item__name">
+              <ion-label text-wrap class="goals-item__name">
                 {{goal.goal_description}}</ion-label
               >
               <ion-label class="goals-item__category">
                 {{goal.category_description}}</ion-label
               >
+              <ion-label class="goals-item__values">
+                <span class="goals-item__save-value"
+                  >${{goal.saved_money | number}} /
+                </span>
+                ${{goal.goal_value | number}}
+              </ion-label>
+              <ion-progress-bar
+                class="goals-item__progressbar"
+                mode="ios"
+                color="coink-primary"
+                [value]="goal.saved_money/goal.goal_value"
+              ></ion-progress-bar>
             </div>
             <div class="scroll-item">
               <div class="goals-item__more">
