@@ -131,7 +131,7 @@ ion-content {
   }
   &__body {
     min-height: 150px;
-    padding-top: 15px;
+    padding: 15px 0;
   }
   &__body-empty {
     min-height: 150px;
@@ -156,7 +156,7 @@ ion-content {
   border-top-right-radius: 90% 30%;
   border-top-left-radius: 90% 30%;
   margin-top: -8px;
-  box-shadow: inset 0px 5px 20px rgba(0, 0, 0, 0.035);
+  box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.035);
 }
 
 .option {
@@ -449,6 +449,10 @@ ion-scroll[scrollX] {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+  }
+  &__card-data {
+    font-size: 9px;
+    padding: 2px 0;
   }
   &__card-eye {
     width: 15px;
