@@ -331,14 +331,25 @@ ion-scroll[scrollX] {
   border-radius: 4px;
   padding: 12px;
   margin-right: 17px;
+  &__body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__description {
+    max-width: 70%;
+  }
+  &__img {
+    width: 30%;
+  }
   &__name {
     color: var(--ion-color-coink-secundary);
     font-weight: bold;
     font-size: 16px;
-    max-width: 70%;
   }
   &__category {
-    font-size: 14px;
+    font-size: 12px;
   }
   &__values {
     margin: 5% 0 2%;
@@ -352,7 +363,6 @@ ion-scroll[scrollX] {
     --buffer-background: #f5f5f5;
     border-radius: 25px;
     height: 5px;
-    width: 70%;
   }
   &__more {
     width: 65px;

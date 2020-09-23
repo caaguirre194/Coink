@@ -189,24 +189,31 @@
               *ngFor="let goal of goals | slice:0:2; let i=index"
               (click)="goGoal(goal)"
             >
-              <ion-label text-wrap class="goals-item__name">
-                {{goal.goal_description}}</ion-label
-              >
-              <ion-label class="goals-item__category">
-                {{goal.category_description}}</ion-label
-              >
-              <ion-label class="goals-item__values">
-                <span class="goals-item__save-value"
-                  >${{goal.saved_money | number}} /
-                </span>
-                ${{goal.goal_value | number}}
-              </ion-label>
-              <ion-progress-bar
-                class="goals-item__progressbar"
-                mode="ios"
-                color="coink-primary"
-                [value]="goal.saved_money/goal.goal_value"
-              ></ion-progress-bar>
+              <div class="goals-item__body">
+                <div class="goals-item__description">
+                  <ion-label text-wrap class="goals-item__name">
+                    {{goal.goal_description}}</ion-label
+                  >
+                  <ion-label class="goals-item__category">
+                    {{goal.category_description}}</ion-label
+                  >
+                  <ion-label class="goals-item__values">
+                    <span class="goals-item__save-value"
+                      >${{goal.saved_money | number}} /
+                    </span>
+                    ${{goal.goal_value | number}}
+                  </ion-label>
+                  <ion-progress-bar
+                    class="goals-item__progressbar"
+                    mode="ios"
+                    color="coink-primary"
+                    [value]="goal.saved_money/goal.goal_value"
+                  ></ion-progress-bar>
+                </div>
+                <div class="goals-item__img">
+                  <img [src]="goal.goal_imagen_cut" alt="" />
+                </div>
+              </div>
             </div>
             <div class="scroll-item">
               <div class="goals-item__more" (click)="showGoals()">
