@@ -10,14 +10,25 @@ import { ModalNotificationsComponent } from "src/app/components/modal-notificati
 export class HomePage implements OnInit {
   private isDay: boolean;
   private backImage: string;
+
   private settingsImage: string;
   private theme: string;
-  private optionSelected: string;
+
+  private slideOptionSelected: string;
+  private stateCard: string;
+  private visibleCard: boolean = false;
 
   private goals: any;
   private notifications: any;
   private communities: any;
   private kids: any;
+
+  private card = {
+    type: "MASTERCARD",
+    number: "**** **** **** 6789",
+    dueDate: "12/12",
+    cvv: "***",
+  };
 
   private bazarItems = [
     {
@@ -57,26 +68,33 @@ export class HomePage implements OnInit {
     },
   };
 
-  private options = [
+  private slideOptions = [
     {
-      url: "assets/img/home/options/Cofre cerrado.svg",
+      url: "assets/img/home/slide-options/Cofre cerrado.svg",
       name: "Comunidades",
+      options: {},
     },
     {
-      url: "assets/img/home/options/icono_meta.svg",
+      url: "assets/img/home/slide-options/icono_meta.svg",
       name: "Metas",
+      slideOptions: {},
     },
     {
-      url: "assets/img/home/options/Cofre cerrado.svg",
+      url: "assets/img/home/slide-options/Cofre cerrado.svg",
       name: "Tarjeta",
+      options: {
+        activate: false,
+      },
     },
     {
-      url: "assets/img/home/options/icono_meta.svg",
+      url: "assets/img/home/slide-options/icono_meta.svg",
       name: "Bazar",
+      options: {},
     },
     {
-      url: "assets/img/home/options/Cofre cerrado.svg",
+      url: "assets/img/home/slide-options/Cofre cerrado.svg",
       name: "Kids",
+      options: {},
     },
   ];
 
@@ -85,6 +103,8 @@ export class HomePage implements OnInit {
     public animationCtrl: AnimationController
   ) {
     this.isDay = true;
+    this.stateCard = "Activated"; //  Disabled, Enabled, Activated
+
     if (this.isDay) {
       this.backImage = "assets/img/home/main/fondos/Fondo_claro.png";
       this.settingsImage = "assets/img/home/header/gear_dark.svg";
@@ -167,6 +187,10 @@ export class HomePage implements OnInit {
 
   showKids() {
     console.log("Se muestran kids...");
+  }
+
+  showCardDetails() {
+    console.log("Se muestran detalles de tarjeta...");
   }
 
   goGoal(goal) {
@@ -283,22 +307,22 @@ export class HomePage implements OnInit {
       {
         name: "Javeriana",
         value: "100000",
-        url: "assets/img/home/options/javeriana.png",
+        url: "assets/img/home/slide-options/javeriana.png",
       },
       {
         name: "Comfama",
         value: "205350",
-        url: "assets/img/home/options/comfama.png",
+        url: "assets/img/home/slide-options/comfama.png",
       },
       {
         name: "Javeriana",
         value: "100000",
-        url: "assets/img/home/options/javeriana.png",
+        url: "assets/img/home/slide-options/javeriana.png",
       },
       {
         name: "Comfama",
         value: "205350",
-        url: "assets/img/home/options/comfama.png",
+        url: "assets/img/home/slide-options/comfama.png",
       },
     ];
   }
@@ -416,9 +440,9 @@ export class HomePage implements OnInit {
   }
 
   selectOption(option, event) {
-    this.optionSelected = option;
+    this.slideOptionSelected = option;
     const className = "option-selected";
-    console.log(this.optionSelected);
+    console.log(this.slideOptionSelected);
 
     if (!event.currentTarget.classList.contains(className)) {
       const elems = document.querySelectorAll(`.${className}`);
@@ -440,5 +464,37 @@ export class HomePage implements OnInit {
 
   goAboutKids() {
     console.log("Se muestra pantalla about de Kids");
+  }
+
+  showDataCard() {
+    this.visibleCard = !this.visibleCard;
+
+    if (this.visibleCard) {
+      this.card.number = this.cardNumberFormat("1234123412346789");
+      this.card.cvv = "347";
+    } else {
+      this.card.number = "**** **** **** 6789";
+      this.card.cvv = "***";
+    }
+  }
+
+  cardNumberFormat(value) {
+    console.log("Entra -->", value);
+    const v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
+    const matches = v.match(/\d{4,16}/g);
+    const match = (matches && matches[0]) || "";
+    const parts = [];
+
+    for (let i = 0, len = match.length; i < len; i += 4) {
+      parts.push(match.substring(i, i + 4));
+    }
+
+    if (parts.length) {
+      console.log("Sale -->", parts.join(" "));
+      return parts.join(" ");
+    } else {
+      console.log("Sale -->", value);
+      return value;
+    }
   }
 }

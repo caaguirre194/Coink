@@ -87,7 +87,7 @@
         <ion-scroll scrollX="true">
           <div
             class="scroll-item"
-            *ngFor="let option of options"
+            *ngFor="let option of slideOptions"
             style="padding-right: 16px"
           >
             <div class="option" (click)="selectOption(option.name, $event)">
@@ -101,7 +101,9 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="optionSelected == 'Comunidades' && communities.length == 0">
+    <ion-row
+      *ngIf="slideOptionSelected == 'Comunidades' && communities.length == 0"
+    >
       <ion-item lines="none" class="ion-no-padding options__content">
         <ion-scroll scrollX="true">
           <div class="options__body-empty">
@@ -121,7 +123,9 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="optionSelected == 'Comunidades' && communities.length > 0">
+    <ion-row
+      *ngIf="slideOptionSelected == 'Comunidades' && communities.length > 0"
+    >
       <ion-item lines="none" class="ion-no-padding options__content">
         <ion-scroll scrollX="true">
           <div class="options__body">
@@ -142,15 +146,9 @@
                   >
                   <ion-label>$ {{community.value | number}}</ion-label>
                 </div>
-                <div class="communities-item__more" (click)="showCommunities()">
-                  <ion-icon
-                    name="add"
-                    color="coink-primary"
-                    style="width: 26px; height: 26px"
-                  ></ion-icon>
-                  <ion-label text-wrap class="ion-text-uppercase"
-                    >Ver más</ion-label
-                  >
+                <div class="btn-more" (click)="showCommunities()">
+                  <ion-icon name="add"></ion-icon>
+                  <ion-label text-wrap>Ver más</ion-label>
                 </div>
               </div>
             </div>
@@ -159,7 +157,7 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="optionSelected == 'Metas' && goals.length == 0">
+    <ion-row *ngIf="slideOptionSelected == 'Metas' && goals.length == 0">
       <ion-item lines="none" class="ion-no-padding options__content">
         <ion-scroll scrollX="true">
           <div class="options__body-empty">
@@ -180,7 +178,7 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="optionSelected == 'Metas' && goals.length > 0">
+    <ion-row *ngIf="slideOptionSelected == 'Metas' && goals.length > 0">
       <ion-item lines="none" class="ion-no-padding options__content">
         <ion-scroll scrollX="true">
           <div class="options__body">
@@ -216,15 +214,9 @@
               </div>
             </div>
             <div class="scroll-item">
-              <div class="goals-item__more" (click)="showGoals()">
-                <ion-icon
-                  name="add"
-                  color="coink-primary"
-                  style="width: 26px; height: 26px"
-                ></ion-icon>
-                <ion-label text-wrap class="ion-text-uppercase"
-                  >Ver más</ion-label
-                >
+              <div class="goals-item__more btn-more" (click)="showGoals()">
+                <ion-icon name="add"></ion-icon>
+                <ion-label text-wrap>Ver más</ion-label>
               </div>
             </div>
           </div>
@@ -232,22 +224,104 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="optionSelected == 'Tarjeta' ">
+    <ion-row
+      *ngIf="slideOptionSelected == 'Tarjeta' && stateCard == 'Disabled'"
+    >
       <ion-item lines="none" class="ion-no-padding options__content">
         <ion-scroll scrollX="true">
           <div class="options__body-empty">
-            <div class="kids-item-empty">
-              <ion-label text-wrap class="kids-item-empty__description">
-                -----
-              </ion-label>
-              <a href="" class="kids-item-empty__link">Conócelos</a>
+            <div class="card-item-empty">
+              <div class="card-item-empty__content">
+                <img
+                  class="card-item-empty__img"
+                  src="assets/img/home/slide-options/card.png"
+                  alt=""
+                />
+                <ion-label text-wrap class="card-item-empty__description">
+                  Aún no puedes activar tu tarjeta Visa, debes tener por lo
+                  menos 1 mes en Coink para empezar a usar este producto.
+                </ion-label>
+              </div>
             </div>
           </div>
         </ion-scroll>
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="optionSelected == 'Bazar'">
+    <ion-row *ngIf="slideOptionSelected == 'Tarjeta' && stateCard == 'Enabled'">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div class="options__body-empty">
+            <div class="card-item-empty">
+              <div
+                class="card-item-empty__content card-item-empty__content--enabled"
+              >
+                <img
+                  class="card-item-empty__img"
+                  src="assets/img/home/slide-options/card.png"
+                  alt=""
+                />
+                <ion-label
+                  text-wrap
+                  class="card-item-empty__description card-item-empty__description--enabled"
+                >
+                  Activa o solicíta tu tarjeta Visa Coink para que puedas
+                  disfrutar de tus ahorros.
+                </ion-label>
+              </div>
+            </div>
+          </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
+
+    <ion-row
+      *ngIf="slideOptionSelected == 'Tarjeta' && stateCard == 'Activated'"
+    >
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div class="options__body">
+            <div class="card-item">
+              <div class="card-item__content">
+                <div class="card-item__card-content">
+                  <div class="card-item__card-header">
+                    <img
+                      class="card-item__card-chip"
+                      src="assets/img/home/slide-options/chip.png"
+                      alt=""
+                    />
+                  </div>
+
+                  <div class="card-item__card-body">
+                    <div>
+                      <ion-label>{{card.number}}</ion-label>
+                      <ion-label>{{card.dueDate}}</ion-label>
+                      <ion-label>{{card.cvv}}</ion-label>
+                    </div>
+                    <div>
+                      <ion-icon
+                        class="card-item__card-eye"
+                        [name]="visibleCard ? 'eye-outline' : 'eye-off-outline'"
+                        (click)="showDataCard()"
+                      ></ion-icon>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-item__more btn-more"
+                  (click)="showCardDetails()"
+                >
+                  <ion-icon name="add"></ion-icon>
+                  <ion-label text-wrap>Ver detalle</ion-label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
+
+    <ion-row *ngIf="slideOptionSelected == 'Bazar'">
       <ion-item lines="none" class="ion-no-padding options__content">
         <ion-scroll scrollX="true">
           <div class="options__body">
@@ -269,7 +343,7 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="optionSelected == 'Kids' && kids.length == 0">
+    <ion-row *ngIf="slideOptionSelected == 'Kids' && kids.length == 0">
       <ion-item lines="none" class="ion-no-padding options__content">
         <ion-scroll scrollX="true">
           <div class="options__body-empty">
@@ -288,7 +362,7 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="optionSelected == 'Kids' && kids.length > 0">
+    <ion-row *ngIf="slideOptionSelected == 'Kids' && kids.length > 0">
       <ion-item lines="none" class="ion-no-padding options__content">
         <ion-scroll scrollX="true">
           <div class="options__body">
@@ -310,15 +384,9 @@
               </div>
             </div>
             <div class="scroll-item">
-              <div class="kids-item__more" (click)="showKids()">
-                <ion-icon
-                  name="add"
-                  color="coink-primary"
-                  style="width: 26px; height: 26px"
-                ></ion-icon>
-                <ion-label text-wrap class="ion-text-uppercase"
-                  >Ver más</ion-label
-                >
+              <div class="kids-item__more btn-more" (click)="showKids()">
+                <ion-icon name="add"></ion-icon>
+                <ion-label text-wrap>Ver más</ion-label>
               </div>
             </div>
           </div>
