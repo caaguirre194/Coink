@@ -55,7 +55,7 @@
       <div class="balances">
         <ion-label
           class="balances__info"
-          (click)="infoBalance('Disponible')"
+          (click)="showInfoBalance('Disponible')"
         ></ion-label>
         <div class="balance-values" [ngClass]="theme">
           <ion-label class="balance-values__value"
@@ -76,7 +76,7 @@
         </div>
         <ion-label
           class="balances__info"
-          (click)="infoBalance('Total')"
+          (click)="showInfoBalance('Total')"
         ></ion-label>
       </div>
     </div>
@@ -101,31 +101,36 @@
       </ion-item>
     </ion-row>
 
-    <ion-row>
+    <ion-row *ngIf="optionSelected == 'Comunidades' && communities.length == 0">
       <ion-item lines="none" class="ion-no-padding options__content">
         <ion-scroll scrollX="true">
-          <div
-            *ngIf="optionSelected == 'Comunidades' && communities.length == 0"
-            class="options__body-empty"
-          >
+          <div class="options__body-empty">
             <div class="communities-item-empty">
               <ion-label text-wrap class="communities-item-empty__description">
                 Toda acción tiene su reacción, accede a descuentos y recompensas
                 por ahorrar en los cofres
               </ion-label>
-              <a href="" class="communities-item-empty__link">Conócelos</a>
+              <a
+                class="communities-item-empty__link"
+                (click)="goAboutCommunities()"
+                >Conócelos</a
+              >
             </div>
           </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
 
-          <div
-            *ngIf="optionSelected == 'Comunidades' && communities.length > 0"
-            class="options__body"
-          >
+    <ion-row *ngIf="optionSelected == 'Comunidades' && communities.length > 0">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div class="options__body">
             <div class="communities-item">
               <div class="communities-item__body">
                 <div
                   class="communities-item__community"
                   *ngFor="let community of communities | slice:0:3; let i=index"
+                  (click)="goCommunity(community)"
                 >
                   <img
                     [src]="community.url"
@@ -150,16 +155,19 @@
               </div>
             </div>
           </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
 
-          <div
-            *ngIf="optionSelected == 'Metas' && goals.length == 0"
-            class="options__body-empty"
-          >
+    <ion-row *ngIf="optionSelected == 'Metas' && goals.length == 0">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div class="options__body-empty">
             <div class="goals-item-empty">
               <ion-label text-wrap class="goals-item-empty__description">
                 ¿Aún no tienes un objetivo de ahorro? Empieza con algo pequeño.
               </ion-label>
-              <ion-label class="goals-item-empty__link"
+              <ion-label class="goals-item-empty__link" (click)="goAboutGoals()"
                 >un escalón a la vez.</ion-label
               >
               <ion-icon
@@ -168,14 +176,18 @@
               ></ion-icon>
             </div>
           </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
 
-          <div
-            *ngIf="optionSelected == 'Metas' && goals.length > 0"
-            class="options__body"
-          >
+    <ion-row *ngIf="optionSelected == 'Metas' && goals.length > 0">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div class="options__body">
             <div
               class="scroll-item goals-item"
               *ngFor="let goal of goals | slice:0:2; let i=index"
+              (click)="goGoal(goal)"
             >
               <ion-label text-wrap class="goals-item__name">
                 {{goal.goal_description}}</ion-label
@@ -209,8 +221,14 @@
               </div>
             </div>
           </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
 
-          <div *ngIf="optionSelected == 'Tarjeta' " class="options__body-empty">
+    <ion-row *ngIf="optionSelected == 'Tarjeta' ">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div class="options__body-empty">
             <div class="kids-item-empty">
               <ion-label text-wrap class="kids-item-empty__description">
                 -----
@@ -218,8 +236,14 @@
               <a href="" class="kids-item-empty__link">Conócelos</a>
             </div>
           </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
 
-          <div *ngIf="optionSelected == 'Bazar'" class="options__body">
+    <ion-row *ngIf="optionSelected == 'Bazar'">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div class="options__body">
             <div
               class="scroll-item bazar-item"
               *ngFor="let bazar of bazarItems"
@@ -234,28 +258,37 @@
               </div>
             </div>
           </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
 
-          <div
-            *ngIf="optionSelected == 'Kids' && kids.length == 0"
-            class="options__body-empty"
-          >
+    <ion-row *ngIf="optionSelected == 'Kids' && kids.length == 0">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div class="options__body-empty">
             <div class="kids-item-empty">
               <ion-label text-wrap class="kids-item-empty__description">
                 Ahorrar desde temprana edad puede significar un futuro
                 financiero exitoso, crea cofres para los más pequeños y asegura
                 un futuro para ellos
               </ion-label>
-              <a href="" class="kids-item-empty__link">Conócelos</a>
+              <a class="kids-item-empty__link" (click)="goAboutKids()"
+                >Conócelos</a
+              >
             </div>
           </div>
+        </ion-scroll>
+      </ion-item>
+    </ion-row>
 
-          <div
-            *ngIf="optionSelected == 'Kids' && kids.length > 0"
-            class="options__body"
-          >
+    <ion-row *ngIf="optionSelected == 'Kids' && kids.length > 0">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <ion-scroll scrollX="true">
+          <div class="options__body">
             <div
               class="scroll-item kids-item"
               *ngFor="let kid of kids | slice:0:2; let i=index"
+              (click)="goKid(kid)"
             >
               <div class="kids-item__body">
                 <img [src]="kid.logo" class="kids-item__icon" />

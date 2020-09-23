@@ -45,6 +45,8 @@ ion-content {
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 5%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   &__body {
     display: flex;
     flex-direction: row;
@@ -213,6 +215,7 @@ ion-scroll[scrollX] {
     font-size: 12px;
     font-weight: bold;
     padding: 3%;
+    text-decoration: underline;
   }
 }
 
@@ -391,6 +394,7 @@ ion-scroll[scrollX] {
     font-size: 12px;
     font-weight: bold;
     padding: 3%;
+    text-decoration: underline;
   }
 }
 
