@@ -90,21 +90,8 @@
             *ngFor="let option of slideOptions"
             style="padding-right: 16px"
           >
-            <div *ngIf="option == slideOptions[0]">
-              <div
-                class="option option-selected"
-                (click)="selectOption(option.name, $event)"
-              >
-                <span>
-                  <img class="option__img" [src]="option.url" alt="" />
-                </span>
-                <ion-label class="option__name">{{option.name}}</ion-label>
-              </div>
-            </div>
-
             <div
-              *ngIf="option != slideOptions[0]"
-              class="option"
+              [class]="option == slideOptions[0] ? 'option option-selected' : 'option'"
               (click)="selectOption(option.name, $event)"
             >
               <span>
