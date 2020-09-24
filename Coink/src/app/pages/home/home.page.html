@@ -1,7 +1,9 @@
 <ion-header mode="ios" no-lines>
   <div class="header-home" [ngClass]="theme">
     <ion-button class="header-home__config" [ngClass]="theme">
-      <ion-icon [src]="settingsImage"></ion-icon>
+      <ion-icon
+        [src]="isDay ? settingsImageDark : settingsImageLight"
+      ></ion-icon>
     </ion-button>
     <img src="assets/img/home/header/Logotipo neon.svg" alt="" />
     <ion-button
@@ -19,7 +21,7 @@
   <div
     class="main"
     [ngClass]="theme"
-    [ngStyle]="{backgroundImage:'url(' + backImage + ')'}"
+    [ngStyle]="isDay ? {backgroundImage:'url(' + backgroundLight + ')'} : {backgroundImage:'url(' + backgroundDark + ')'}"
     (click)="setBackground()"
   >
     <div class="main__body">
@@ -173,7 +175,7 @@
               >
               <ion-icon
                 class="goals-item-empty__icon"
-                src="assets/img/home/options/Cortado Guiño.svg"
+                src="assets/img/home/slide-options/Cortado.svg"
               ></ion-icon>
             </div>
           </div>
