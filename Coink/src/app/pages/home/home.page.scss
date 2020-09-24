@@ -2,18 +2,6 @@ ion-content {
   --background: rgb(0 0 0 / 1.5%);
 }
 
-.theme-dark {
-  background-color: #001b24 !important;
-  --background: #001b24 !important;
-  .balance-values__value {
-    color: var(--ion-color-coink-primary);
-  }
-  .balance-values__description,
-  .main-item {
-    color: #ffffff;
-  }
-}
-
 .header-home {
   display: flex;
   flex-direction: row;
@@ -568,5 +556,17 @@ ion-scroll[scrollX] {
     font-weight: bold;
     color: var(--ion-color-coink-secundary);
     padding: 20px;
+  }
+}
+
+.theme-dark {
+  background-color: #001b24;
+  --background: #001b24;
+  .balance-values__value {
+    color: var(--ion-color-coink-primary);
+  }
+  .balance-values__description,
+  .main-item {
+    color: #ffffff;
   }
 }
