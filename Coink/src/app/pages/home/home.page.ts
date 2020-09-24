@@ -120,6 +120,7 @@ export class HomePage implements OnInit {
     this.getCommunities();
     this.getGoals();
     this.getKids();
+    this.slideOptionSelected = this.slideOptions[0].name;
   }
 
   async presentModalNotifications() {
