@@ -6,17 +6,28 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./circle-progress-bar.component.scss"],
 })
 export class CircleProgressBarComponent implements OnInit {
-  @Input() PERCENT;
-  @Input() SIZE;
-  @Input() COLOR;
   /**
-   * Size the canvas
-   * @type {number}
+   * Graph percent
+   */
+  @Input() PERCENT;
+
+  /**
+   * Graph size
+   */
+  @Input() SIZE;
+
+  /**
+   * Graph color
+   */
+  @Input() COLOR;
+
+  /**
+   * Graph arc length
    */
   public PI_DOBLE: number = 2 * Math.PI;
+
   /**
-   * Size the canvas
-   * @type {number}
+   * Graph border size
    */
   @Input() STROKE;
 
