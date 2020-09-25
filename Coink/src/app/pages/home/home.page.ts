@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController, AnimationController } from "@ionic/angular";
-import { ModalNotificationsComponent } from "src/app/components/modal-notifications/modal-notifications.component";
+import { NotificationsPage } from "./notifications/notifications.page";
 
 @Component({
   selector: "app-home",
@@ -141,7 +141,7 @@ export class HomePage implements OnInit {
     };
 
     const modal = await this.modalController.create({
-      component: ModalNotificationsComponent,
+      component: NotificationsPage,
       cssClass: "modal-notifications",
       showBackdrop: true,
       backdropDismiss: false,

@@ -20,9 +20,9 @@
   >
     <div *ngIf="notification.NotificationTypeId == 1">
       <div class="notification__header">
-        <ion-label class="title">{{
-          notification.NotificationTitle
-        }}</ion-label>
+        <ion-label class="title"
+          >{{ notification.NotificationTitle }}</ion-label
+        >
         <ion-label class="date">{{ notification.NotificationDate }}</ion-label>
       </div>
 
@@ -55,9 +55,9 @@
 
     <div *ngIf="notification.NotificationTypeId == 2">
       <div class="notification__header">
-        <ion-label class="title">{{
-          notification.NotificationTitle
-        }}</ion-label>
+        <ion-label class="title"
+          >{{ notification.NotificationTitle }}</ion-label
+        >
         <ion-icon
           (click)="deleteNotification(notification)"
           class="delete-notification"
