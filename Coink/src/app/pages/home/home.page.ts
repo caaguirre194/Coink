@@ -9,10 +9,11 @@ import { ModalNotificationsComponent } from "src/app/components/modal-notificati
 })
 export class HomePage implements OnInit {
   private isDay: boolean;
-  private backImage: string;
 
-  private settingsImage: string;
-  private theme: string;
+  private backgroundLight = "assets/img/home/main/fondos/Fondo_claro.png";
+  private backgroundDark = "assets/img/home/main/fondos/Fondo_oscuro.png";
+  private settingsImageLight = "assets/img/home/header/gear_light.svg";
+  private settingsImageDark = "assets/img/home/header/gear_dark.svg";
 
   private slideOptionSelected: string;
   private stateCard: string;
@@ -98,23 +99,12 @@ export class HomePage implements OnInit {
     },
   ];
 
-  backgroundLight = "assets/img/home/main/fondos/Fondo_claro.png";
-  backgroundDark = "assets/img/home/main/fondos/Fondo_oscuro.png";
-  settingsImageLight = "assets/img/home/header/gear_light.svg";
-  settingsImageDark = "assets/img/home/header/gear_dark.svg";
-
   constructor(
     public modalController: ModalController,
     public animationCtrl: AnimationController
   ) {
     this.isDay = true;
     this.stateCard = "Enabled"; //  Disabled, Enabled, Activated
-
-    if (this.isDay) {
-      this.theme = "";
-    } else {
-      this.theme = "theme-dark";
-    }
   }
 
   ngOnInit() {
@@ -163,13 +153,6 @@ export class HomePage implements OnInit {
   }
 
   setBackground() {
-    if (this.isDay) {
-      this.settingsImage = "assets/img/home/header/gear_light.svg";
-      this.theme = "theme-dark";
-    } else {
-      this.settingsImage = "assets/img/home/header/gear_dark.svg";
-      this.theme = "";
-    }
     this.isDay = !this.isDay;
   }
 

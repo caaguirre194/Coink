@@ -1,6 +1,9 @@
 <ion-header mode="ios" no-lines>
-  <div class="header-home" [ngClass]="theme">
-    <ion-button class="header-home__config" [ngClass]="theme">
+  <div class="header-home" [ngClass]="isDay ? '' : 'theme-dark'">
+    <ion-button
+      class="header-home__config"
+      [ngClass]="isDay ? '' : 'theme-dark'"
+    >
       <ion-icon
         [src]="isDay ? settingsImageDark : settingsImageLight"
       ></ion-icon>
@@ -20,7 +23,7 @@
 <ion-content>
   <div
     class="main"
-    [ngClass]="theme"
+    [ngClass]="isDay ? '' : 'theme-dark'"
     [ngStyle]="isDay ? {backgroundImage:'url(' + backgroundLight + ')'} : {backgroundImage:'url(' + backgroundDark + ')'}"
     (click)="setBackground()"
   >
@@ -59,7 +62,7 @@
           class="balances__info"
           (click)="showInfoBalance('Disponible')"
         ></ion-label>
-        <div class="balance-values" [ngClass]="theme">
+        <div class="balance-values" [ngClass]="isDay ? '' : 'theme-dark'">
           <ion-label class="balance-values__value"
             >$ {{balance.saldoDisponible | number }}</ion-label
           >
@@ -70,7 +73,7 @@
       </div>
       <div class="divider"></div>
       <div class="balances">
-        <div class="balance-values" [ngClass]="theme">
+        <div class="balance-values" [ngClass]="isDay ? '' : 'theme-dark'">
           <ion-label class="balance-values__value">
             $ {{balance.saldoTotal | number}}</ion-label
           >
