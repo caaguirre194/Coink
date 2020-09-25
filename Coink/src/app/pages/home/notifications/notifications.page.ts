@@ -16,7 +16,7 @@ export class NotificationsPage implements OnInit {
       {
         NotificationTitle: "Carlos",
         NotificationTypeDescription: "Te ha solicitado",
-        NnotificationValue: "10000",
+        NotificationValue: "10000",
         NotificationStatus: true,
         NotificationStatusId: "200",
         NotificationTypeId: 1,

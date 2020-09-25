@@ -1,0 +1,43 @@
+.notification {
+  margin: 17px;
+  box-shadow: 0px 2px 10px #0000001a;
+  border-radius: 5px;
+  padding: 14px 16px;
+  &__header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--ion-color-coink-secundary);
+    margin-bottom: 10px;
+  }
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &__description {
+    font-size: 12px;
+  }
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__btn-delete {
+    background-image: url("../../../assets/img/home/notifications/rubbish-bin-delete-button.svg");
+    width: 10px;
+    height: 13px;
+  }
+  &__btn-open {
+    background: var(--ion-color-coink-primary);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    height: 25px;
+    margin-top: 10px;
+    width: 123px;
+  }
+  &__btn-open:focus {
+    outline: 0;
+  }
+}

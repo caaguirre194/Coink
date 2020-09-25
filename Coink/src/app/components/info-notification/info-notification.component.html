@@ -1,20 +1,19 @@
-<div
-  lines="none"
-  class="notification"
-  *ngFor="let notification of notifications"
->
+<div lines="none" class="notification">
   <div class="notification__header">
-    <ion-label class="title">{{ title }}</ion-label>
+    <ion-label class="notification__title">{{ title }}</ion-label>
     <ion-icon
       (click)="deleteNotification(notification)"
-      class="delete-notification"
+      class="notification__btn-delete"
     ></ion-icon>
   </div>
 
   <ion-label class="notification__description">{{ description }} </ion-label>
   <div class="notification__content">
-    <button (click)="openNotification(notification)" class="notification__btn">
-      {{ textButton }}
+    <button
+      (click)="openNotification(notification)"
+      class="notification__btn-open"
+    >
+      {{ textAbout }}
     </button>
   </div>
 </div>

@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class InfoNotificationComponent implements OnInit {
   @Input() title;
-  @Input() subtitle;
-  @Input() PERCENT;
+  @Input() description;
+  @Input() textAbout;
 
   constructor() {}
 
