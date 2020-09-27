@@ -9,27 +9,27 @@ export class CircleProgressBarComponent implements OnInit {
   /**
    * Graph percent
    */
-  @Input() PERCENT;
+  @Input() PERCENT: number;
 
   /**
    * Graph size
    */
-  @Input() SIZE;
+  @Input() SIZE: number;
+
+  /**
+   * Graph border size
+   */
+  @Input() STROKE: number;
 
   /**
    * Graph color
    */
-  @Input() COLOR;
+  @Input() COLOR: string;
 
   /**
    * Graph arc length
    */
   public PI_DOBLE: number = 2 * Math.PI;
-
-  /**
-   * Graph border size
-   */
-  @Input() STROKE;
 
   constructor() {}
 

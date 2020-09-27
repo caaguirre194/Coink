@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
+import { Notification } from "../../../models/Notification";
 
 @Component({
   selector: "app-notifications",
@@ -10,6 +11,8 @@ export class NotificationsPage implements OnInit {
   constructor(private modalCtrl: ModalController) {}
 
   private notifications: any;
+
+  private notifications2: Notification[];
 
   getNotifications() {
     this.notifications = [
@@ -32,22 +35,16 @@ export class NotificationsPage implements OnInit {
         NotificationTypeId: 2,
       },
     ];
-  }
 
-  acceptNotification(notification: any) {
-    console.log("Se Acepta ", notification);
-  }
-
-  cancelNotification(notification: any) {
-    console.log("Se Rechaza ", notification);
-  }
-
-  deleteNotification(notification: any) {
-    console.log("Se Elimina ", notification);
-  }
-
-  openNotification(notification: any) {
-    console.log("Se Abre ", notification);
+    // this.notifications2 = this.notifications.map(obj => {
+    //   "title": obj.NotificationTitle,
+    //   "description": obj.NotificationTypeDescription,
+    //   "date": obj.NotificationDate,
+    //   "subject": obj.NotificationSubject,
+    //   "value": obj.NotificationValue,
+    // });
+    this.notifications2 = this.notifications as Notification[];
+    console.log(this.notifications2);
   }
 
   ngOnInit() {
@@ -56,5 +53,22 @@ export class NotificationsPage implements OnInit {
 
   exit() {
     this.modalCtrl.dismiss();
+  }
+
+  notificationAction(notification: any, action: string) {
+    switch (action) {
+      case "open":
+        console.log("Se Abre ", notification);
+        break;
+      case "delete":
+        console.log("Se Elimina ", notification);
+        break;
+      case "accept":
+        console.log("Se Acepta ", notification);
+        break;
+      case "cancel":
+        console.log("Se Rechaza ", notification);
+        break;
+    }
   }
 }

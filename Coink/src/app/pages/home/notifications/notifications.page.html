@@ -17,19 +17,20 @@
     <app-options-notification
       *ngIf="notification.NotificationTypeId == 1"
       [title]="notification.NotificationTitle"
-      [subtitle]="notification.NotificationTypeDescription"
+      [description]="notification.NotificationTypeDescription"
       [date]="notification.NotificationDate"
       [subject]="notification.NotificationSubject"
       [value]="notification.NotificationValue"
       [textAccept]="'Aceptar'"
       [textDecline]="'Rechazar'"
+      (valueResponse)="notificationAction(notification, $event)"
     ></app-options-notification>
-
     <app-info-notification
       *ngIf="notification.NotificationTypeId == 2"
       [title]="notification.NotificationTitle"
       [description]="notification.NotificationTypeDescription"
       [textAbout]="'Conocer más'"
+      (valueResponse)="notificationAction(notification, $event)"
     ></app-info-notification>
   </div>
 </ion-content>

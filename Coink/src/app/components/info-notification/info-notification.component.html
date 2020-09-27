@@ -2,17 +2,14 @@
   <div class="notification__header">
     <ion-label class="notification__title">{{ title }}</ion-label>
     <ion-icon
-      (click)="deleteNotification(notification)"
+      (click)="deleteNotification()"
       class="notification__btn-delete"
     ></ion-icon>
   </div>
 
   <ion-label class="notification__description">{{ description }} </ion-label>
   <div class="notification__content">
-    <button
-      (click)="openNotification(notification)"
-      class="notification__btn-open"
-    >
+    <button (click)="openNotification()" class="notification__btn-open">
       {{ textAbout }}
     </button>
   </div>

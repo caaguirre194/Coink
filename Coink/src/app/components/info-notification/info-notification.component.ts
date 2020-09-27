@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-info-notification",
@@ -6,11 +6,41 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./info-notification.component.scss"],
 })
 export class InfoNotificationComponent implements OnInit {
-  @Input() title;
-  @Input() description;
-  @Input() textAbout;
+  /**
+   * Notification title
+   */
+  @Input() title: string;
+
+  /**
+   * Notification title
+   */
+  @Input() description: string;
+
+  /**
+   * Notification button text
+   */
+  @Input() textAbout: string;
+
+  /**
+   * Notification response
+   */
+  @Output() valueResponse = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {}
+
+  /**
+   * Notification is opened
+   */
+  openNotification() {
+    this.valueResponse.emit("open");
+  }
+
+  /**
+   * Notification is deleted
+   */
+  deleteNotification() {
+    this.valueResponse.emit("delete");
+  }
 }
