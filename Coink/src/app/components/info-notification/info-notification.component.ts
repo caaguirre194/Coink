@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Notification } from "../../models/Notification";
 
 @Component({
   selector: "app-info-notification",
@@ -7,14 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class InfoNotificationComponent implements OnInit {
   /**
-   * Notification title
+   * Notification
    */
-  @Input() title: string;
-
-  /**
-   * Notification title
-   */
-  @Input() description: string;
+  @Input() notification: Notification;
 
   /**
    * Notification button text

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Notification } from "../../models/Notification";
 
 @Component({
   selector: "app-options-notification",
@@ -6,12 +7,19 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./options-notification.component.scss"],
 })
 export class OptionsNotificationComponent implements OnInit {
-  @Input() title;
-  @Input() description;
-  @Input() date;
-  @Input() subject;
-  @Input() value;
+  /**
+   * Notification
+   */
+  @Input() notification: Notification;
+
+  /**
+   * Text accept notification
+   */
   @Input() textAccept;
+
+  /**
+   * Text decline notification
+   */
   @Input() textDecline;
 
   /**

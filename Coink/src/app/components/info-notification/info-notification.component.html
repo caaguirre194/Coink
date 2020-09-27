@@ -1,13 +1,17 @@
 <div lines="none" class="notification">
   <div class="notification__header">
-    <ion-label class="notification__title">{{ title }}</ion-label>
+    <ion-label class="notification__title">{{
+      notification.NotificationTitle
+    }}</ion-label>
     <ion-icon
       (click)="deleteNotification()"
       class="notification__btn-delete"
     ></ion-icon>
   </div>
 
-  <ion-label class="notification__description">{{ description }} </ion-label>
+  <ion-label class="notification__description"
+    >{{ notification.NotificationTypeDescription }}
+  </ion-label>
   <div class="notification__content">
     <button (click)="openNotification()" class="notification__btn-open">
       {{ textAbout }}

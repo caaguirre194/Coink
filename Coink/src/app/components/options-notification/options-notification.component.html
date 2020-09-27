@@ -1,17 +1,21 @@
 <div lines="none" class="notification">
   <div class="notification__header">
-    <ion-label class="notification__title">{{ title }}</ion-label>
-    <ion-label class="notification__date">{{ date }}</ion-label>
+    <ion-label class="notification__title">{{
+      notification.NotificationTitle
+    }}</ion-label>
+    <ion-label class="notification__date">{{
+      notification.NotificationDate
+    }}</ion-label>
   </div>
 
   <ion-label class="notification__description"
-    >{{ description }}
+    >{{ notification.NotificationTypeDescription }}
     <strong style="color: var(--ion-color-coink-secundary)"
-      >$ {{ value | number }}</strong
+      >$ {{ notification.NotificationValue | number }}</strong
     ></ion-label
   >
   <div class="notification__content">
-    <p class="notification__subject">{{ subject }}</p>
+    <p class="notification__subject">{{ notification.NotificationSubject }}</p>
     <div class="options">
       <button
         (click)="acceptNotification(notification)"

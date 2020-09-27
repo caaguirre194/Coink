@@ -10,16 +10,14 @@ import { Notification } from "../../../models/Notification";
 export class NotificationsPage implements OnInit {
   constructor(private modalCtrl: ModalController) {}
 
-  private notifications: any;
-
-  private notifications2: Notification[];
+  private notifications: Notification[];
 
   getNotifications() {
     this.notifications = [
       {
         NotificationTitle: "Carlos",
         NotificationTypeDescription: "Te ha solicitado",
-        NotificationValue: "10000",
+        NotificationValue: 10000,
         NotificationStatus: true,
         NotificationStatusId: "200",
         NotificationTypeId: 1,
@@ -35,16 +33,6 @@ export class NotificationsPage implements OnInit {
         NotificationTypeId: 2,
       },
     ];
-
-    // this.notifications2 = this.notifications.map(obj => {
-    //   "title": obj.NotificationTitle,
-    //   "description": obj.NotificationTypeDescription,
-    //   "date": obj.NotificationDate,
-    //   "subject": obj.NotificationSubject,
-    //   "value": obj.NotificationValue,
-    // });
-    this.notifications2 = this.notifications as Notification[];
-    console.log(this.notifications2);
   }
 
   ngOnInit() {
