@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController, AnimationController } from "@ionic/angular";
 import { NotificationsPage } from "./notifications/notifications.page";
+import { Community } from "../../models/Community";
+import { Goal } from "../../models/Goal";
+import { Kid } from "../../models/Kid";
 
 @Component({
   selector: "app-home",
@@ -19,10 +22,9 @@ export class HomePage implements OnInit {
   private stateCard: string;
   private visibleCard: boolean = false;
 
-  private goals: any;
-  private notifications: any;
-  private communities: any;
-  private kids: any;
+  private goals: Goal[];
+  private communities: Community[];
+  private kids: Kid[];
 
   private card = {
     type: "MASTERCARD",
@@ -78,7 +80,7 @@ export class HomePage implements OnInit {
     {
       url: "assets/img/home/slide-options/icono_meta.svg",
       name: "Metas",
-      slideOptions: {},
+      options: {},
     },
     {
       url: "assets/img/home/slide-options/Cofre cerrado.svg",
