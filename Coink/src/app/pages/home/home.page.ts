@@ -4,6 +4,7 @@ import { NotificationsPage } from "./notifications/notifications.page";
 import { Community } from "../../models/Community";
 import { Goal } from "../../models/Goal";
 import { Kid } from "../../models/Kid";
+import { Bazar } from "../../models/Bazar";
 
 @Component({
   selector: "app-home",
@@ -24,6 +25,7 @@ export class HomePage implements OnInit {
 
   private goals: Goal[];
   private communities: Community[];
+  private bazarItems: Bazar[];
   private kids: Kid[];
 
   private card = {
@@ -32,29 +34,6 @@ export class HomePage implements OnInit {
     dueDate: "12/12",
     cvv: "***",
   };
-
-  private bazarItems = [
-    {
-      name: "Servicios",
-      icon: "",
-      redirectTo: "",
-    },
-    {
-      name: "Suscripciones",
-      icon: "",
-      redirectTo: "",
-    },
-    {
-      name: "Recargas",
-      icon: "",
-      redirectTo: "",
-    },
-    {
-      name: "Marketplace",
-      icon: "",
-      redirectTo: "",
-    },
-  ];
 
   private balance = {
     oink: "assets/img/home/oinks/oink-main.png",
@@ -112,6 +91,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.getCommunities();
     this.getGoals();
+    this.getBazarItems();
     this.getKids();
     this.slideOptionSelected = this.slideOptions[0].name;
   }
@@ -308,6 +288,31 @@ export class HomePage implements OnInit {
         name: "Comfama",
         value: "205350",
         url: "assets/img/home/slide-options/comfama.png",
+      },
+    ];
+  }
+
+  getBazarItems() {
+    this.bazarItems = [
+      {
+        name: "Servicios",
+        icon: "",
+        redirectTo: "",
+      },
+      {
+        name: "Suscripciones",
+        icon: "",
+        redirectTo: "",
+      },
+      {
+        name: "Recargas",
+        icon: "",
+        redirectTo: "",
+      },
+      {
+        name: "Marketplace",
+        icon: "",
+        redirectTo: "",
       },
     ];
   }
