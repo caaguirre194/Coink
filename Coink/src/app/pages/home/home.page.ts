@@ -268,80 +268,82 @@ export class HomePage implements OnInit {
   }
 
   getCommunities() {
-    this.communities = [
-      {
-        logo:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/2ba6f0886a072d8a21f0d1b9342c0be4.png",
-        name_vault: "DEV - Comfenalco Valle",
-        id_aliado: "CORRESP AV DORADO",
-        nit_vault: "900300400",
-        first_color: "#0f591c",
-        second_color: "#ffffff",
-        type_vault: 3,
-        general_description:
-          "Con el Cofre Comfenalco Valle tienes acceso a grandes beneficios, premios, promociones y mucho más.",
-        internal_description: "Acceda a grandes beneficios",
-        authorization_id: 1,
-        main_features:
-          "Las principales características de este Cofre incluyen\n\n1. Poder ahorrar por separado de tu saldo Coink.\n2. Poder tener un historial específico para este Cofre.\n3. Poder meter y sacar plata directamente de tu cofre en corresponsales, comercios y Oinks que hagan parte de la alianza Coink - Comfama.",
-        restrictive: false,
-        balance: 50000.0,
-        vault_id: "a31e81dd-0e53-4ba7-9f1a-098805129f51",
-        update_term_conditions: true,
-        count_goals: 3,
-        goal_balance: 0.0,
-        market_place: true,
-        balance_total: 50000.0,
-      },
-      {
-        logo:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/675db86792c60100cd1faef2dd5295e7.png",
-        name_vault: "DEV - Pontificia Universidad Javeriana",
-        id_aliado: "CORRESP AV CALI",
-        nit_vault: "900200300",
-        first_color: "#0056a2",
-        second_color: "#ffffff",
-        type_vault: 3,
-        general_description: "Cofre para la comunidad Javeriana",
-        internal_description:
-          "Ahorra en tu cofre y disfruta de beneficios exclusivos en nuestros campus y con aliados de la Universidad.",
-        authorization_id: 1,
-        main_features:
-          "1. Ahorrar por separado de tu saldo Coink.\n2. Tener un historial solo para este cofre.\n3. Sacar y meter plata directamente de y a tu Cofre en corresponsales, comercios y Oinks que hagan parte de la alianza Coink - Javeriana.",
-        restrictive: false,
-        balance: 139139.0,
-        vault_id: "68e105e8-5a1d-4b01-a92f-ae10caadd998",
-        update_term_conditions: true,
-        count_goals: 4,
-        goal_balance: 11528.0,
-        market_place: false,
-        balance_total: 150489.0,
-      },
-      {
-        logo:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/faaee6d9c8fdc9d1b68f6101ca24c873.png",
-        name_vault: "DEV - Cofre - Comfama",
-        id_aliado: "DEV COMFAMA",
-        nit_vault: "800234000",
-        first_color: "#EE2B7B",
-        second_color: "#ffffff",
-        type_vault: 3,
-        general_description:
-          "Con el Cofre Comfama tienes acceso a grandes beneficios, premios, promociones y mucho más.",
-        internal_description: "Cofre Comfama fase 1",
-        authorization_id: 1,
-        main_features:
-          "Las principales características de este Cofre incluyen\n\n1. Poder ahorrar por separado de tu saldo Coink.\n2. Poder tener un historial específico para este Cofre.\n3. Poder meter y sacar plata directamente de tu cofre en corresponsales, comercios y Oinks que hagan parte de la alianza Coink - Comfama.\n",
-        restrictive: false,
-        balance: 23900.0,
-        vault_id: "6f22403a-3520-4c6b-9027-b8fd5ac337d4",
-        update_term_conditions: true,
-        count_goals: 1,
-        goal_balance: 2800.0,
-        market_place: false,
-        balance_total: 26700.0,
-      },
-    ];
+    setTimeout(() => {
+      this.communities = [
+        {
+          logo:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/2ba6f0886a072d8a21f0d1b9342c0be4.png",
+          name_vault: "DEV - Comfenalco Valle",
+          id_aliado: "CORRESP AV DORADO",
+          nit_vault: "900300400",
+          first_color: "#0f591c",
+          second_color: "#ffffff",
+          type_vault: 3,
+          general_description:
+            "Con el Cofre Comfenalco Valle tienes acceso a grandes beneficios, premios, promociones y mucho más.",
+          internal_description: "Acceda a grandes beneficios",
+          authorization_id: 1,
+          main_features:
+            "Las principales características de este Cofre incluyen\n\n1. Poder ahorrar por separado de tu saldo Coink.\n2. Poder tener un historial específico para este Cofre.\n3. Poder meter y sacar plata directamente de tu cofre en corresponsales, comercios y Oinks que hagan parte de la alianza Coink - Comfama.",
+          restrictive: false,
+          balance: 50000.0,
+          vault_id: "a31e81dd-0e53-4ba7-9f1a-098805129f51",
+          update_term_conditions: true,
+          count_goals: 3,
+          goal_balance: 0.0,
+          market_place: true,
+          balance_total: 50000.0,
+        },
+        {
+          logo:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/675db86792c60100cd1faef2dd5295e7.png",
+          name_vault: "DEV - Pontificia Universidad Javeriana",
+          id_aliado: "CORRESP AV CALI",
+          nit_vault: "900200300",
+          first_color: "#0056a2",
+          second_color: "#ffffff",
+          type_vault: 3,
+          general_description: "Cofre para la comunidad Javeriana",
+          internal_description:
+            "Ahorra en tu cofre y disfruta de beneficios exclusivos en nuestros campus y con aliados de la Universidad.",
+          authorization_id: 1,
+          main_features:
+            "1. Ahorrar por separado de tu saldo Coink.\n2. Tener un historial solo para este cofre.\n3. Sacar y meter plata directamente de y a tu Cofre en corresponsales, comercios y Oinks que hagan parte de la alianza Coink - Javeriana.",
+          restrictive: false,
+          balance: 139139.0,
+          vault_id: "68e105e8-5a1d-4b01-a92f-ae10caadd998",
+          update_term_conditions: true,
+          count_goals: 4,
+          goal_balance: 11528.0,
+          market_place: false,
+          balance_total: 150489.0,
+        },
+        {
+          logo:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/faaee6d9c8fdc9d1b68f6101ca24c873.png",
+          name_vault: "DEV - Cofre - Comfama",
+          id_aliado: "DEV COMFAMA",
+          nit_vault: "800234000",
+          first_color: "#EE2B7B",
+          second_color: "#ffffff",
+          type_vault: 3,
+          general_description:
+            "Con el Cofre Comfama tienes acceso a grandes beneficios, premios, promociones y mucho más.",
+          internal_description: "Cofre Comfama fase 1",
+          authorization_id: 1,
+          main_features:
+            "Las principales características de este Cofre incluyen\n\n1. Poder ahorrar por separado de tu saldo Coink.\n2. Poder tener un historial específico para este Cofre.\n3. Poder meter y sacar plata directamente de tu cofre en corresponsales, comercios y Oinks que hagan parte de la alianza Coink - Comfama.\n",
+          restrictive: false,
+          balance: 23900.0,
+          vault_id: "6f22403a-3520-4c6b-9027-b8fd5ac337d4",
+          update_term_conditions: true,
+          count_goals: 1,
+          goal_balance: 2800.0,
+          market_place: false,
+          balance_total: 26700.0,
+        },
+      ];
+    }, 1500);
   }
 
   getBazarItems() {

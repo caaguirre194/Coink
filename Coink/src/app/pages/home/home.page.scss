@@ -577,3 +577,26 @@ div[scrollX] {
     color: #ffffff;
   }
 }
+
+.communities-skeleton {
+  min-height: 150px;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__avatar {
+    width: 65px;
+    height: 65px;
+  }
+  &__button {
+    height: 104px;
+    width: 56px;
+    border-radius: 5px;
+  }
+}
