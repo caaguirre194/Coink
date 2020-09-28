@@ -4,13 +4,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
-
-.content-check__body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  &__body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  &__bottom {
+    display: flex;
+  }
 }
 
 .lbl-name,
@@ -27,10 +29,6 @@
 .lbl-description {
   color: var(--ion-color-coink-secundary);
   font-size: 20pt;
-}
-
-.content-check__bottom {
-  display: flex;
 }
 
 .btn {

@@ -1,14 +1,14 @@
 <ion-content>
   <div class="content">
-    <div class="content-header">
-      <ion-button class="content-header__options">
+    <div class="content__header">
+      <ion-button class="content__header-options">
         <ion-icon name="ellipsis-vertical"></ion-icon>
       </ion-button>
     </div>
-    <div class="content-body">
+    <div class="content__body">
       <ion-slides pager="true" [options]="slideOpts" class="slides">
         <ion-slide class="slide">
-          <div class="content-slide">
+          <div class="slide__content">
             <img src="assets/img/Logo.svg" class="slide__img" />
             <ion-label class="slide__title"
               >La alcancía que siempre te acompaña</ion-label
@@ -27,7 +27,7 @@
         <ion-slide> </ion-slide>
       </ion-slides>
     </div>
-    <div class="content-bottom">
+    <div class="content__bottom">
       <ion-button class="btn btn--primary" (click)="goSignIn()">
         Regístrate
       </ion-button>

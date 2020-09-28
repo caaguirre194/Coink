@@ -7,12 +7,11 @@
   padding: 20px;
   color: #707070;
   line-height: 16pt;
-}
-
-.content-terms__bottom {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .terms {

@@ -2,23 +2,21 @@
 
 .keyboard {
   height: 55%;
-}
-
-.keyboard__file {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 25%;
-}
-
-.keyboard__key {
-  width: 33%;
-  height: 100%;
-  --box-shadow: none;
-  --background: var(--ion-color-coink-white);
-  --color: var(--ion-color-coink-secundary);
-  font-size: 37px;
-  line-height: 45px;
+  &__file {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 25%;
+  }
+  &__key {
+    width: 33%;
+    height: 100%;
+    --box-shadow: none;
+    --background: var(--ion-color-coink-white);
+    --color: var(--ion-color-coink-secundary);
+    font-size: 37px;
+    line-height: 45px;
+  }
 }
 
 /** Form **/
@@ -64,9 +62,8 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-}
-
-.content-refresh__icon {
-  color: var(--ion-color-coink-primary);
-  margin-right: 10px;
+  &__icon {
+    color: var(--ion-color-coink-primary);
+    margin-right: 10px;
+  }
 }
