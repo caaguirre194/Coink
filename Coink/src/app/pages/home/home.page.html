@@ -144,15 +144,14 @@
                   *ngFor="let community of communities | slice:0:3; let i=index"
                   (click)="goCommunity(community)"
                 >
-                  <img
-                    [src]="community.url"
-                    alt=""
+                  <div
+                    [ngStyle]="{'background-image': 'url(' + community.logo + ')'}"
                     class="communities-item__img"
-                  />
-                  <ion-label class="communities-item__name"
-                    >{{community.name}}</ion-label
+                  ></div>
+                  <ion-label text-wrap class="communities-item__name"
+                    >{{community.name_vault}}</ion-label
                   >
-                  <ion-label>$ {{community.value | number}}</ion-label>
+                  <ion-label>$ {{community.balance_total | number}}</ion-label>
                 </div>
                 <div class="btn-more" (click)="showCommunities()">
                   <ion-icon name="add"></ion-icon>

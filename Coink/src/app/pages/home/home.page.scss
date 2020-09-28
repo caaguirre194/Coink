@@ -259,17 +259,24 @@ div[scrollX] {
     font-size: 11px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     color: var(--ion-color-coink-secundary);
     font-weight: bold;
   }
   &__img {
-    border-radius: 50%;
     width: 57px;
+    height: 57px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: cover;
   }
   &__name {
     margin: 7px 0 2px 0;
+    font-size: 11px;
+    line-height: 1;
+    text-align: center;
   }
 }
 
