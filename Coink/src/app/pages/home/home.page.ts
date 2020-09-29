@@ -85,7 +85,7 @@ export class HomePage implements OnInit {
     public animationCtrl: AnimationController
   ) {
     this.isDay = true;
-    this.stateCard = "Enabled"; //  Disabled, Enabled, Activated
+    this.stateCard = "Activated"; //  Disabled, Enabled, Activated
   }
 
   ngOnInit() {
