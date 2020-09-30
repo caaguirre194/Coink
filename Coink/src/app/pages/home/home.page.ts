@@ -93,7 +93,7 @@ export class HomePage implements OnInit {
     this.getGoals();
     this.getBazarItems();
     this.getKids();
-    this.slideOptionSelected = this.slideOptions[0].name;
+    this.slideOptionSelected = this.slideOptions[1].name;
   }
 
   async presentModalNotifications() {
@@ -171,100 +171,102 @@ export class HomePage implements OnInit {
   }
 
   getGoals() {
-    this.goals = [
-      {
-        category_description: "Viajes y turismo",
-        category_hash:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.svg",
-        category_id: 22,
-        current_balanse: 0,
-        daily_fill: 495.0495049504951,
-        goal_created_date: "2020-08-14T19:42:36.833438",
-        goal_description: "Vamos pa' la playa a curar el alma...",
-        goal_id: "cea2cf04-e0a0-4301-8aa1-65821821b7b0",
-        goal_imagen_cut:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.png",
-        goal_limit_date: "2020-12-30T00:00:00",
-        goal_missing_days: 101,
-        goal_status_id: 1,
-        goal_subcategory: "Cruceros ",
-        goal_subcategory_id: 210,
-        goal_type: "TIENE META NUEVA",
-        goal_value: 1050000,
-        saved_money: 750000,
-        status: 200,
-        time_elapsed: 37,
-      },
-      {
-        category_description: "Viajes y turismo",
-        category_hash:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.svg",
-        category_id: 22,
-        current_balanse: 0,
-        daily_fill: 495.0495049504951,
-        goal_created_date: "2020-08-14T19:42:36.833438",
-        goal_description: "Vamos pa' la playa a curar el alma...",
-        goal_id: "cea2cf04-e0a0-4301-8aa1-65821821b7b0",
-        goal_imagen_cut:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.png",
-        goal_limit_date: "2020-12-30T00:00:00",
-        goal_missing_days: 101,
-        goal_status_id: 1,
-        goal_subcategory: "Cruceros ",
-        goal_subcategory_id: 210,
-        goal_type: "TIENE META NUEVA",
-        goal_value: 1000000,
-        saved_money: 500000,
-        status: 200,
-        time_elapsed: 37,
-      },
-      {
-        category_description: "Viajes y turismo",
-        category_hash:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.svg",
-        category_id: 22,
-        current_balanse: 0,
-        daily_fill: 495.0495049504951,
-        goal_created_date: "2020-08-14T19:42:36.833438",
-        goal_description: "Vamos pa' la playa a curar el alma...",
-        goal_id: "cea2cf04-e0a0-4301-8aa1-65821821b7b0",
-        goal_imagen_cut:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.png",
-        goal_limit_date: "2020-12-30T00:00:00",
-        goal_missing_days: 101,
-        goal_status_id: 1,
-        goal_subcategory: "Cruceros ",
-        goal_subcategory_id: 210,
-        goal_type: "TIENE META NUEVA",
-        goal_value: 1050000,
-        saved_money: 750000,
-        status: 200,
-        time_elapsed: 37,
-      },
-      {
-        category_description: "Viajes y turismo",
-        category_hash:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.svg",
-        category_id: 22,
-        current_balanse: 0,
-        daily_fill: 495.0495049504951,
-        goal_created_date: "2020-08-14T19:42:36.833438",
-        goal_description: "Vamos pa' la playa a curar el alma...",
-        goal_id: "cea2cf04-e0a0-4301-8aa1-65821821b7b0",
-        goal_imagen_cut:
-          "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.png",
-        goal_limit_date: "2020-12-30T00:00:00",
-        goal_missing_days: 101,
-        goal_status_id: 1,
-        goal_subcategory: "Cruceros ",
-        goal_subcategory_id: 210,
-        goal_type: "TIENE META NUEVA",
-        goal_value: 1050000,
-        saved_money: 750000,
-        status: 200,
-        time_elapsed: 37,
-      },
-    ];
+    setTimeout(() => {
+      this.goals = [
+        {
+          category_description: "Viajes y turismo",
+          category_hash:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.svg",
+          category_id: 22,
+          current_balanse: 0,
+          daily_fill: 495.0495049504951,
+          goal_created_date: "2020-08-14T19:42:36.833438",
+          goal_description: "Vamos pa' la playa a curar el alma...",
+          goal_id: "cea2cf04-e0a0-4301-8aa1-65821821b7b0",
+          goal_imagen_cut:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.png",
+          goal_limit_date: "2020-12-30T00:00:00",
+          goal_missing_days: 101,
+          goal_status_id: 1,
+          goal_subcategory: "Cruceros ",
+          goal_subcategory_id: 210,
+          goal_type: "TIENE META NUEVA",
+          goal_value: 1050000,
+          saved_money: 750000,
+          status: 200,
+          time_elapsed: 37,
+        },
+        {
+          category_description: "Viajes y turismo",
+          category_hash:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.svg",
+          category_id: 22,
+          current_balanse: 0,
+          daily_fill: 495.0495049504951,
+          goal_created_date: "2020-08-14T19:42:36.833438",
+          goal_description: "Vamos pa' la playa a curar el alma...",
+          goal_id: "cea2cf04-e0a0-4301-8aa1-65821821b7b0",
+          goal_imagen_cut:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.png",
+          goal_limit_date: "2020-12-30T00:00:00",
+          goal_missing_days: 101,
+          goal_status_id: 1,
+          goal_subcategory: "Cruceros ",
+          goal_subcategory_id: 210,
+          goal_type: "TIENE META NUEVA",
+          goal_value: 1000000,
+          saved_money: 500000,
+          status: 200,
+          time_elapsed: 37,
+        },
+        {
+          category_description: "Viajes y turismo",
+          category_hash:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.svg",
+          category_id: 22,
+          current_balanse: 0,
+          daily_fill: 495.0495049504951,
+          goal_created_date: "2020-08-14T19:42:36.833438",
+          goal_description: "Vamos pa' la playa a curar el alma...",
+          goal_id: "cea2cf04-e0a0-4301-8aa1-65821821b7b0",
+          goal_imagen_cut:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.png",
+          goal_limit_date: "2020-12-30T00:00:00",
+          goal_missing_days: 101,
+          goal_status_id: 1,
+          goal_subcategory: "Cruceros ",
+          goal_subcategory_id: 210,
+          goal_type: "TIENE META NUEVA",
+          goal_value: 1050000,
+          saved_money: 750000,
+          status: 200,
+          time_elapsed: 37,
+        },
+        {
+          category_description: "Viajes y turismo",
+          category_hash:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.svg",
+          category_id: 22,
+          current_balanse: 0,
+          daily_fill: 495.0495049504951,
+          goal_created_date: "2020-08-14T19:42:36.833438",
+          goal_description: "Vamos pa' la playa a curar el alma...",
+          goal_id: "cea2cf04-e0a0-4301-8aa1-65821821b7b0",
+          goal_imagen_cut:
+            "https://s3.amazonaws.com/dev.cdn.bancoink.biz/goal/22_Viajes_turismo.png",
+          goal_limit_date: "2020-12-30T00:00:00",
+          goal_missing_days: 101,
+          goal_status_id: 1,
+          goal_subcategory: "Cruceros ",
+          goal_subcategory_id: 210,
+          goal_type: "TIENE META NUEVA",
+          goal_value: 1050000,
+          saved_money: 750000,
+          status: 200,
+          time_elapsed: 37,
+        },
+      ];
+    }, 1500);
   }
 
   getCommunities() {
@@ -487,6 +489,24 @@ export class HomePage implements OnInit {
     this.slideOptionSelected = option;
     const className = "option-selected";
     console.log(this.slideOptionSelected);
+    // switch (this.slideOptionSelected) {
+    //   case "Comunidades":
+    //     this.communities = undefined;
+    //     this.getCommunities();
+    //     break;
+    //   case "Metas":
+    //     this.getGoals();
+    //     break;
+    //   // case "Tarjeta":
+    //   //   this.getCard();
+    //   //   break;
+    //   case "Bazar":
+    //     this.getBazarItems();
+    //     break;
+    //   case "Kids":
+    //     this.getKids();
+    //     break;
+    // }
 
     if (!event.currentTarget.classList.contains(className)) {
       const elems = document.querySelectorAll(`.${className}`);

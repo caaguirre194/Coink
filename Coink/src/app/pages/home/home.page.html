@@ -96,7 +96,7 @@
             style="padding-right: 16px"
           >
             <div
-              [class]="option == slideOptions[0] ? 'option option-selected' : 'option'"
+              [class]="slideOptionSelected == option.name ? 'option option-selected' : 'option'"
               (click)="selectOption(option.name, $event)"
             >
               <span>
@@ -112,37 +112,39 @@
     <ion-row
       *ngIf="slideOptionSelected == 'Comunidades' && communities === undefined"
     >
-      <div scrollX="true">
-        <div class="communities-skeleton">
-          <div class="communities-skeleton__item">
-            <ion-avatar class="communities-skeleton__avatar">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <div scrollX="true" class="options__body">
+          <div class="communities-skeleton">
+            <div class="communities-skeleton__item">
+              <ion-avatar class="communities-skeleton__avatar">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-avatar>
               <ion-skeleton-text animated></ion-skeleton-text>
-            </ion-avatar>
-            <ion-skeleton-text animated></ion-skeleton-text>
-            <ion-skeleton-text animated></ion-skeleton-text>
-          </div>
-          <div class="communities-skeleton__item">
-            <ion-avatar class="communities-skeleton__avatar">
               <ion-skeleton-text animated></ion-skeleton-text>
-            </ion-avatar>
-            <ion-skeleton-text animated></ion-skeleton-text>
-            <ion-skeleton-text animated></ion-skeleton-text>
-          </div>
-          <div class="communities-skeleton__item">
-            <ion-avatar class="communities-skeleton__avatar">
+            </div>
+            <div class="communities-skeleton__item">
+              <ion-avatar class="communities-skeleton__avatar">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-avatar>
               <ion-skeleton-text animated></ion-skeleton-text>
-            </ion-avatar>
-            <ion-skeleton-text animated></ion-skeleton-text>
-            <ion-skeleton-text animated></ion-skeleton-text>
-          </div>
-          <div class="communities-skeleton__item">
-            <ion-skeleton-text
-              animated
-              class="communities-skeleton__button"
-            ></ion-skeleton-text>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </div>
+            <div class="communities-skeleton__item">
+              <ion-avatar class="communities-skeleton__avatar">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-avatar>
+              <ion-skeleton-text animated></ion-skeleton-text>
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </div>
+            <div class="communities-skeleton__item">
+              <ion-skeleton-text
+                animated
+                class="communities-skeleton__button"
+              ></ion-skeleton-text>
+            </div>
           </div>
         </div>
-      </div>
+      </ion-item>
     </ion-row>
 
     <ion-row
@@ -150,10 +152,7 @@
     >
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true">
-          <div
-            *ngIf="slideOptionSelected == 'Comunidades' && communities.length == 0"
-            class="options__body-empty"
-          >
+          <div *ngIf="communities.length == 0" class="options__body-empty">
             <div class="communities-item-empty">
               <ion-label text-wrap class="communities-item-empty__description">
                 Toda acción tiene su reacción, accede a descuentos y recompensas
@@ -167,10 +166,7 @@
             </div>
           </div>
 
-          <div
-            *ngIf="slideOptionSelected == 'Comunidades' && communities.length > 0"
-            class="options__body"
-          >
+          <div *ngIf="communities.length > 0" class="options__body">
             <div class="communities-item">
               <div class="communities-item__body">
                 <div
@@ -198,10 +194,49 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="slideOptionSelected == 'Metas' && goals.length == 0">
+    <ion-row *ngIf="slideOptionSelected == 'Metas' && goals === undefined">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <div scrollX="true" class="options__body">
+          <div class="scroll-item goals-skeleton" (click)="goGoal(goal)">
+            <div class="goals-skeleton__body">
+              <div class="goals-skeleton__description">
+                <ion-skeleton-text
+                  animated
+                  class="goals-skeleton__name"
+                ></ion-skeleton-text>
+
+                <ion-skeleton-text animated></ion-skeleton-text>
+                <ion-skeleton-text
+                  animated
+                  class="goals-skeleton__values"
+                ></ion-skeleton-text>
+
+                <ion-skeleton-text
+                  animated
+                  class="goals-skeleton__progressbar"
+                ></ion-skeleton-text>
+              </div>
+
+              <ion-skeleton-text
+                animated
+                class="goals-skeleton__img"
+              ></ion-skeleton-text>
+            </div>
+          </div>
+          <div class="scroll-item">
+            <ion-skeleton-text
+              animated
+              class="goals-skeleton__more"
+            ></ion-skeleton-text>
+          </div>
+        </div>
+      </ion-item>
+    </ion-row>
+
+    <ion-row *ngIf="slideOptionSelected == 'Metas' && goals !== undefined">
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true">
-          <div class="options__body-empty">
+          <div *ngIf="goals.length == 0" class="options__body-empty">
             <div class="goals-item-empty">
               <ion-label text-wrap class="goals-item-empty__description">
                 ¿Aún no tienes un objetivo de ahorro? Empieza con algo pequeño.
@@ -215,14 +250,8 @@
               ></ion-icon>
             </div>
           </div>
-        </div>
-      </ion-item>
-    </ion-row>
 
-    <ion-row *ngIf="slideOptionSelected == 'Metas' && goals.length > 0">
-      <ion-item lines="none" class="ion-no-padding options__content">
-        <div scrollX="true">
-          <div class="options__body">
+          <div *ngIf="goals.length > 0" class="options__body">
             <div
               class="scroll-item goals-item"
               *ngFor="let goal of goals | slice:0:2; let i=index"
