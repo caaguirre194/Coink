@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g id="Group_6349" data-name="Group 6349" transform="translate(-12 -422)">
+    <g id="gift" transform="translate(-4.2 431)">
+      <g id="Group_6150" data-name="Group 6150" transform="translate(34.751 9.725)">
+        <g id="Group_6149" data-name="Group 6149" transform="translate(0)">
+          <rect id="Rectangle_5184" data-name="Rectangle 5184" width="6.353" height="8.036" fill="#1eea00"/>
+        </g>
+      </g>
+      <g id="Group_6152" data-name="Group 6152" transform="translate(27.24 9.725)">
+        <g id="Group_6151" data-name="Group 6151" transform="translate(0)">
+          <rect id="Rectangle_5185" data-name="Rectangle 5185" width="6.353" height="8.036" fill="#1eea00"/>
+        </g>
+      </g>
+      <g id="Group_6154" data-name="Group 6154" transform="translate(26.2)">
+        <g id="Group_6153" data-name="Group 6153" transform="translate(0)">
+          <path id="Path_10230" data-name="Path 10230" d="M39.125,3.276A2.216,2.216,0,0,0,37.177,0a3.451,3.451,0,0,0-2.538,1.282,4.519,4.519,0,0,0-.467.644,4.519,4.519,0,0,0-.467-.644A3.451,3.451,0,0,0,31.167,0a2.216,2.216,0,0,0-1.948,3.276H26.2V8.567h7.393V3.276h1.158V8.567h7.393V3.276Zm-7.958,0a1.059,1.059,0,0,1,0-2.118,2.827,2.827,0,0,1,2.341,2.118H31.167Zm6.01,0H34.836a2.827,2.827,0,0,1,2.341-2.118,1.059,1.059,0,1,1,0,2.118Z" transform="translate(-26.2)" fill="#1eea00"/>
+        </g>
+      </g>
+    </g>
+    <g id="Ellipse_200" data-name="Ellipse 200" transform="translate(12 422)" fill="none" stroke="#1eea00" stroke-width="1">
+      <circle cx="18" cy="18" r="18" stroke="none"/>
+      <circle cx="18" cy="18" r="17.5" fill="none"/>
+    </g>
+  </g>
+</svg>

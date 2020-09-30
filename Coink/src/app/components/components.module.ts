@@ -6,10 +6,12 @@ import { InstructionsComponent } from "./instructions/instructions.component";
 import { CircleProgressBarComponent } from "./circle-progress-bar/circle-progress-bar.component";
 import { InfoNotificationComponent } from "./info-notification/info-notification.component";
 import { OptionsNotificationComponent } from "./options-notification/options-notification.component";
+import { HeaderHomeComponent } from "./header-home/header-home.component";
 
 @NgModule({
   declarations: [
     HeaderComponent,
+    HeaderHomeComponent,
     InstructionsComponent,
     CircleProgressBarComponent,
     InfoNotificationComponent,
@@ -18,6 +20,7 @@ import { OptionsNotificationComponent } from "./options-notification/options-not
   imports: [CommonModule, IonicModule],
   exports: [
     HeaderComponent,
+    HeaderHomeComponent,
     InstructionsComponent,
     CircleProgressBarComponent,
     InfoNotificationComponent,

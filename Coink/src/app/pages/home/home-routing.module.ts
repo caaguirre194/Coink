@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'notifications',
     loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'shared-social',
+    loadChildren: () => import('./shared-social/shared-social.module').then( m => m.SharedSocialPageModule)
   }
 ];
 

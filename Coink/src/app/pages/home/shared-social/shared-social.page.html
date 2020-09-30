@@ -1,0 +1,12 @@
+<app-header-home [title]="'INVITAR AMIGOS'"></app-header-home>
+<ion-content>
+  <div class="shared-social">
+    <div class="shared-social__content">
+      <img [src]="sharedInfo.image" alt="" class="shared-social__img" />
+      <ion-label class="shared-social__title">{{sharedInfo.title}}</ion-label>
+      <p class="shared-social__description">{{sharedInfo.message}}</p>
+      <ion-button class="shared-social__btn">Invitar</ion-button>
+    </div>
+  </div>
+</ion-content>
+<ion-footer> </ion-footer>
