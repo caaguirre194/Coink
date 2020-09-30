@@ -1,0 +1,207 @@
+<app-header-home [title]="'Límites y Topes'"></app-header-home>
+
+<ion-content>
+  <ion-list style="margin-top: 10px !important">
+    <ion-item
+      lines="none"
+      class="ion-margin-top ion-margin-bottom custom-border"
+    >
+      <ion-label text-wrap class="font-14">Límites de tu cuenta</ion-label>
+      <ion-icon
+        item-end
+        class="info-icon info-light"
+        (click)="showPopupInfo(1)"
+      ></ion-icon>
+    </ion-item>
+
+    <div class="distip">
+      <ion-item>
+        <div class="distip__content-info">
+          <ion-label text-wrap position="stacked"
+            >Para depósitos $2.227.550</ion-label
+          >
+          <ion-label text-wrap *ngIf="caps.deposit_top" class="font-16">
+            Puedes ahorrar ${{caps.deposit_top | number}} más.
+          </ion-label>
+        </div>
+
+        <ion-input
+          type="text"
+          disabled
+          value="Llegaste a tu límite de ahorro."
+          *ngIf="!caps.deposit_top"
+        >
+        </ion-input>
+        <ion-icon
+          item-end
+          class="info-icon info-dark"
+          (click)="showPopupInfo(2)"
+        ></ion-icon>
+      </ion-item>
+    </div>
+
+    <div class="distip">
+      <ion-item>
+        <div class="distip__content-info">
+          <ion-label text-wrap position="stacked"
+            >Para débitos $2.227.550</ion-label
+          >
+          <ion-label text-wrap *ngIf="caps.transaction_top" class="font-16">
+            Puedes debitar ${{caps.transaction_top | number}} más este mes.
+          </ion-label>
+        </div>
+
+        <ion-input
+          type="text"
+          disabled
+          value="Llegaste a tu límite de débito mensual."
+          *ngIf="!caps.transaction_top"
+        >
+        </ion-input>
+        <ion-icon
+          item-end
+          class="info-icon info-dark"
+          (click)="showPopupInfo(3)"
+        ></ion-icon>
+      </ion-item>
+    </div>
+
+    <ion-item
+      lines="none"
+      class="ion-margin-top ion-margin-bottom custom-border"
+    >
+      <ion-label text-wrap class="font-14">Topes</ion-label>
+      <ion-icon
+        item-end
+        class="info-icon info-light"
+        (click)="showPopupInfo(4)"
+      ></ion-icon>
+    </ion-item>
+
+    <div class="distip">
+      <ion-item
+        class="ion-margin-bottom"
+        (click)="edit(limit)"
+        *ngFor="let limit of limits;trackBy:trackBy('top_type_id')"
+      >
+        <ion-label text-wrap class="distip__description" position="stacked"
+          >{{limit.top_type_description}}</ion-label
+        >
+        <div class="distip__content-edit">
+          <ion-input
+            type="text"
+            disabled
+            value="${{  limit.top_value | number }}"
+            class="text-16"
+          ></ion-input>
+          <ion-icon item-end class="info-icon info-edit"></ion-icon>
+        </div>
+      </ion-item>
+    </div>
+
+    <ion-item
+      lines="none"
+      class="ion-margin-bottom ion-margin-top custom-border"
+    >
+      <ion-label text-wrap class="font-14"
+        >Límites de transferencias a otras entidades</ion-label
+      >
+      <ion-icon
+        item-end
+        class="info-icon info-light"
+        (click)="showPopupInfo(5)"
+      ></ion-icon>
+    </ion-item>
+
+    <div class="distip">
+      <ion-item
+        class="ion-margin-bottom"
+        (click)="editLimitsBy('MONTO_MAXIMO_TRANSFERENCIA')"
+      >
+        <ion-label text-wrap class="distip__description" position="stacked"
+          >Mónto máximo de transacción a otras entidades.</ion-label
+        >
+        <div class="distip__content-edit">
+          <ion-input
+            type="text"
+            disabled
+            value="${{  limitByOpTransferencia.max_amount_per_op | number }}"
+            class="text-16"
+          >
+          </ion-input>
+          <ion-icon item-end class="info-icon info-edit"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item
+        class="ion-margin-bottom"
+        (click)="editLimitsBy('CANTIDAD_MAXIMA_POR_DIA_TTRANSFERENCIA')"
+      >
+        <ion-label text-wrap class="distip__description" position="stacked"
+          >Cantidad máxima de transacciones diarias a otras
+          entidades.</ion-label
+        >
+        <div class="distip__content-edit">
+          <ion-input
+            type="text"
+            disabled
+            value="{{  limitByOpTransferencia.max_times_in_interval }}"
+            class="text-16"
+          ></ion-input>
+          <ion-icon item-end class="info-icon info-edit"></ion-icon>
+        </div>
+      </ion-item>
+    </div>
+
+    <ion-item
+      lines="none"
+      class="ion-margin-bottom ion-margin-top custom-border"
+    >
+      <ion-label text-wrap class="font-14"
+        >Limites de retiros en otras redes</ion-label
+      >
+      <ion-icon
+        item-end
+        class="info-icon info-light"
+        (click)="showPopupInfo(6)"
+      ></ion-icon>
+    </ion-item>
+
+    <div class="distip">
+      <ion-item
+        class="ion-margin-bottom"
+        (click)="editLimitsBy('MONTO_MAXIMO_REVAL')"
+      >
+        <ion-label text-wrap class="distip__description" position="stacked"
+          >Monto máximo por transacción de retiro en otras redes.</ion-label
+        >
+        <div class="distip__content-edit">
+          <ion-input
+            type="text"
+            disabled
+            value="${{  limitByOpReval.max_amount_per_op | number }}"
+            class="text-16"
+          >
+          </ion-input>
+          <ion-icon item-end class="info-icon info-edit"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item
+        class="ion-margin-bottom"
+        (click)="editLimitsBy('RETIROS_MAXIMOS_POR_DIA_REVAL')"
+      >
+        <ion-label text-wrap class="distip__description" position="stacked"
+          >Retiros máximos por dia en otras redes.</ion-label
+        >
+        <div class="distip__content-edit">
+          <ion-input
+            type="text"
+            disabled
+            value="{{  limitByOpReval.max_times_in_interval }}"
+            class="text-16"
+          ></ion-input>
+          <ion-icon item-end class="info-icon info-edit"></ion-icon>
+        </div>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

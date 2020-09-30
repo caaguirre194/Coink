@@ -1,0 +1,55 @@
+ion-icon {
+  &[class*="custom-"] {
+    background-size: 100% !important;
+    background-position: left center !important;
+    background-repeat: no-repeat !important;
+    width: 4em !important;
+    height: 4em !important;
+    margin-left: -10% !important;
+    padding: 0 !important;
+  }
+
+  &[class*="personalizado-"] {
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+  }
+
+  &[class*="custom-mobile"] {
+    background-image: url("../assets/icon/chirp/chirp_icon100.svg");
+  }
+
+  &[class*="custom-historal"] {
+    background-image: url("../assets/images/metas/history-clock-button.svg");
+  }
+
+  &[class*="personalizado-historial-header-info"] {
+    background-image: url("../assets/images/historial/Header_Info.svg");
+  }
+  &[class*="meta-cumplida-info"] {
+    background-image: url("../assets/images/metas/8_InfoMetaAhorrada.png");
+  }
+  &[class*="cerrar"] {
+    background-image: url("../assets/icon/close-white.png");
+  }
+  &[class*="cerrar-green"] {
+    background-image: url("../assets/icon/CloseGreen.png");
+  }
+  &[class*="editar-meta"] {
+    background-image: url("../assets/images/metas/pencil-edit-button.svg");
+  }
+  &[class*="eliminar-meta"] {
+    background-image: url("../assets/images/metas/rubbish-bin-delete-button.svg");
+  }
+  &[class*="limites"] {
+    background-image: url("../assets/icon/info_claro.png");
+  }
+  &[class*="limites-dark"] {
+    background-image: url("../assets/icon/info_oscuro.png");
+  }
+  &[class*="edit-limites"] {
+    background-image: url("../assets/icon/Edit.png");
+  }
+}

@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'shared-social',
     loadChildren: () => import('./shared-social/shared-social.module').then( m => m.SharedSocialPageModule)
+  },
+  {
+    path: 'limits-and-tops',
+    loadChildren: () => import('./limits-and-tops/limits-and-tops.module').then( m => m.LimitsAndTopsPageModule)
   }
 ];
 
