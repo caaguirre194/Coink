@@ -645,3 +645,42 @@ div[scrollX] {
     border-radius: 5px;
   }
 }
+
+.kids-skeleton {
+  width: 207px;
+  height: 105px;
+  background-color: #ffffff;
+  box-shadow: 0px 3px 14px #7777772c;
+  border-radius: 4px;
+  padding: 12px;
+  margin-right: 17px;
+  &__body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  &__icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 25%;
+  }
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 70%;
+  }
+  &__value {
+    margin-right: auto;
+  }
+  &__more {
+    height: 105px;
+    width: 65px;
+    border-radius: 5px;
+    margin-right: 17px;
+  }
+}

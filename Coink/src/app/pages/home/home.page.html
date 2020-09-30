@@ -96,7 +96,7 @@
             style="padding-right: 16px"
           >
             <div
-              [class]="slideOptionSelected == option.name ? 'option option-selected' : 'option'"
+              [class]="slideOptionSelected === option.name ? 'option option-selected' : 'option'"
               (click)="selectOption(option.name, $event)"
             >
               <span>
@@ -110,7 +110,7 @@
     </ion-row>
 
     <ion-row
-      *ngIf="slideOptionSelected == 'Comunidades' && communities === undefined"
+      *ngIf="slideOptionSelected === 'Comunidades' && communities === undefined"
     >
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true" class="options__body">
@@ -148,11 +148,11 @@
     </ion-row>
 
     <ion-row
-      *ngIf="slideOptionSelected == 'Comunidades' && communities !== undefined"
+      *ngIf="slideOptionSelected === 'Comunidades' && communities !== undefined"
     >
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true">
-          <div *ngIf="communities.length == 0" class="options__body-empty">
+          <div *ngIf="communities.length === 0" class="options__body-empty">
             <div class="communities-item-empty">
               <ion-label text-wrap class="communities-item-empty__description">
                 Toda acción tiene su reacción, accede a descuentos y recompensas
@@ -194,10 +194,10 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="slideOptionSelected == 'Metas' && goals === undefined">
+    <ion-row *ngIf="slideOptionSelected === 'Metas' && goals === undefined">
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true" class="options__body">
-          <div class="scroll-item goals-skeleton" (click)="goGoal(goal)">
+          <div class="scroll-item goals-skeleton">
             <div class="goals-skeleton__body">
               <div class="goals-skeleton__description">
                 <ion-skeleton-text
@@ -233,10 +233,10 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="slideOptionSelected == 'Metas' && goals !== undefined">
+    <ion-row *ngIf="slideOptionSelected === 'Metas' && goals !== undefined">
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true">
-          <div *ngIf="goals.length == 0" class="options__body-empty">
+          <div *ngIf="goals.length === 0" class="options__body-empty">
             <div class="goals-item-empty">
               <ion-label text-wrap class="goals-item-empty__description">
                 ¿Aún no tienes un objetivo de ahorro? Empieza con algo pequeño.
@@ -295,7 +295,7 @@
     </ion-row>
 
     <ion-row
-      *ngIf="slideOptionSelected == 'Tarjeta' && stateCard == 'Disabled'"
+      *ngIf="slideOptionSelected === 'Tarjeta' && stateCard == 'Disabled'"
     >
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true">
@@ -318,7 +318,9 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="slideOptionSelected == 'Tarjeta' && stateCard == 'Enabled'">
+    <ion-row
+      *ngIf="slideOptionSelected === 'Tarjeta' && stateCard == 'Enabled'"
+    >
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true">
           <div class="options__body-empty">
@@ -346,7 +348,7 @@
     </ion-row>
 
     <ion-row
-      *ngIf="slideOptionSelected == 'Tarjeta' && stateCard == 'Activated'"
+      *ngIf="slideOptionSelected === 'Tarjeta' && stateCard == 'Activated'"
     >
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true">
@@ -395,7 +397,7 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="slideOptionSelected == 'Bazar'">
+    <ion-row *ngIf="slideOptionSelected === 'Bazar'">
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true">
           <div class="options__body">
@@ -417,10 +419,40 @@
       </ion-item>
     </ion-row>
 
-    <ion-row *ngIf="slideOptionSelected == 'Kids' && kids.length == 0">
+    <ion-row *ngIf="slideOptionSelected === 'Kids' && kids === undefined">
+      <ion-item lines="none" class="ion-no-padding options__content">
+        <div scrollX="true" class="options__body">
+          <div class="scroll-item kids-skeleton">
+            <div class="kids-skeleton__body">
+              <ion-skeleton-text
+                animated
+                class="kids-skeleton__icon"
+              ></ion-skeleton-text>
+
+              <div class="kids-skeleton__description">
+                <ion-skeleton-text animated></ion-skeleton-text>
+
+                <ion-skeleton-text
+                  animated
+                  class="kids-skeleton__value"
+                ></ion-skeleton-text>
+              </div>
+            </div>
+          </div>
+          <div class="scroll-item">
+            <ion-skeleton-text
+              animated
+              class="kids-skeleton__more"
+            ></ion-skeleton-text>
+          </div>
+        </div>
+      </ion-item>
+    </ion-row>
+
+    <ion-row *ngIf="slideOptionSelected === 'Kids' && kids !== undefined">
       <ion-item lines="none" class="ion-no-padding options__content">
         <div scrollX="true">
-          <div class="options__body-empty">
+          <div *ngIf="kids.length === 0" class="options__body-empty">
             <div class="kids-item-empty">
               <ion-label text-wrap class="kids-item-empty__description">
                 Ahorrar desde temprana edad puede significar un futuro
@@ -432,14 +464,8 @@
               >
             </div>
           </div>
-        </div>
-      </ion-item>
-    </ion-row>
 
-    <ion-row *ngIf="slideOptionSelected == 'Kids' && kids.length > 0">
-      <ion-item lines="none" class="ion-no-padding options__content">
-        <div scrollX="true">
-          <div class="options__body">
+          <div *ngIf="kids.length > 0" class="options__body">
             <div
               class="scroll-item kids-item"
               *ngFor="let kid of kids | slice:0:2; let i=index"
