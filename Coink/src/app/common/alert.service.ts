@@ -78,19 +78,13 @@ export class AlertService {
   constructor(private alertController: AlertController) {}
 
   async presentAlert(alertName: string) {
-    let alertOptions = {};
     if (
       this.ALERTS[alertName] === undefined ||
       this.ALERTS[alertName] === null
     ) {
-      alertOptions = {
-        cssClass: this.ALERTS["error:generico"].cssClass,
-        header: this.ALERTS["error:generico"].title,
-        message: this.ALERTS["error:generico"].message,
-        buttons: this.ALERTS["error:generico"].buttons,
-      };
+      this.presentAlertGeneralError();
     } else {
-      alertOptions = {
+      const alert = await this.alertController.create({
         cssClass: this.ALERTS[alertName].cssClass,
         header: this.ALERTS[alertName].title,
         subHeader: this.ALERTS[alertName].subtitle,
@@ -99,10 +93,28 @@ export class AlertService {
           this.ALERTS[alertName].buttons !== undefined
             ? this.ALERTS[alertName].buttons
             : [" "],
-      };
+      });
+      await alert.present();
     }
+  }
 
-    const alert = await this.alertController.create(alertOptions);
+  async presentAlertWithOptions(options: any) {
+    console.log(options);
+    if (options === undefined || options === null || options === {}) {
+      this.presentAlertGeneralError();
+    } else {
+      const alert = await this.alertController.create(options);
+      await alert.present();
+    }
+  }
+
+  async presentAlertGeneralError() {
+    const alert = await this.alertController.create({
+      cssClass: this.ALERTS["error:generico"].cssClass,
+      header: this.ALERTS["error:generico"].title,
+      message: this.ALERTS["error:generico"].message,
+      buttons: this.ALERTS["error:generico"].buttons,
+    });
     await alert.present();
   }
 }

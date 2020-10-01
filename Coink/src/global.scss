@@ -244,6 +244,348 @@ h2.alert-title.sc-ion-alert-md {
   }
 }
 
+ion-alert {
+  &.alert-ios {
+    > .alert-message,
+    > .alert-wrapper {
+      background-color: white;
+      text-align: center !important;
+      border-radius: 4px;
+    }
+  }
+
+  &.response_details {
+    $close: 3rem;
+
+    &.alert-ios {
+      > .alert-wrapper {
+        border-radius: 4px;
+      }
+    }
+
+    > .alert-wrapper {
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+      max-width: 50rem;
+      width: 90vw;
+      background-color: #f8f8f8;
+      position: relative;
+      overflow: initial !important;
+      contain: initial !important;
+      align-self: flex-start;
+      margin-top: 5vh;
+      max-height: 90vh;
+      margin-top: calc(5vh + constant(safe-area-inset-top));
+      max-height: calc(90vh - constant(safe-area-inset-top));
+      margin-top: calc(5vh + env(safe-area-inset-top));
+      max-height: calc(90vh - env(safe-area-inset-top));
+      height: auto !important;
+      padding-top: $close + 1rem;
+      padding-bottom: 1rem;
+
+      &::after {
+        $size: 2.5rem;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: $size;
+        bottom: calc(#{(-1 * $size)} + 2px);
+        background: url("./assets/images/response-details.svg");
+        background-position: center bottom;
+      }
+    }
+
+    &.alert-ios {
+      > .alert-wrapper {
+        background-color: white;
+
+        .alert-head * {
+          text-align: left !important;
+        }
+
+        &:after {
+          background-size: auto 100%;
+        }
+      }
+    }
+
+    .alert-button-group {
+      > button {
+        &:first-child {
+          font-size: $close;
+          position: absolute;
+          right: 0.2rem !important;
+          top: 0.2rem !important;
+          z-index: 999;
+          margin-right: 0;
+
+          .button-inner {
+            color: var(--ion-color-coink-secundary);
+
+            &:after {
+              content: "\f2c0";
+              font-family: "Ionicons";
+              font-size: 1.4em;
+              padding-left: 60%;
+            }
+          }
+        }
+
+        &.alert-button-ios {
+          right: calc(0.5rem - 10vw);
+        }
+      }
+    }
+
+    .alert-head {
+      $padding: 1rem;
+      padding-top: $padding;
+      padding-bottom: 0.5rem;
+      // margin-bottom: $close / 2;
+
+      .alert-title {
+        font-size: 2rem;
+        font-weight: 900 !important;
+        text-align: left;
+        font-family: "Montserrat", sans-serif !important;
+        position: relative;
+        text-transform: uppercase !important;
+
+        &.red-title {
+          color: rgba(231, 65, 17, 1) !important;
+        }
+
+        &.yellow-title {
+          color: #ffb71b;
+        }
+
+        &.green-title {
+          color: var(--ion-color-coink-primary) !important;
+        }
+
+        &::before {
+          $tamano: 25%;
+          // border-bottom: 0.25rem solid var(--ion-color-coink-secundary);
+          position: absolute;
+          bottom: $padding * -0.5;
+          content: "";
+          left: (100% - $tamano) / 2;
+          right: (100% - $tamano) / 2;
+        }
+      }
+    }
+
+    .alert-message {
+      padding: 0 2rem 0 2rem;
+      text-align: left;
+      max-height: 100%;
+
+      p {
+        border-bottom: 0.1rem solid #d3d3d3;
+        font-size: 1.4rem;
+        padding-bottom: 0.5rem !important;
+        // margin-bottom: -0.5rem;
+        font-family: "Montserrat", sans-serif !important;
+
+        &.custom-padding {
+          padding: 0 0 1rem 0;
+          display: flex;
+          align-items: center !important;
+        }
+
+        &:first-child {
+          padding-top: 0;
+          border-bottom-width: 0;
+
+          span.strong {
+            line-height: 4rem;
+          }
+        }
+
+        span {
+          &.right-text {
+            float: right;
+            text-transform: uppercase;
+          }
+
+          &.bold-text {
+            font-family: "Montserrat", sans-serif !important;
+            font-weight: 700 !important;
+            color: var(--ion-color-coink-secundary);
+            font-size: 12px !important;
+
+            &.font-uppercase {
+              text-transform: uppercase;
+            }
+          }
+
+          &.res-no-uppercase {
+            // float: right;
+            text-align: right !important;
+            width: 80%;
+          }
+          &.res {
+            // float: right;
+            text-align: right !important;
+            width: 80%;
+            text-transform: uppercase;
+          }
+
+          &.strong {
+            color: var(--ion-color-coink-secundary);
+
+            &.font-size-up {
+              font-size: 16px !important;
+            }
+          }
+
+          &.place-name {
+            font-family: "Montserrat", sans-serif !important;
+            font-size: 14px;
+            color: var(--ion-color-coink-secundary);
+            font-weight: 300 !important;
+          }
+
+          &.red {
+            //font-family: "Montserrat", sans-serif !important;
+            font-size: 18px !important;
+            color: rgba(231, 65, 17, 1);
+            font-weight: 900 !important;
+          }
+
+          &.green {
+            //font-family: "Montserrat", sans-serif !important;
+            font-size: 18px !important;
+            color: var(--ion-color-coink-primary);
+            font-weight: 900 !important;
+          }
+
+          &.orange {
+            font-size: 14px;
+            color: rgba(251, 176, 64, 1);
+            font-style: italic !important;
+            font-weight: bold !important;
+          }
+
+          &.gray {
+            //font-family: "Montserrat", sans-serif !important;
+            font-size: 18px !important;
+            color: #4d4d4d !important;
+            font-weight: 900 !important;
+          }
+
+          &.info-retipago {
+            font-family: "Montserrat", sans-serif !important;
+            font-size: 12px;
+            color: var(--ion-color-coink-secundary);
+            font-style: italic !important;
+          }
+
+          &.info-transferencia {
+            font-family: "Montserrat" !important;
+            font-size: 12px;
+            color: #4d4d4d;
+            font-style: italic !important;
+          }
+
+          &.info-camp {
+            font-size: 14px;
+            color: var(--ion-color-coink-secundary);
+
+            &.font-size-up {
+              font-size: 16px !important;
+            }
+          }
+
+          &.info-retipago-title {
+            font-family: "Montserrat", sans-serif !important;
+            font-size: 14px;
+            color: rgba(251, 176, 64, 1);
+            font-style: italic !important;
+          }
+
+          &.green,
+          &.orange,
+          &.red,
+          &.strong {
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+
+          &.green,
+          &.orange,
+          &.red {
+            &::before {
+              content: "$ ";
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.error-alert {
+    .alert-wrapper {
+      .alert-head {
+        .alert-title {
+          color: rgba(231, 65, 17, 1);
+        }
+      }
+    }
+  }
+
+  .alert-wrapper {
+    border-radius: 0.15vw;
+
+    .alert-head {
+      .alert-title {
+        color: var(--ion-color-coink-secundary);
+      }
+    }
+
+    .alert-message {
+      font-size: 13px;
+      color: #404040;
+
+      a {
+        color: var(--ion-color-coink-secundary);
+      }
+
+      p {
+        &.strong {
+          font-weight: 400;
+        }
+      }
+    }
+
+    .alert-radio-group {
+      .alert-radio-button-md .alert-radio-inner,
+      .alert-radio-button-wp .alert-radio-inner {
+        top: 0.3rem;
+        left: 0.3rem;
+      }
+
+      .alert-radio-group .alert-radio-button-md .alert-radio-inner {
+        top: 0.2rem;
+        left: 0.2rem;
+      }
+    }
+
+    .alert-button-group {
+      justify-content: space-between;
+
+      .alert-button {
+        border-color: transparent;
+        color: var(--ion-color-coink-secundary);
+        font-weight: bold;
+        .button-inner {
+          color: var(--ion-color-coink-secundary);
+        }
+      }
+    }
+  }
+}
+
 // Estilos para loading
 
 ion-loading {
