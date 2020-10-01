@@ -67,70 +67,85 @@ export class LimitsAndTopsPage implements OnInit {
     private alertService: AlertService
   ) {}
 
-  ngOnInit() {
+  ionViewDidLoad() {
+    this.getLimitsAndTops();
+  }
+
+  async getLimitsAndTops() {
     this.loaderService.showLoader();
 
-    this.limitsByOp = [
-      {
-        cash_direction_id: 1,
-        in_interval: "1.00:00:00",
-        max_amount_per_op: 200000,
-        max_times_in_interval: 3,
-        min_amount_per_op: 0,
-        operation_description: "Retiro Corresponsal No Propio",
-        operation_id: 1,
-      },
-    ];
+    // Pendiente por implementar servicio para traer limites y topes
+    // Promise.all([
+    //   await this.money.getCaps().then(this.dataSet("caps")),
+    //   await this.money.getLimits().then(this.dataSet("limits")),
+    //   await this.money.getLimitsByOp().then(this.dataSet("limitsByOp")),
+    //   this.setInputsBy(),
+    // ])
 
-    this.limitByOpReval = {
-      cash_direction_id: 1,
-      in_interval: "1.00:00:00",
-      max_amount_per_op: 200000,
-      max_times_in_interval: 3,
-      min_amount_per_op: 0,
-      operation_description: "Retiro Corresponsal No Propio",
-      operation_id: 1,
-    };
+    const capsPromise = new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000, {
+        deposit_top: 1606662,
+        deposit_top_percentage: 72,
+        status: 200,
+        transaction_top: 2227550,
+        transaction_top_percentage: 100,
+      });
+    }).then(this.dataSet("caps"));
 
-    this.limitByOpTransferencia = {
-      cash_direction: 0,
-      in_interval: "0.00:00:00",
-      max_amount_per_op: 0,
-      max_times_in_interval: 0,
-      min_amount_per_op: 0,
-      operation_description: "",
-      operation_id: 0,
-    };
+    const limitsPromise = new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000, [
+        {
+          top_type_id: 1,
+          top_type_description: "Retiros en Efectivo",
+          top_value: 500000,
+        },
+        {
+          top_type_id: 2,
+          top_type_description: "Transferencias Coink",
+          top_value: 500000,
+        },
+        {
+          top_type_id: 5,
+          top_type_description: "Retiro Para Pago",
+          top_value: 500000,
+        },
+      ]);
+    }).then(this.dataSet("limits"));
 
-    this.caps = {
-      deposit_top: 1606662,
-      deposit_top_percentage: 72,
-      status: 200,
-      transaction_top: 2227550,
-      transaction_top_percentage: 100,
-    };
+    const limitsByOpPromise = new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000, [
+        {
+          cash_direction_id: 1,
+          in_interval: "1.00:00:00",
+          max_amount_per_op: 200000,
+          max_times_in_interval: 3,
+          min_amount_per_op: 0,
+          operation_description: "Retiro Corresponsal No Propio",
+          operation_id: 1,
+        },
+      ]);
+    });
 
-    this.limits = [
-      {
-        top_type_id: 1,
-        top_type_description: "Retiros en Efectivo",
-        top_value: 500000,
-      },
-      {
-        top_type_id: 2,
-        top_type_description: "Transferencias Coink",
-        top_value: 500000,
-      },
-      {
-        top_type_id: 5,
-        top_type_description: "Retiro Para Pago",
-        top_value: 500000,
-      },
-    ];
+    Promise.all([
+      capsPromise,
+      limitsPromise,
+      limitsByOpPromise,
+      this.setInputsBy(),
+    ])
+      .then((e) => {
+        console.log("caps -> ", this.caps);
+        console.log("limits -> ", this.limits);
+        console.log("limitsByOp -> ", this.limitsByOp);
+        this.loaderService.hideLoader();
+      })
+      .catch((error) => {
+        this.loaderService.hideLoader();
+        console.log("error", error);
+      });
+  }
 
-    setTimeout(() => {
-      this.loaderService.hideLoader();
-    }, 1500);
+  ngOnInit() {
+    this.getLimitsAndTops();
   }
 
   /**
