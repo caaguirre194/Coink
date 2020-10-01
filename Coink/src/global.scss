@@ -102,3 +102,229 @@ h2.alert-title.sc-ion-alert-md {
   width: 80%;
   margin-left: 20%;
 }
+
+/** Estilo para arreglar bug en migración  - para limits-and-tops
+    [https://github.com/ionic-team/ionic-framework/issues/18670](https://github.com/ionic-team/ionic-framework/issues/18670)
+**/
+.native-input[disabled].sc-ion-input-ios {
+  opacity: 1 !important;
+  font-family: "Avenir Next LT Pro" !important;
+  font-size: 16px !important;
+  color: #004b40 !important;
+  text-transform: none !important;
+  &.text-16 {
+    font-size: 16px !important;
+  }
+}
+
+// Alerts de nofiticaciones
+.alert-information-cofre-detalle {
+  .alert-button-group {
+    > button {
+      &:first-child {
+        font-size: 2rem;
+        position: absolute;
+        right: 0.2rem !important;
+        top: 0.2rem !important;
+        z-index: 999;
+        margin-right: 0;
+        border: 0;
+        .button-inner,
+        .alert-button-inner {
+          color: var(--ion-color-coink-secundary);
+          &:after {
+            content: url("assets/icon/Cerrar_PopUp.png");
+            font-family: "Ionicons";
+            transform: scale(0.3);
+            position: fixed;
+            left: 75%;
+          }
+        }
+      }
+
+      &.alert-button-ios {
+        right: calc(0.5rem - 10vw);
+      }
+    }
+  }
+
+  .alert-wrapper {
+    border-radius: 15px !important;
+    min-width: 300px !important;
+    padding: 10px !important;
+
+    .alert-button-group {
+      margin: 20px 15px 10px 15px !important;
+    }
+
+    .alert-title {
+      padding: 10px 10px !important;
+      text-align: center !important;
+      color: #004b40 !important;
+      font-size: 16px !important;
+      text-transform: uppercase !important;
+    }
+
+    .alert-message {
+      padding: 15px 15px !important;
+      text-align: center !important;
+      padding: 0 30px !important;
+      font-size: 14px !important;
+      color: #4d4d4d !important;
+    }
+
+    .alert-button {
+      margin: 2px;
+      height: 35px !important;
+      min-width: 40% !important;
+    }
+  }
+}
+
+.alert-information-cofre-detalle-green {
+  .alert-button-group {
+    > button {
+      &:first-child {
+        font-size: 2rem;
+        position: absolute;
+        right: 0.2rem !important;
+        top: 0.2rem !important;
+        z-index: 999;
+        margin-right: 0;
+        border: 0;
+        .button-inner,
+        .alert-button-inner {
+          color: var(--ion-color-coink-secundary);
+          &:after {
+            content: url("assets/icon/Cerrar_PopUp.png");
+            font-family: "Ionicons";
+            transform: scale(0.3);
+            position: fixed;
+            left: 75%;
+          }
+        }
+      }
+
+      &.alert-button-ios {
+        right: calc(0.5rem - 10vw);
+      }
+    }
+  }
+
+  .alert-wrapper {
+    border-radius: 15px !important;
+    min-width: 300px !important;
+    padding: 10px !important;
+
+    .alert-button-group {
+      margin: 20px 15px 10px 15px !important;
+    }
+
+    .alert-title {
+      padding: 10px 10px !important;
+      text-align: center !important;
+      color: var(--ion-color-coink-primary) !important;
+      font-size: 16px !important;
+      text-transform: uppercase !important;
+    }
+
+    .alert-message {
+      padding: 15px 15px !important;
+      text-align: center !important;
+      padding: 0 30px !important;
+      font-size: 14px !important;
+      color: #4d4d4d !important;
+    }
+
+    .alert-button {
+      margin: 2px;
+      height: 35px !important;
+      min-width: 40% !important;
+    }
+  }
+}
+
+// Estilos para loading
+
+ion-loading {
+  .loading-wrapper {
+    background: transparent !important;
+    box-shadow: none;
+  }
+
+  .loading-content {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
+$max: 250;
+$seg: 2s;
+@keyframes spinnering {
+  from {
+    stroke-dashoffset: $max;
+  }
+
+  to {
+    stroke-dashoffset: $max * 0.1;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  text-align: center;
+  align-content: center;
+
+  &.pull {
+    padding-top: 1rem;
+  }
+
+  &.push {
+    padding-top: 2.5rem;
+  }
+}
+
+svg.ring-spinner {
+  width: 100px;
+  height: 100px;
+  animation: spin $seg linear infinite;
+
+  &.small {
+    width: 12.5vw;
+    height: 12.5vw;
+    margin: 0 auto;
+  }
+
+  circle {
+    fill: transparent;
+    stroke-linecap: round;
+    stroke-dasharray: 350px;
+    stroke-dashoffset: 82px;
+    cy: 50;
+    cx: 50;
+    r: 40;
+    &.ring {
+      stroke: var(--ion-color-coink-primary);
+      stroke-width: 12px;
+    }
+    &.base {
+      stroke: var(--ion-color-coink-secundary);
+      stroke-width: 8px;
+      stroke-dasharray: $max;
+      stroke-dashoffset: $max - ($max * (3 / 5));
+      animation: spinnering ($seg * (3/5)) linear alternate infinite;
+    }
+  }
+}

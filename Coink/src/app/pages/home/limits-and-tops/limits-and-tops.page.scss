@@ -125,32 +125,6 @@ limits-and-tops {
       font-weight: 700 !important;
     }
   }
-
-  .icon-show {
-    position: absolute;
-    right: 5%;
-    padding: 15px 15px;
-    z-index: 999;
-    font-size: 2.75rem;
-    bottom: 0%;
-    background-repeat: no-repeat;
-    width: 25px;
-    height: 25px;
-  }
-
-  .text-input,
-  .native-input {
-    opacity: 1 !important;
-    font-family: "Avenir Next LT Pro" !important;
-    font-size: 16px !important;
-    color: #004b40 !important;
-    text-transform: none !important;
-    margin-left: 10px !important;
-
-    &.text-16 {
-      font-size: 16px !important;
-    }
-  }
 }
 
 /** Estilos para arreglar bug en migración 
@@ -164,8 +138,4 @@ limits-and-tops {
 
 ion-item {
   pointer-events: auto !important;
-}
-
-input:disabled {
-  opacity: 1 !important;
 }

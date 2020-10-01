@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Limits } from "../../../models/Limits";
 import { LimitsByOp, ListLimitsByOp } from "../../../models/Money/LimitsByOp";
+import { AlertService } from "../../../common/alert.service";
+import { LoaderService } from "../../../common/loader.service";
 
 @Component({
   selector: "app-limits-and-tops",
@@ -41,9 +43,14 @@ export class LimitsAndTopsPage implements OnInit {
     transaction_top: 0,
     transaction_top_percentage: 1,
   };
-  constructor() {}
+  constructor(
+    private loaderService: LoaderService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit() {
+    this.loaderService.showLoader();
+
     this.limitsByOp = [
       {
         cash_direction_id: 1,
@@ -55,6 +62,7 @@ export class LimitsAndTopsPage implements OnInit {
         operation_id: 1,
       },
     ];
+
     this.limitByOpReval = {
       cash_direction_id: 1,
       in_interval: "1.00:00:00",
@@ -64,6 +72,7 @@ export class LimitsAndTopsPage implements OnInit {
       operation_description: "Retiro Corresponsal No Propio",
       operation_id: 1,
     };
+
     this.limitByOpTransferencia = {
       cash_direction: 0,
       in_interval: "0.00:00:00",
@@ -99,6 +108,17 @@ export class LimitsAndTopsPage implements OnInit {
         top_value: 500000,
       },
     ];
+
+    setTimeout(() => {
+      this.loaderService.hideLoader();
+    }, 1500);
+  }
+
+  /**
+   * Funcion para mostrar popup de informacion
+   */
+  showPopupInfo(type: number) {
+    this.alertService.presentAlert(`informacion-limites:${type}`);
   }
 
   trackBy(name: string = "id") {
