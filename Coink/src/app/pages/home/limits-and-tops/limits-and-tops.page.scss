@@ -15,7 +15,7 @@
 }
 
 ion-label {
-  font-family: "AvenirNext LT Pro" !important;
+  font-family: "Avenir Next LT Pro" !important;
   font-size: 14px !important;
   color: #004b40 !important;
   text-transform: none !important;
@@ -52,54 +52,6 @@ limits-and-tops {
         text-transform: none !important;
         margin-top: 10px !important;
         margin-bottom: 10px !important;
-      }
-    }
-  }
-
-  .distip {
-    position: relative;
-    overflow: initial !important;
-    contain: initial !important;
-
-    ion-label {
-      font-family: "AvenirNext LT Pro" !important;
-      font-size: 14px !important;
-      color: #004b40 !important;
-      text-transform: none !important;
-
-      &.font-16 {
-        font-size: 16px !important;
-      }
-
-      &.font-14 {
-        font-size: 16px !important;
-        font-family: "Montserrat" !important;
-        font-weight: 700 !important;
-      }
-    }
-
-    .icon-show {
-      position: absolute;
-      right: 5%;
-      padding: 15px 15px;
-      z-index: 999;
-      font-size: 2.75rem;
-      bottom: 0%;
-      background-repeat: no-repeat;
-      width: 25px;
-      height: 25px;
-    }
-
-    .text-input {
-      opacity: 1 !important;
-      font-family: "AvenirNext LT Pro" !important;
-      font-size: 16px !important;
-      color: #004b40 !important;
-      text-transform: none !important;
-      margin-left: 10px !important;
-
-      &.text-16 {
-        font-size: 16px !important;
       }
     }
   }
@@ -141,16 +93,64 @@ limits-and-tops {
   background-image: url("../../../../assets/img/home/limits-and-tops/Edit.png");
 }
 
-.distip__content-edit {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+.distip {
+  position: relative;
+  overflow: initial !important;
+  contain: initial !important;
+  &__content-edit {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: #004b40;
+  }
 
-.distip__content-info {
-  width: calc(100% - 20px);
-  pointer-events: auto;
+  &__content-info {
+    width: calc(100% - 20px);
+    pointer-events: auto;
+  }
+
+  ion-label {
+    font-family: "Avenir Next LT Pro" !important;
+    font-size: 14px !important;
+    color: #004b40 !important;
+    text-transform: none !important;
+
+    &.font-16 {
+      font-size: 16px !important;
+    }
+
+    &.font-14 {
+      font-size: 16px !important;
+      font-family: "Montserrat" !important;
+      font-weight: 700 !important;
+    }
+  }
+
+  .icon-show {
+    position: absolute;
+    right: 5%;
+    padding: 15px 15px;
+    z-index: 999;
+    font-size: 2.75rem;
+    bottom: 0%;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+  }
+
+  .text-input,
+  .native-input {
+    opacity: 1 !important;
+    font-family: "Avenir Next LT Pro" !important;
+    font-size: 16px !important;
+    color: #004b40 !important;
+    text-transform: none !important;
+    margin-left: 10px !important;
+
+    &.text-16 {
+      font-size: 16px !important;
+    }
+  }
 }
 
 /** Estilos para arreglar bug en migración 
@@ -164,4 +164,8 @@ limits-and-tops {
 
 ion-item {
   pointer-events: auto !important;
+}
+
+input:disabled {
+  opacity: 1 !important;
 }
