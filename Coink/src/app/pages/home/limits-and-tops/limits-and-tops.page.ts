@@ -11,8 +11,14 @@ import { RequestLimitsByOp } from "../../../models/Money/RequestLimitsByOp";
   styleUrls: ["./limits-and-tops.page.scss"],
 })
 export class LimitsAndTopsPage implements OnInit {
+  /**
+   * Limits
+   */
   public limits: Limits[] = [];
 
+  /**
+   * Limit by operation in Reval
+   */
   public limitByOpReval: LimitsByOp = {
     min_amount_per_op: 0,
     max_amount_per_op: 0,
@@ -23,6 +29,9 @@ export class LimitsAndTopsPage implements OnInit {
     operation_description: "",
   };
 
+  /**
+   * Limit by operation in transfer
+   */
   public limitByOpTransferencia: LimitsByOp = {
     min_amount_per_op: 0,
     max_amount_per_op: 0,
@@ -34,10 +43,13 @@ export class LimitsAndTopsPage implements OnInit {
   };
 
   /**
-   * Limits by Op
+   * Limits by operation
    */
   public limitsByOp: ListLimitsByOp = [];
 
+  /**
+   * The caps starts
+   */
   public caps: any = {
     deposit_top: 0,
     deposit_top_percentage: 1,
@@ -45,6 +57,9 @@ export class LimitsAndTopsPage implements OnInit {
     transaction_top_percentage: 1,
   };
 
+  /**
+   * HTML element for create errors text in edit alerts
+   */
   public element: HTMLElement;
 
   constructor(
@@ -203,6 +218,10 @@ export class LimitsAndTopsPage implements OnInit {
     });
   }
 
+  /**
+   * This method creates the options for the edit alert
+   * @param type input type
+   */
   public editLimitsBy(type: string) {
     switch (type) {
       case "MONTO_MAXIMO_REVAL":
@@ -262,6 +281,18 @@ export class LimitsAndTopsPage implements OnInit {
     }
   }
 
+  /**
+   *  Method for show alert in edit data
+   * @param operationType
+   * @param title
+   * @param message_
+   * @param id_
+   * @param type_
+   * @param placeholder_
+   * @param name_
+   * @param idInput
+   * @param cssClass_
+   */
   public showAlertEdit(
     operationType: string,
     title: string,
@@ -456,12 +487,43 @@ export class LimitsAndTopsPage implements OnInit {
   }
 
   /**
-   * Muestra popup de información
+   * Set inputs values
+   * @param operation
+   */
+  public setInputsBy(operation?: number) {
+    if (this.limitsByOp.length !== 0) {
+      this.limitsByOp.forEach((limit) => {
+        if (limit.operation_id === 1) {
+          this.limitByOpReval = limit;
+        } else if (limit.operation_id === 4) {
+          this.limitByOpTransferencia = limit;
+        }
+      });
+    }
+    console.log("limitsByOp --> ", this.limitsByOp);
+    console.log("limitByOpReval --> ", this.limitByOpReval);
+    console.log("limitByOpTransferencia --> ", this.limitByOpTransferencia);
+  }
+
+  /**
+   * Set data
+   * @param name data name
+   */
+  public dataSet(name: string): any {
+    return (e) => (this[name] = e);
+  }
+
+  /**
+   * Shows Information Pop Up
    */
   showPopupInfo(type: number) {
     this.alertService.presentAlert(`informacion-limites:${type}`);
   }
 
+  /**
+   *  Validate number
+   * @param str data for validate
+   */
   public isNumber(str: any) {
     const valueNumber = str >>> 0 === parseFloat(str);
     if (valueNumber) {
@@ -473,15 +535,17 @@ export class LimitsAndTopsPage implements OnInit {
     return false;
   }
 
+  /**
+   * Method for track by id
+   * @param name
+   */
   trackBy(name: string = "id") {
     let split = name.split(".");
     return (index, item) => {
       let ind: any = item;
-
       for (var i = split.length - 1; i >= 0; i--) {
         ind = item[split[i]];
       }
-
       return ind;
     };
   }
