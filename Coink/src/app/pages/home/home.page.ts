@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController, AnimationController } from "@ionic/angular";
 import { NotificationsPage } from "./notifications/notifications.page";
+import { LoaderService } from "../../common/loader.service";
 import { Community } from "../../models/Community";
 import { Goal } from "../../models/Goal";
 import { Kid } from "../../models/Kid";
@@ -82,18 +83,25 @@ export class HomePage implements OnInit {
 
   constructor(
     public modalController: ModalController,
-    public animationCtrl: AnimationController
+    public animationCtrl: AnimationController,
+    public loaderService: LoaderService
   ) {
     this.isDay = true;
     this.stateCard = "Activated"; //  Disabled, Enabled, Activated
   }
 
   ngOnInit() {
-    this.getCommunities();
-    this.getGoals();
-    this.getBazarItems();
-    this.getKids();
-    this.slideOptionSelected = this.slideOptions[0].name;
+    this.loaderService.showLoader();
+    Promise.all([this.getCommunities(), this.getGoals(), this.getKids()])
+      .then((e) => {
+        this.getBazarItems();
+        this.slideOptionSelected = this.slideOptions[0].name;
+        this.loaderService.hideLoader();
+      })
+      .catch((error) => {
+        this.loaderService.hideLoader();
+        console.log("error", error);
+      });
   }
 
   async presentModalNotifications() {
@@ -171,8 +179,8 @@ export class HomePage implements OnInit {
   }
 
   getGoals() {
-    setTimeout(() => {
-      this.goals = [
+    return new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000, [
         {
           category_description: "Viajes y turismo",
           category_hash:
@@ -265,13 +273,13 @@ export class HomePage implements OnInit {
           status: 200,
           time_elapsed: 37,
         },
-      ];
-    }, 1500);
+      ]);
+    }).then(this.dataSet("goals"));
   }
 
   getCommunities() {
-    setTimeout(() => {
-      this.communities = [
+    return new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000, [
         {
           logo:
             "https://s3.amazonaws.com/dev.cdn.bancoink.biz/pockets/2ba6f0886a072d8a21f0d1b9342c0be4.png",
@@ -344,8 +352,8 @@ export class HomePage implements OnInit {
           market_place: false,
           balance_total: 26700.0,
         },
-      ];
-    }, 1500);
+      ]);
+    }).then(this.dataSet("communities"));
   }
 
   getBazarItems() {
@@ -374,8 +382,8 @@ export class HomePage implements OnInit {
   }
 
   getKids() {
-    setTimeout(() => {
-      this.kids = [
+    return new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000, [
         {
           authorization_id: 1,
           balance: 750000,
@@ -479,8 +487,16 @@ export class HomePage implements OnInit {
           update_term_conditions: true,
           vault_id: "9f973926-f265-45dc-889b-a5eb21a71b0c",
         },
-      ];
-    }, 1500);
+      ]);
+    }).then(this.dataSet("kids"));
+  }
+
+  /**
+   * Set data
+   * @param name data name
+   */
+  public dataSet(name: string): any {
+    return (e) => (this[name] = e);
   }
 
   showInfoBalance(test: string) {

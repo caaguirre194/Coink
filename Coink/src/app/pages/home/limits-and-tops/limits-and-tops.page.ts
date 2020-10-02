@@ -82,7 +82,7 @@ export class LimitsAndTopsPage implements OnInit {
     //   this.setInputsBy(),
     // ])
 
-    const capsPromise = new Promise((resolve, reject) => {
+    const getCaps = new Promise((resolve, reject) => {
       setTimeout(resolve, 1000, {
         deposit_top: 1606662,
         deposit_top_percentage: 72,
@@ -92,7 +92,7 @@ export class LimitsAndTopsPage implements OnInit {
       });
     }).then(this.dataSet("caps"));
 
-    const limitsPromise = new Promise((resolve, reject) => {
+    const getLimits = new Promise((resolve, reject) => {
       setTimeout(resolve, 1000, [
         {
           top_type_id: 1,
@@ -112,7 +112,7 @@ export class LimitsAndTopsPage implements OnInit {
       ]);
     }).then(this.dataSet("limits"));
 
-    const limitsByOpPromise = new Promise((resolve, reject) => {
+    const getLimitsByOp = new Promise((resolve, reject) => {
       setTimeout(resolve, 1000, [
         {
           cash_direction_id: 1,
@@ -126,12 +126,7 @@ export class LimitsAndTopsPage implements OnInit {
       ]);
     });
 
-    Promise.all([
-      capsPromise,
-      limitsPromise,
-      limitsByOpPromise,
-      this.setInputsBy(),
-    ])
+    Promise.all([getCaps, getLimits, getLimitsByOp, this.setInputsBy()])
       .then((e) => {
         console.log("caps -> ", this.caps);
         console.log("limits -> ", this.limits);

@@ -5,11 +5,16 @@ import { LoadingController } from "@ionic/angular";
   providedIn: "root",
 })
 export class LoaderService {
+  /**
+   * HTML element to draw ring-spinner
+   */
   private element: HTMLElement;
 
   constructor(public loadingController: LoadingController) {}
 
-  // Show the loader for infinite time
+  /**
+   * Show the loader for infinite time
+   */
   showLoader() {
     this.loadingController
       .create({
@@ -31,7 +36,9 @@ export class LoaderService {
       });
   }
 
-  // Hide the loader if already created otherwise return error
+  /**
+   * Hide the loader if already created otherwise return error
+   */
   hideLoader() {
     this.loadingController
       .dismiss()
