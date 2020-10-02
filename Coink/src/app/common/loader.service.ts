@@ -1,47 +1,34 @@
-import { Injectable, SecurityContext } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { LoadingController } from "@ionic/angular";
-import { DomSanitizer } from "@angular/platform-browser";
 
 @Injectable({
   providedIn: "root",
 })
 export class LoaderService {
-  constructor(
-    public loadingController: LoadingController,
-    private sanitizer: DomSanitizer
-  ) {}
+  private element: HTMLElement;
+
+  constructor(public loadingController: LoadingController) {}
 
   // Show the loader for infinite time
   showLoader() {
-    let x = this.sanitizer.bypassSecurityTrustHtml(
-      "<svg viewBox='0 0 100 100' class='ring-spinner' >" +
-        "<circle class='ring' r='40' cy='50' cx='50' ></circle>" +
-        "<circle class='base' r='40' cy='50' cx='50' ></circle>" +
-        "</svg>"
-    );
-
-    let y = this.sanitizer.sanitize(SecurityContext.HTML, x);
-
     this.loadingController
       .create({
         spinner: null,
         mode: "ios",
         cssClass: "coink",
-        // message: this.sanitizer.bypassSecurityTrustHtml(
-        //   "<svg viewBox='0 0 100 100' class='ring-spinner' >" +
-        //     "<circle class='ring' r='40' cy='50' cx='50' ></circle>" +
-        //     "<circle class='base' r='40' cy='50' cx='50' ></circle>" +
-        //     "</svg>"
-        // ),
-        message: y as string,
+        message: "",
       })
       .then((res) => {
         res.present();
+        this.element = document.getElementsByClassName(
+          "loading-wrapper"
+        )[0] as HTMLElement;
+        this.element.innerHTML =
+          "<svg viewBox='0 0 100 100' class='ring-spinner' >" +
+          "<circle class='ring' r='40' cy='50' cx='50' ></circle>" +
+          "<circle class='base' r='40' cy='50' cx='50' ></circle>" +
+          "</svg>";
       });
-  }
-
-  transform(html: any): string {
-    return this.sanitizer.bypassSecurityTrustHtml(html) as string;
   }
 
   // Hide the loader if already created otherwise return error
